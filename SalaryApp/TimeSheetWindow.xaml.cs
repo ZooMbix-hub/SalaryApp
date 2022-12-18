@@ -18,16 +18,15 @@ namespace SalaryApp
 {
     public partial class Window1 : Window
     {
-        public DataTable Select(string selectSQL) // функция подключения к базе данных и обработка запросов
+        public DataTable Select(string selectSQL) 
         {
-            DataTable dataTable = new DataTable("dataBase");                // создаём таблицу в приложении
-                                                                            // подключаемся к базе данных
+            DataTable dataTable = new DataTable("dataBase");                                                                          
             SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-08SA6AES\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=salary_db;");
-            sqlConnection.Open();                                           // открываем базу данных
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = selectSQL;                             // присваиваем команде текст
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); // создаём обработчик
-            sqlDataAdapter.Fill(dataTable);                                 // возращаем таблицу с результатом
+            sqlConnection.Open();                                           
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();         
+            sqlCommand.CommandText = selectSQL;                             
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); 
+            sqlDataAdapter.Fill(dataTable);                                 
             return dataTable;
         }
 
@@ -35,18 +34,16 @@ namespace SalaryApp
         {
             InitializeComponent();
             DataTable dt_tableNumber = Select($"SELECT * FROM Employee");
-
             for (int i = 0; i < dt_tableNumber.Rows.Count; i++)
             {
                 comboBoxTabel.Items.Add(dt_tableNumber.Rows[i][0]);
             }
         }
 
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+            Select($"EXEC timesheet_entry '{Convert.ToInt32(comboBoxTabel.Text)}', '{Date.Text}', '{Convert.ToInt32(numberDays.Text)}', '{Convert.ToInt32(numberNight.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
+            MessageBox.Show("Данные успешно добавлены");
         }
 
         private void comboBoxTabel_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -20,16 +20,16 @@ namespace SalaryApp
     
     public partial class MainWindow : Window
     {
-        public DataTable Select(string selectSQL) // функция подключения к базе данных и обработка запросов
+        public DataTable Select(string selectSQL) 
         {
-            DataTable dataTable = new DataTable("dataBase");                // создаём таблицу в приложении
-                                                                            // подключаемся к базе данных
+            DataTable dataTable = new DataTable("dataBase");                
+                                                                           
             SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-08SA6AES\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=salary_db;");
-            sqlConnection.Open();                                           // открываем базу данных
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
-            sqlCommand.CommandText = selectSQL;                             // присваиваем команде текст
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); // создаём обработчик
-            sqlDataAdapter.Fill(dataTable);                                 // возращаем таблицу с результатом
+            sqlConnection.Open();                                           
+            SqlCommand sqlCommand = sqlConnection.CreateCommand();          
+            sqlCommand.CommandText = selectSQL;                             
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand); 
+            sqlDataAdapter.Fill(dataTable);                                 
             return dataTable;
         }
 
@@ -72,7 +72,8 @@ namespace SalaryApp
 
             if (role == "Бухгалер")
             {
-                
+                Аccountant Аccount = new Аccountant(); 
+                Аccount.Show();
             }
 
             if (role == "Администратор")
