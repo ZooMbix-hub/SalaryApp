@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,15 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для EmployeeWindow.xaml
+    /// </summary>
+    public partial class EmployeeWindow : Window
     {
-        public MainWindow()
+        public EmployeeWindow()
         {
             InitializeComponent();
         }
