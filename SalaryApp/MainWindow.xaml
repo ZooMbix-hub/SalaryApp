@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="Авторизация" Height="450" Width="800">
     <Grid >
-        <TextBox TextWrapping="Wrap" Text="Логин" Margin="319,85,282,307"/>
-        <TextBox TextWrapping="Wrap" Text="Пароль" Margin="319,175,282,217"/>
-
-
+        <TextBox TextWrapping="Wrap" Text=" " Margin="319,85,282,307"/>
+        <TextBox TextWrapping="Wrap" Text=" " Margin="319,175,282,217"/>
+        <Label Content="Label" Margin="81,89,506,311"/>
     </Grid>
 </Window>
