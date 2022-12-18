@@ -55,12 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EmployeeWindow.xaml.cs">
-      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    <Compile Include="TimeSheetWindow.xaml.cs">
+      <DependentUpon>TimeSheetWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="Аccountant.xaml.cs">
+      <DependentUpon>Аccountant.xaml</DependentUpon>
     </Compile>
     <Page Include="EmployeeWindow.xaml">
       <SubType>Designer</SubType>
@@ -78,7 +77,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
+    <Page Include="TimeSheetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Аccountant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

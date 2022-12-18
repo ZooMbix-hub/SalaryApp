@@ -1,0 +1,34 @@
+﻿<Window x:Class="SalaryApp.Аccountant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        mc:Ignorable="d"
+        Title="Бухгалтер" Height="450" Width="800">
+    <Grid>
+        <ComboBox Name="TableNumber" Margin="31,36,424,359" Grid.Column="1"/>
+        <DatePicker Name="Date" Margin="31,114,624,286" Grid.Column="1"/>
+        <Label Content="Период" HorizontalAlignment="Left" Margin="31,83,0,0" VerticalAlignment="Top"/>
+        <Label Content="Отпуск" HorizontalAlignment="Left" Margin="29,287,0,0" VerticalAlignment="Top"/>
+        <Label Content="Больничный" HorizontalAlignment="Left" Margin="400,287,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="StartDateM" Margin="400,339,259,61"/>
+        <DatePicker Name="EndDateM" Margin="589,339,66,61"/>
+        <Label Content="Начало" HorizontalAlignment="Left" Margin="400,313,0,0" VerticalAlignment="Top"/>
+        <Label Content="Окончание" HorizontalAlignment="Left" Margin="589,313,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="StartDateV" Margin="29,339,624,61"/>
+        <DatePicker Name="EndDateV" Margin="218,339,438,61"/>
+        <Label Content="Начало" HorizontalAlignment="Left" Margin="29,313,0,0" VerticalAlignment="Top"/>
+        <Label Content="Окончание" HorizontalAlignment="Left" Margin="218,313,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="Vacation" Content="Отпуска не было" HorizontalAlignment="Left" Margin="29,386,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="Medical" Content="Больничного не было" HorizontalAlignment="Left" Margin="400,386,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name ="Award" Margin="31,198,546,197" SelectionChanged="Award_SelectionChanged"/>
+        <ComboBox Name="Allowance" Margin="400,198,138,197"/>
+        <Label Content="Премия" HorizontalAlignment="Left" Margin="31,167,0,0" VerticalAlignment="Top"/>
+        <Label Content="Надбавка" HorizontalAlignment="Left" Margin="400,167,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" Margin="625,394,0,0" Click="Button_Click"/>
+
+
+
+    </Grid>
+</Window>
