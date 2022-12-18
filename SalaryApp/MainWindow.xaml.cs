@@ -24,7 +24,7 @@ namespace SalaryApp
         {
             DataTable dataTable = new DataTable("dataBase");                // создаём таблицу в приложении
                                                                             // подключаемся к базе данных
-            SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-C74609KA;Trusted_Connection=Yes;DataBase=salary_db;");
+            SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-08SA6AES\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=salary_db;");
             sqlConnection.Open();                                           // открываем базу данных
             SqlCommand sqlCommand = sqlConnection.CreateCommand();          // создаём команду
             sqlCommand.CommandText = selectSQL;                             // присваиваем команде текст
@@ -37,14 +37,24 @@ namespace SalaryApp
         {
             InitializeComponent();
 
-            DataTable dt_user = Select("SELECT * FROM Payment"); // получаем данные из таблицы
+        
+        }
 
-            MessageBox.Show(dt_user.Rows[0][7].ToString());  /* [0] - строка, [7] - столбец */
+        public string role, tableNumber;
 
-            /*for (int i = 0; i < dt_user.Rows.Count; i++)
-            { // перебираем данные
-                MessageBox.Show(dt_user.Rows[i][0] + "|" + dt_user.Rows[i][1]); // выводим данные
-            }*/
+        private void login_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataTable dt_user = Select($"EXEC autorization '{login.Text}', '{password.Text}'");
+            role = dt_user.Rows[0][0].ToString();
+            tableNumber = dt_user.Rows[0][1].ToString();
+
+            
+
         }
     }
 }
