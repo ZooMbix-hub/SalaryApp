@@ -20,7 +20,8 @@ namespace SalaryApp
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
         }
     }
 }
