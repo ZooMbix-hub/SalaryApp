@@ -12,13 +12,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    
-    public partial class MainWindow : Window
+    public partial class Window1 : Window
     {
         public DataTable Select(string selectSQL) // функция подключения к базе данных и обработка запросов
         {
@@ -33,54 +31,27 @@ namespace SalaryApp
             return dataTable;
         }
 
-        public MainWindow()
+        public Window1()
         {
             InitializeComponent();
+            DataTable dt_tableNumber = Select($"SELECT * FROM Employee");
+
+            for (int i = 0; i < dt_tableNumber.Rows.Count; i++)
+            {
+                comboBoxTabel.Items.Add(dt_tableNumber.Rows[i][0]);
+            }
         }
 
-        public string role, tableNumber;
-
-        private void login_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                DataTable dt_user = Select($"EXEC autorization '{login.Text}', '{password.Text}'");
-                role = dt_user.Rows[0][0].ToString();
-                tableNumber = dt_user.Rows[0][1].ToString();
-            }
-            catch 
-            {
-                MessageBox.Show("Неверный логин или пароль");
-            }
-           
+            
+            
+        }
 
-            if (role == "Ответственный за табель")
-            {
-                Window1 TimeSheetWindow = new Window1(); //поменять название
-                TimeSheetWindow.Show();
-            }
-
-            if (role == "Сотрудник")
-            {
-                
-            }
-
-            if (role == "Бухгалер")
-            {
-                
-            }
-
-            if (role == "Администратор")
-            {
-               
-            }
-
-
+        private void comboBoxTabel_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }
