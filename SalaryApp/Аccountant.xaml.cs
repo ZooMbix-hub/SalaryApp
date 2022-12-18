@@ -74,10 +74,6 @@ namespace SalaryApp
             
         }
 
-        private void Award_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-            Award.Items.Add("sdsd");
-        }
+       
     }
 }
