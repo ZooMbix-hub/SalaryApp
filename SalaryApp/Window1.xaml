@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Табельщик" Height="450" Width="800">
     <Grid>
-        
+        <ComboBox HorizontalAlignment="Left" Margin="89,79,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="87,340,0,0" TextWrapping="Wrap" Text="Количество РВД" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="87,257,0,0" TextWrapping="Wrap" Text="Количество дней" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="87,298,0,0" TextWrapping="Wrap" Text="Количество ночей" VerticalAlignment="Top" Width="120"/>
+        <DatePicker HorizontalAlignment="Left" Margin="87,159,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
