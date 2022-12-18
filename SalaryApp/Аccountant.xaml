@@ -22,7 +22,7 @@
         <Label Content="Окончание" HorizontalAlignment="Left" Margin="218,313,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="Vacation" Content="Отпуска не было" HorizontalAlignment="Left" Margin="29,386,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="Medical" Content="Больничного не было" HorizontalAlignment="Left" Margin="400,386,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name ="Award" Margin="31,198,546,197"/>
+        <ComboBox Name ="Award" Margin="31,198,546,197" SelectionChanged="Award_SelectionChanged"/>
         <ComboBox Name="Allowance" Margin="400,198,138,197"/>
         <Label Content="Премия" HorizontalAlignment="Left" Margin="31,167,0,0" VerticalAlignment="Top"/>
         <Label Content="Надбавка" HorizontalAlignment="Left" Margin="400,167,0,0" VerticalAlignment="Top"/>
