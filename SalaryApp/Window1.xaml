@@ -1,0 +1,17 @@
+﻿<Window x:Class="SalaryApp.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        mc:Ignorable="d"
+        Title="Табельщик" Height="450" Width="800">
+    <Grid>
+        <ComboBox HorizontalAlignment="Left" Margin="89,79,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="87,340,0,0" TextWrapping="Wrap" Text="Количество РВД" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="87,257,0,0" TextWrapping="Wrap" Text="Количество дней" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="87,298,0,0" TextWrapping="Wrap" Text="Количество ночей" VerticalAlignment="Top" Width="120"/>
+        <DatePicker HorizontalAlignment="Left" Margin="87,159,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

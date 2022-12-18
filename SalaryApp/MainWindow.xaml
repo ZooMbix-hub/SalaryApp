@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Авторизация" Height="450" Width="800">
+    <Grid >
+        <TextBox TextWrapping="Wrap" Text="Логин" Margin="319,85,282,307"/>
+        <TextBox TextWrapping="Wrap" Text="Пароль" Margin="319,175,282,217"/>
+
+
     </Grid>
 </Window>

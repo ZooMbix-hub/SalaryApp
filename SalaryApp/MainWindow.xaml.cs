@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
         public DataTable Select(string selectSQL) // функция подключения к базе данных и обработка запросов
