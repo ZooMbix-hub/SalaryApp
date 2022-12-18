@@ -58,6 +58,9 @@
     <Compile Include="TimeSheetWindow.xaml.cs">
       <DependentUpon>TimeSheetWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Аccountant.xaml.cs">
+      <DependentUpon>Аccountant.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +74,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="TimeSheetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Аccountant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
