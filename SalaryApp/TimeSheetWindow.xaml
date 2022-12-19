@@ -7,19 +7,41 @@
         mc:Ignorable="d"
         Title="Табель учета рабочего времени" Height="600" Width="700" WindowStartupLocation="CenterScreen">
     <Grid Background="#CDC5C2" >
-        <Border MinWidth="400" MaxHeight="650" Margin="50" Background="White" VerticalAlignment="Center" Padding="45,20,45,20" CornerRadius="20">
+        <Border 
+            MinWidth="400" 
+            MaxHeight="650" 
+            Margin="50" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="45,20,45,20" 
+            CornerRadius="20"
+        >
             <StackPanel>
                 <Grid>
-                    <Label FontSize="18" FontWeight="Bold" Content="Табель учета рабочего времени" Padding="0" Margin="0,0,0,30"></Label>
+                    <Label 
+                        FontSize="18" 
+                        FontWeight="Bold" 
+                        Content="Табель учета рабочего времени" 
+                        Padding="0" 
+                        Margin="0,0,0,30" 
+                    />
                 </Grid>
                 <Grid>
-                    <Label Content="Табельный номер сотрудника" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                    <Label 
+                        Content="Табельный номер сотрудника" 
+                        Margin="0,5,5,5" 
+                        Padding="0,5,0,0" 
+                    />
                 </Grid>
                 <Grid>
-                    <ComboBox Name="comboBoxTabel" Padding="5"/>
+                    <ComboBox Name="tableNumberCmbBox" Padding="5"/>
                 </Grid>
                 <Grid>
-                    <Label Content="Дата составления табельного листа" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                    <Label 
+                        Content="Дата составления табельного листа" 
+                        Margin="0,5,5,5" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
                     <DatePicker Name="Date" Padding="5" SelectedDateFormat="Short">
@@ -28,36 +50,63 @@
                                 <Setter Property="Control.Template">
                                     <Setter.Value>
                                         <ControlTemplate>
-                                            <TextBox x:Name="PART_TextBox"
-                                     Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
-                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                            <TextBox 
+                                                x:Name="PART_TextBox"
+                                                Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
+                                                RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}"
+                                            />
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
+                                <Setter Property="IsReadOnly" Value="True" />
                             </Style>
                         </DatePicker.Resources>
                     </DatePicker>
                 </Grid>
                 <Grid>
-                    <Label Content="Количество отработанных дней" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                    <Label 
+                        Content="Количество отработанных дней" 
+                        Margin="0,5,5,5" 
+                        Padding="0,5,0,0" 
+                    />
                 </Grid>
                 <Grid>
-                    <TextBox Name="numberDays" TextWrapping="Wrap" Padding="5"/>
+                    <TextBox 
+                        Name="numberDaysTextBox" 
+                        TextWrapping="Wrap" 
+                        Padding="5"
+                    />
                 </Grid>
                 <Grid>
-                    <Label Content="Количество отработанных ночей" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                    <Label 
+                        Content="Количество отработанных ночей" 
+                        Margin="0,5,5,5" 
+                        Padding="0,5,0,0" 
+                    />
                 </Grid>
                 <Grid>
-                    <TextBox Name="numberNight" TextWrapping="Wrap" Padding="5"/>
+                    <TextBox Name="numberNightTextBox" TextWrapping="Wrap" Padding="5"/>
                 </Grid>
                 <Grid>
-                    <Label Content="Количество отработанных выходных и праздничных дней" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                    <Label 
+                        Content="Количество отработанных выходных и праздничных дней" 
+                        Margin="0,5,5,5" 
+                        Padding="0,5,0,0" 
+                    />
                 </Grid>
                 <Grid>
                     <TextBox Name="numberRVD" TextWrapping="Wrap" Padding="5"/>
                 </Grid>
                 <Grid>
-                    <Button Background="#CDC5C2" Margin="0,10,0,0"  Width="150" Padding="5" Content="Добавить" Click="Button_Click" HorizontalAlignment="Right"/>
+                    <Button 
+                        Background="#CDC5C2" 
+                        Margin="0,10,0,0" 
+                        Width="150" 
+                        Padding="5" 
+                        Content="Добавить" 
+                        Click="Button_Click" 
+                        HorizontalAlignment="Right"
+                    />
                 </Grid>
             </StackPanel>
         </Border>

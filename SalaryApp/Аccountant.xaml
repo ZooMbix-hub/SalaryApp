@@ -27,8 +27,5 @@
         <Label Content="Премия" HorizontalAlignment="Left" Margin="31,167,0,0" VerticalAlignment="Top"/>
         <Label Content="Надбавка" HorizontalAlignment="Left" Margin="400,167,0,0" VerticalAlignment="Top"/>
         <Button Content="Button" Margin="625,394,0,0" Click="Button_Click"/>
-
-
-
     </Grid>
 </Window>

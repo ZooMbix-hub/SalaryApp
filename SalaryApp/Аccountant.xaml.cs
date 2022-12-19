@@ -18,77 +18,63 @@ namespace SalaryApp
 {
     public partial class Аccountant : Window
     {
-        public DataTable Select(string selectSQL)
-        {
-            //подключение к БД
+        DataTable dataTable;
 
-            DataTable dataTable = new DataTable("dataBase");
-            SqlConnection sqlConnection = new SqlConnection("server=DESKTOP-QCVCABK;Trusted_Connection=Yes;DataBase=salary_db;");
-            sqlConnection.Open();
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = selectSQL;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            sqlDataAdapter.Fill(dataTable);
-            return dataTable;
-        }
         public Аccountant()
         {
             InitializeComponent();
 
             // вывод данных в comboBox
-
-            DataTable dt_tableNumber = Select($"SELECT * FROM Employee");
-            for (int i = 0; i < dt_tableNumber.Rows.Count; i++)
+            dataTable = Model.Select($"SELECT * FROM Employee");
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-
-                TableNumber.Items.Add(dt_tableNumber.Rows[i][0]);
+                TableNumber.Items.Add(dataTable.Rows[i][0]);
             }
 
-            DataTable dt_Award = Select($"SELECT * FROM TypeОfAward");
-            for (int i = 0; i < dt_Award.Rows.Count; i++)
+            dataTable = Model.Select($"SELECT * FROM TypeОfAward");
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                Award.Items.Add(dt_Award.Rows[i][1]);
+                Award.Items.Add(dataTable.Rows[i][1]);
             }
 
-            DataTable dt_Allowance = Select($"SELECT * FROM TypeОfAllowances");
-            for (int i = 0; i < dt_Allowance.Rows.Count; i++)
+            dataTable = Model.Select($"SELECT * FROM TypeОfAllowances");
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                Allowance.Items.Add(dt_Allowance.Rows[i][1]);
+                Allowance.Items.Add(dataTable.Rows[i][1]);
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string start_dateVacation;
-            string end_dateVacation;
+            string startDateVacation;
+            string endDateVacation;
             
             if (Vacation.IsChecked == false)
             {
-                start_dateVacation = StartDateV.Text;
-                end_dateVacation = StartDateV.Text;
+                startDateVacation = StartDateV.Text;
+                endDateVacation = StartDateV.Text;
             }
             else
             {
-                start_dateVacation = null;
-                end_dateVacation = null;
+                startDateVacation = null;
+                endDateVacation = null;
             }
 
-            string start_dateMedical;
-            string end_dateMedical;
+            string startDateMedical;
+            string endDateMedical;
 
             if (Medical.IsChecked == false)
             {
-                start_dateMedical = StartDateV.Text;
-                end_dateMedical = StartDateV.Text;
+                startDateMedical = StartDateV.Text;
+                endDateMedical = StartDateV.Text;
             }
             else
             {
-                start_dateMedical = null;
-                end_dateMedical = null;
+                startDateMedical = null;
+                endDateMedical = null;
             }
 
-            Select($"EXEC payment_entry '{Convert.ToInt32(TableNumber.Text)}', '{Date.Text}', '{start_dateMedical}', '{end_dateMedical}', '{start_dateVacation}', '{end_dateVacation}', '{Award.Text}', '{Allowance.Text}'");
+            Model.Select($"EXEC payment_entry '{Convert.ToInt32(TableNumber.Text)}', '{Date.Text}', '{startDateMedical}', '{endDateMedical}', '{startDateVacation}', '{endDateVacation}', '{Award.Text}', '{Allowance.Text}'");
             MessageBox.Show("Данные успешно добавлены");
-
         }
     }
 }
