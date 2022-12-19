@@ -36,7 +36,10 @@ namespace SalaryApp
             DataTable dt_tableNumber = Select($"SELECT * FROM Employee");
             for (int i = 0; i < dt_tableNumber.Rows.Count; i++)
             {
-                comboBoxTabel.Items.Add(dt_tableNumber.Rows[i][0]);
+                string tab = Convert.ToString(dt_tableNumber.Rows[i][0]);
+                string fio = Convert.ToString(dt_tableNumber.Rows[i][1]);
+                string result = tab + " " + fio;
+                comboBoxTabel.Items.Add(result);
             }
         }
 

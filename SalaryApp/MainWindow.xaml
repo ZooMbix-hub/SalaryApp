@@ -5,12 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
-        Title="Авторизация" Height="450" Width="800">
-    <Grid >
-        <TextBox Name="login" TextWrapping="Wrap" Margin="319,85,282,307" TextChanged="login_TextChanged"/>
-        <TextBox Name="password" TextWrapping="Wrap" Margin="319,175,282,217"/>
-        <Label Content="Логин" Margin="81,89,506,311"/>
-        <Label Content="Пароль" Margin="81,175,506,225"/>
-        <Button Content="Button" Margin="377,246,282,152" Click="Button_Click"/>
+        Title="Авторизация" Height="400" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid Background="#CDC5C2" >
+        <Border MinWidth="300" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="350" CornerRadius="20">
+            <StackPanel >
+                <Grid>
+                    <Label Content="LOGIN" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                </Grid>
+                <Grid>
+                    <TextBox Name="login" TextWrapping="Wrap" Padding="3"/>
+                </Grid>
+                <Grid>
+                    <Label Content="PASSWORD" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
+                </Grid>
+                <Grid>
+                    <PasswordBox Name="password" Padding="3"/>
+                </Grid>
+                
+                <Grid>
+                    <Button Background="#CDC5C2" Width="80" HorizontalAlignment="Right"  Content="SIGN UP"  Click="Button_Click" Margin="0,20,0,0" Padding="5"/>
+                </Grid>
+               
+                
+                
+            </StackPanel>
+        </Border>
+        
     </Grid>
 </Window>

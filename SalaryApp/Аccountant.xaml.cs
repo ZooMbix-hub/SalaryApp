@@ -20,6 +20,8 @@ namespace SalaryApp
     {
         public DataTable Select(string selectSQL)
         {
+            //подключение к БД
+
             DataTable dataTable = new DataTable("dataBase");
             SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-08SA6AES\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=salary_db;");
             sqlConnection.Open();
@@ -32,9 +34,13 @@ namespace SalaryApp
         public Аccountant()
         {
             InitializeComponent();
+
+            // вывод данных в comboBox
+
             DataTable dt_tableNumber = Select($"SELECT * FROM Employee");
             for (int i = 0; i < dt_tableNumber.Rows.Count; i++)
             {
+
                 TableNumber.Items.Add(dt_tableNumber.Rows[i][0]);
             }
 
@@ -50,18 +56,12 @@ namespace SalaryApp
                 Allowance.Items.Add(dt_Allowance.Rows[i][1]);
             }
         }
-
-        private void Award_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string start_dateVacation;
             string end_dateVacation;
-            MessageBox.Show("Данные успешно добавлены");
-            if (Vacation.IsChecked == true)
+            
+            if (Vacation.IsChecked == false)
             {
                 start_dateVacation = StartDateV.Text;
                 end_dateVacation = StartDateV.Text;
@@ -71,7 +71,24 @@ namespace SalaryApp
                 start_dateVacation = null;
                 end_dateVacation = null;
             }
-            
+
+            string start_dateMedical;
+            string end_dateMedical;
+
+            if (Medical.IsChecked == false)
+            {
+                start_dateMedical = StartDateV.Text;
+                end_dateMedical = StartDateV.Text;
+            }
+            else
+            {
+                start_dateMedical = null;
+                end_dateMedical = null;
+            }
+
+            Select($"EXEC payment_entry '{Convert.ToInt32(TableNumber.Text)}', '{Date.Text}', '{start_dateMedical}', '{end_dateMedical}', '{start_dateVacation}', '{end_dateVacation}', '{Award.Text}', '{Allowance.Text}'");
+            MessageBox.Show("Данные успешно добавлены");
+
         }
 
        

@@ -40,16 +40,13 @@ namespace SalaryApp
 
         public string role, tableNumber;
 
-        private void login_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //проверка логина и пароля
+
             try
             {
-                DataTable dt_user = Select($"EXEC autorization '{login.Text}', '{password.Text}'");
+                DataTable dt_user = Select($"EXEC autorization '{login.Text}', '{password.Password.ToString()}'");
                 role = dt_user.Rows[0][0].ToString();
                 tableNumber = dt_user.Rows[0][1].ToString();
             }
@@ -58,6 +55,7 @@ namespace SalaryApp
                 MessageBox.Show("Неверный логин или пароль");
             }
            
+            // разграничение доступа
 
             if (role == "Ответственный за табель")
             {
@@ -80,7 +78,6 @@ namespace SalaryApp
             {
                
             }
-
 
         }
     }
