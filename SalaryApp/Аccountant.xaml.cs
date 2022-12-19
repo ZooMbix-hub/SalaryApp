@@ -90,7 +90,5 @@ namespace SalaryApp
             MessageBox.Show("Данные успешно добавлены");
 
         }
-
-       
     }
 }
