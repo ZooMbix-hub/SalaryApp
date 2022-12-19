@@ -24,7 +24,7 @@ namespace SalaryApp
         {
             DataTable dataTable = new DataTable("dataBase");                
                                                                            
-            SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-08SA6AES\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=salary_db;");
+            SqlConnection sqlConnection = new SqlConnection("server=DESKTOP-QCVCABK;Trusted_Connection=Yes;DataBase=salary_db;");
             sqlConnection.Open();                                           
             SqlCommand sqlCommand = sqlConnection.CreateCommand();          
             sqlCommand.CommandText = selectSQL;                             
@@ -40,16 +40,13 @@ namespace SalaryApp
 
         public string role, tableNumber;
 
-        private void login_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //проверка логина и пароля
+
             try
             {
-                DataTable dt_user = Select($"EXEC autorization '{login.Text}', '{password.Text}'");
+                DataTable dt_user = Select($"EXEC autorization '{login.Text}', '{password.Password.ToString()}'");
                 role = dt_user.Rows[0][0].ToString();
                 tableNumber = dt_user.Rows[0][1].ToString();
             }
@@ -58,6 +55,7 @@ namespace SalaryApp
                 MessageBox.Show("Неверный логин или пароль");
             }
            
+            // разграничение доступа
 
             if (role == "Ответственный за табель")
             {
@@ -80,7 +78,6 @@ namespace SalaryApp
             {
                
             }
-
 
         }
     }

@@ -50,15 +50,15 @@
                 <DatePicker Width="100" Name="startDate"  BorderThickness="0">
                     <DatePicker.Resources>
                         <Style TargetType="DatePickerTextBox">
-                            <Setter Property="IsReadOnly" Value="True"/>
-                        </Style>
-                    </DatePicker.Resources>
-                </DatePicker>
-                <Label Content="до" />
-                <DatePicker Width="100" Name="endDate" BorderThickness="0">
-                    <DatePicker.Resources>
-                        <Style TargetType="DatePickerTextBox">
-                            <Setter Property="IsReadOnly" Value="True" />
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox"
+                                     Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
+                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </DatePicker.Resources>
                 </DatePicker>
