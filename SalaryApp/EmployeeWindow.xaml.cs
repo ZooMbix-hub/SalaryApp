@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    /// <summary>
-    /// Логика взаимодействия для EmployeeWindow.xaml
-    /// </summary>
     public partial class EmployeeWindow : Window
     {
+        DataTable dataTable;
+
         public EmployeeWindow()
         {
             InitializeComponent();
+            dataTable = Model.Select("Select * FROM Employee");
         }
     }
 }

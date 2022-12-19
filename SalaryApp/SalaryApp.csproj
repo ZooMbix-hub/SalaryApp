@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs" />
     <Compile Include="TimeSheetWindow.xaml.cs">
       <DependentUpon>TimeSheetWindow.xaml</DependentUpon>
     </Compile>

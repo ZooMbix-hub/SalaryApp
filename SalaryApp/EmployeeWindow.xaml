@@ -14,7 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        
+
         <Grid Margin="0 0 0 50">
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -64,9 +64,10 @@
                 </DatePicker>
             </StackPanel>
         </Grid>
-        
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -95,16 +96,18 @@
             <Label Grid.Column="1" Grid.Row="4" Name="medicalLbl" />
             <Label Grid.Column="0" Grid.Row="5" Content="Доплата" />
             <Label Grid.Column="1" Grid.Row="5" Name="addPaymentLbl" />
-            <Label Grid.Column="0" Grid.Row="6" Content="Надбавка" />
-            <Label Grid.Column="1" Grid.Row="6" Name="allowanceLbl" />
-            <Label Grid.Column="0" Grid.Row="7" Content="Премия" />
-            <Label Grid.Column="1" Grid.Row="7" Name="prizeLbl" />
-            <Label Grid.Column="0" Grid.Row="8" Content="Начислено" />
-            <Label Grid.Column="1" Grid.Row="8" Name="accruedLbl" />
-            <Label Grid.Column="0" Grid.Row="9" Content="Удержано" />
-            <Label Grid.Column="1" Grid.Row="9" Name="withheldLbl" />
-            <Label Grid.Column="0" Grid.Row="10" Content="Выплачено" />
-            <Label Grid.Column="1" Grid.Row="10" Name="paidLbl" />
+            <Label Grid.Column="0" Grid.Row="6" Content="Название надбавки" />
+            <Label Grid.Column="1" Grid.Row="6" Name="nameAllowanceLbl" />
+            <Label Grid.Column="0" Grid.Row="7" Content="Надбавка" />
+            <Label Grid.Column="1" Grid.Row="7" Name="allowanceLbl" />
+            <Label Grid.Column="0" Grid.Row="8" Content="Премия" />
+            <Label Grid.Column="1" Grid.Row="8" Name="prizeLbl" />
+            <Label Grid.Column="0" Grid.Row="9" Content="Начислено" />
+            <Label Grid.Column="1" Grid.Row="9" Name="accruedLbl" />
+            <Label Grid.Column="0" Grid.Row="10" Content="Удержано" />
+            <Label Grid.Column="1" Grid.Row="10" Name="withheldLbl" />
+            <Label Grid.Column="0" Grid.Row="11" Content="Выплачено" />
+            <Label Grid.Column="1" Grid.Row="11" Name="paidLbl" />
         </Grid>
     </Grid>
 </Window>
