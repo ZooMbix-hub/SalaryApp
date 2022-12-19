@@ -22,7 +22,21 @@
                     <Label Content="Дата составления табельного листа" Margin="0,5,5,5" Padding="0,5,0,0"></Label>
                 </Grid>
                 <Grid>
-                    <DatePicker Name="Date" Padding="5"/>
+                    <DatePicker Name="Date" Padding="5" SelectedDateFormat="Short">
+                        <DatePicker.Resources>
+                            <Style TargetType="DatePickerTextBox">
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <TextBox x:Name="PART_TextBox"
+                                     Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
+                                     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
                 </Grid>
                 <Grid>
                     <Label Content="Количество отработанных дней" Margin="0,5,5,5" Padding="0,5,0,0"></Label>

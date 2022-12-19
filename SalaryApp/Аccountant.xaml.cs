@@ -23,7 +23,7 @@ namespace SalaryApp
             //подключение к БД
 
             DataTable dataTable = new DataTable("dataBase");
-            SqlConnection sqlConnection = new SqlConnection("server=LAPTOP-08SA6AES\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=salary_db;");
+            SqlConnection sqlConnection = new SqlConnection("server=DESKTOP-QCVCABK;Trusted_Connection=Yes;DataBase=salary_db;");
             sqlConnection.Open();
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = selectSQL;
