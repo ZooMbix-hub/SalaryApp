@@ -45,7 +45,8 @@ namespace SalaryApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Select($"EXEC timesheet_entry '{Convert.ToInt32(comboBoxTabel.Text)}', '{Date.Text}', '{Convert.ToInt32(numberDays.Text)}', '{Convert.ToInt32(numberNight.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
+            string tabelNumber = comboBoxTabel.Text.Split(' ')[0];
+            Select($"EXEC timesheet_entry '{Convert.ToInt32(tabelNumber)}', '{Date.Text}', '{Convert.ToInt32(numberDays.Text)}', '{Convert.ToInt32(numberNight.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
             MessageBox.Show("Данные успешно добавлены");
         }
 
