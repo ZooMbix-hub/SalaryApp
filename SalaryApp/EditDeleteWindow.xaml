@@ -1,0 +1,51 @@
+﻿<Window x:Class="SalaryApp.EditDeleteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        mc:Ignorable="d"
+        Title="Изменение\Удаление работника" Height="450" Width="800">
+    <Grid>
+
+        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Width="120" Margin="466,164,214,248"/>
+        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Width="120" Margin="466,219,214,193"/>
+        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Width="120" Margin="466,269,214,143"/>
+        <TextBox Name="Education" TextWrapping="Wrap" Text="" Width="120" Margin="466,321,214,91"/>
+        <TextBox Name="INN" TextWrapping="Wrap" Text="" Width="120" Margin="466,373,214,39"/>
+        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Width="120" Margin="630,164,50,248"/>
+        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Width="120" Margin="630,219,50,193"/>
+        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Width="120" Margin="630,269,50,143"/>
+        <TextBox Name="TableNumberT" TextWrapping="Wrap" Width="120" Margin="72,162,608,250"/>
+        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Width="120" Margin="72,214,608,198"/>
+        <Label Content="Дата рождения" Margin="466,140,228,270"/>
+        <Label Content="Адрес" Margin="466,195,228,215"/>
+        <Label Content="Телефон" Margin="466,245,228,165"/>
+        <Label Content="Образование" Margin="466,297,228,113"/>
+        <Label Content="ИНН" Margin="466,349,228,61"/>
+        <Label Content="Паспортные данные" Margin="630,140,64,270"/>
+        <Label Content="Реквизиты" Margin="630,195,64,215"/>
+        <Label Content="Снилс" Margin="630,246,64,164"/>
+        <Label Content="Табельный номер" Margin="72,138,622,272"/>
+        <Label Content="ФИО" Margin="72,190,622,220"/>
+        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Width="120" Margin="72,265,608,147"/>
+        <Label Content="Стаж работы" Margin="72,241,622,169"/>
+        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Width="120" Margin="72,316,608,96"/>
+        <Label Content="Проф уровень" Margin="72,292,622,118"/>
+        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Width="120" Margin="72,367,608,45"/>
+        <Label Content="Членство в профсоюзе" Margin="72,343,622,67"/>
+        <Label Content="Предприятие" Margin="262,137,432,273"/>
+        <ComboBox Name="Company" Margin="262,161,392,251"/>
+        <Label Content="Должность" Margin="262,189,432,221"/>
+        <ComboBox Name="Post" Margin="262,213,392,199"/>
+        <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Width="120" Margin="630,320,50,92"/>
+        <Label Content="Логин" Margin="630,297,64,113"/>
+        <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Width="120" Margin="630,372,50,40"/>
+        <Label Content="Пароль" Margin="630,349,64,61"/>
+        <ComboBox Name="TableNumber" Margin="72,23,503,379" SelectionChanged="TableNumber_SelectionChanged"/>
+        <Button Content="Внести изменения" Margin="443,23,212,379"/>
+        <Button Content="Удалить работника" Margin="611,23,44,379"/>
+
+
+    </Grid>
+</Window>

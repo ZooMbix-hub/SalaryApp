@@ -52,7 +52,9 @@ namespace SalaryApp
                     /*Hide();*/
                     break;
                 case "Сотрудник":
-                    Console.WriteLine("Ваше имя - Сотрудник");
+                    EmployeeWindow EmployeeWindow = new EmployeeWindow();
+                    EmployeeWindow.Show();
+                    /*Hide();*/
                     break;
                 case "Бухгалер":
                     Аccountant Аccount = new Аccountant();
@@ -60,7 +62,8 @@ namespace SalaryApp
                     /*Hide();*/
                     break;
                 case "Администратор":
-                    Console.WriteLine("Ваше имя - Администратор");
+                    AdministratorWindow Administrator = new AdministratorWindow();
+                    Administrator.Show();
                     break;
             }
         }

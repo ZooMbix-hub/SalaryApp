@@ -1,0 +1,50 @@
+﻿<Window x:Class="SalaryApp.AdministratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        mc:Ignorable="d"
+        Title="Администратор" Height="450" Width="800">
+    <Grid>
+        <Button Content="Добавить сотрудника" Margin="50,29,613,370"/>
+        <Button Content="Изменить\Удалить сотрудника" Margin="252,29,362,370" Click="Button_Click"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,126,250,286"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,181,250,231"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,231,250,181"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,283,250,129"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,335,250,77"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,126,86,286"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,181,86,231"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,231,86,181"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,123,630,289"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,175,630,237"/>
+        <Label Content="Дата рождения" Margin="430,102,264,308"/>
+        <Label Content="Адрес" Margin="430,157,264,253"/>
+        <Label Content="Телефон" Margin="430,207,264,203"/>
+        <Label Content="Образование" Margin="430,259,264,151"/>
+        <Label Content="ИНН" Margin="430,311,264,99"/>
+        <Label Content="Паспортные данные" Margin="594,102,100,308"/>
+        <Label Content="Реквизиты" Margin="594,157,100,253"/>
+        <Label Content="Снилс" Margin="594,208,100,202"/>
+        <Label Content="Табельный номер" Margin="50,99,644,311"/>
+        <Label Content="ФИО" Margin="50,151,644,259"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,226,630,186"/>
+        <Label Content="Стаж работы" Margin="50,202,644,208"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,277,630,135"/>
+        <Label Content="Проф уровень" Margin="50,253,644,157"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,328,630,84"/>
+        <Label Content="Членство в профсоюзе" Margin="50,304,644,106"/>
+        <Label Content="Предприятие" Margin="225,99,469,311"/>
+        <ComboBox Margin="225,123,429,289"/>
+        <Label Content="Должность" Margin="225,151,469,259"/>
+        <ComboBox Margin="225,175,429,237"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,282,86,130"/>
+        <Label Content="Логин" Margin="594,259,100,151"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,334,86,78"/>
+        <Label Content="Пароль" Margin="594,311,100,99"/>
+
+
+
+    </Grid>
+</Window>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +14,21 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    public partial class EmployeeWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для AdministratorWindow.xaml
+    /// </summary>
+    public partial class AdministratorWindow : Window
     {
-        DataTable dataTable;
-
-        public EmployeeWindow()
+        public AdministratorWindow()
         {
             InitializeComponent();
-            dataTable = Model.Select("EXEC salaryView '01-06-2020', 1009");
-            MessageBox.Show(dataTable.Rows[0][7].ToString());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EditDeleteWindow EditDelete = new EditDeleteWindow();
+            EditDelete.Show();
+
         }
     }
 }
