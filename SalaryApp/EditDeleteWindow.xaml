@@ -7,44 +7,50 @@
         mc:Ignorable="d"
         Title="Изменение\Удаление работника" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="366*"/>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="369*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Width="120" Margin="466,164,214,248"/>
-        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Width="120" Margin="466,219,214,193"/>
-        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Width="120" Margin="466,269,214,143"/>
-        <TextBox Name="Education" TextWrapping="Wrap" Text="" Width="120" Margin="466,321,214,91"/>
-        <TextBox Name="INN" TextWrapping="Wrap" Text="" Width="120" Margin="466,373,214,39"/>
-        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Width="120" Margin="630,164,50,248"/>
-        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Width="120" Margin="630,219,50,193"/>
-        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Width="120" Margin="630,269,50,143"/>
-        <TextBox Name="TableNumberT" TextWrapping="Wrap" Width="120" Margin="72,162,608,250"/>
-        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Width="120" Margin="72,214,608,198"/>
-        <Label Content="Дата рождения" Margin="466,140,228,270"/>
-        <Label Content="Адрес" Margin="466,195,228,215"/>
-        <Label Content="Телефон" Margin="466,245,228,165"/>
-        <Label Content="Образование" Margin="466,297,228,113"/>
-        <Label Content="ИНН" Margin="466,349,228,61"/>
-        <Label Content="Паспортные данные" Margin="630,140,64,270"/>
-        <Label Content="Реквизиты" Margin="630,195,64,215"/>
-        <Label Content="Снилс" Margin="630,246,64,164"/>
-        <Label Content="Табельный номер" Margin="72,138,622,272"/>
-        <Label Content="ФИО" Margin="72,190,622,220"/>
-        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Width="120" Margin="72,265,608,147"/>
-        <Label Content="Стаж работы" Margin="72,241,622,169"/>
-        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Width="120" Margin="72,316,608,96"/>
-        <Label Content="Проф уровень" Margin="72,292,622,118"/>
-        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Width="120" Margin="72,367,608,45"/>
-        <Label Content="Членство в профсоюзе" Margin="72,343,622,67"/>
-        <Label Content="Предприятие" Margin="262,137,432,273"/>
-        <ComboBox Name="Company" Margin="262,161,392,251"/>
-        <Label Content="Должность" Margin="262,189,432,221"/>
-        <ComboBox Name="Post" Margin="262,213,392,199"/>
-        <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Width="120" Margin="630,320,50,92"/>
-        <Label Content="Логин" Margin="630,297,64,113"/>
-        <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Width="120" Margin="630,372,50,40"/>
-        <Label Content="Пароль" Margin="630,349,64,61"/>
-        <ComboBox Name="TableNumber" Margin="72,23,503,379" SelectionChanged="TableNumber_SelectionChanged"/>
-        <Button Content="Внести изменения" Margin="443,23,212,379"/>
-        <Button Content="Удалить работника" Margin="611,23,44,379"/>
+        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Margin="36,164,214,248" Grid.Column="3"/>
+        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Margin="36,219,214,193" Grid.Column="3"/>
+        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Margin="36,269,214,143" Grid.Column="3"/>
+        <TextBox Name="Education" TextWrapping="Wrap" Text="" Margin="36,321,214,91" Grid.Column="3"/>
+        <TextBox Name="INN" TextWrapping="Wrap" Text="" Margin="36,373,214,39" Grid.Column="3"/>
+        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Margin="200,164,50,248" Grid.Column="3"/>
+        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Margin="200,219,50,193" Grid.Column="3"/>
+        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Margin="200,269,50,143" Grid.Column="3"/>
+        <TextBox Name="TableNumberT" TextWrapping="Wrap" Margin="46,162,205,250" Grid.Column="1"/>
+        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Margin="46,214,205,198" Grid.Column="1"/>
+        <Label Content="Дата рождения" Margin="36,140,228,270" Grid.Column="3"/>
+        <Label Content="Адрес" Margin="36,195,228,215" Grid.Column="3"/>
+        <Label Content="Телефон" Margin="36,245,228,165" Grid.Column="3"/>
+        <Label Content="Образование" Margin="36,297,228,113" Grid.Column="3"/>
+        <Label Content="ИНН" Margin="36,349,228,61" Grid.Column="3"/>
+        <Label Content="Паспортные данные" Margin="200,140,64,270" Grid.Column="3"/>
+        <Label Content="Реквизиты" Margin="200,195,64,215" Grid.Column="3"/>
+        <Label Content="Снилс" Margin="200,246,64,164" Grid.Column="3"/>
+        <Label Content="Табельный номер" Margin="45,138,218,272" Grid.Column="1"/>
+        <Label Content="ФИО" Margin="45,190,218,220" Grid.Column="1"/>
+        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Margin="46,265,205,147" Grid.Column="1"/>
+        <Label Content="Стаж работы" Margin="45,241,218,169" Grid.Column="1"/>
+        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Margin="46,316,205,96" Grid.Column="1"/>
+        <Label Content="Проф уровень" Margin="45,292,218,118" Grid.Column="1"/>
+        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Margin="46,367,205,45" Grid.Column="1"/>
+        <Label Content="Членство в профсоюзе" Margin="45,343,218,67" Grid.Column="1"/>
+        <Label Content="Предприятие" Margin="235,137,28,273" Grid.Column="1"/>
+        <ComboBox Name="Company" Margin="235,161,4,251" Grid.Column="1"/>
+        <Label Content="Должность" Margin="235,189,28,221" Grid.Column="1"/>
+        <ComboBox Name="Post" Margin="235,213,4,199" Grid.Column="1"/>
+        <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Margin="200,320,50,92" Grid.Column="3"/>
+        <Label Content="Логин" Margin="200,297,64,113" Grid.Column="3"/>
+        <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Margin="200,372,50,40" Grid.Column="3"/>
+        <Label Content="Пароль" Margin="200,349,64,61" Grid.Column="3"/>
+        <ComboBox Name="TableNumber" Margin="45,23,99,379" SelectionChanged="TableNumber_SelectionChanged" Grid.Column="1"/>
+        <Button Content="Внести изменения" Margin="13,23,212,379" Grid.Column="3"/>
+        <Button Content="Удалить работника" Margin="181,23,44,379" Click="Button_Click" Grid.Column="3"/>
 
 
     </Grid>

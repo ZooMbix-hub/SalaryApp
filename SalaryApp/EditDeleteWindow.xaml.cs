@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Xml.Linq;
+
 
 namespace SalaryApp
 {
@@ -22,6 +26,7 @@ namespace SalaryApp
         DataTable dataTableData;
         DataTable dataTableCompany;
         DataTable dataTablePost;
+        DataTable dataTableDelet;
 
 
         public EditDeleteWindow()
@@ -81,6 +86,12 @@ namespace SalaryApp
                     Post.Text = Post.Items.GetItemAt(i).ToString();
 
             }
+        }
+
+        private delegate void EmptyDelegate();
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            dataTableDelet = Model.Select($"EXEC Delet {TableNumberT.Text}, '{LoginUser.Text}', '{PasswordUser.Text}'");
         }
     }
 }
