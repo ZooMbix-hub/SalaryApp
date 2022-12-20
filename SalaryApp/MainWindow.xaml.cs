@@ -60,7 +60,8 @@ namespace SalaryApp
                     /*Hide();*/
                     break;
                 case "Администратор":
-                    Console.WriteLine("Ваше имя - Администратор");
+                    AdministratorWindow Administrator = new AdministratorWindow();
+                    Administrator.Show();
                     break;
             }
         }
