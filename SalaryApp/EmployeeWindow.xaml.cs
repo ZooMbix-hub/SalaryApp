@@ -66,6 +66,11 @@ namespace SalaryApp
             }
         }
 
+        public void ChecDatak()
+        {
+
+        }
+
         public void GetUserData()
         {
             tableNumberLbl.Content = tableNumber;

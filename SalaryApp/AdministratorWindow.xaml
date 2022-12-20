@@ -43,8 +43,5 @@
         <Label Content="Логин" Margin="594,259,100,151"/>
         <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,334,86,78"/>
         <Label Content="Пароль" Margin="594,311,100,99"/>
-
-
-
     </Grid>
 </Window>

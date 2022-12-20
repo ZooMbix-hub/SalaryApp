@@ -19,7 +19,6 @@ using System.Xml.Linq;
 
 namespace SalaryApp
 {
-    
     public partial class EditDeleteWindow : Window
     {
         DataTable dataTable;
@@ -29,10 +28,10 @@ namespace SalaryApp
         DataTable dataTableDelet;
         DataTable dataTableEdit;
 
-
         public EditDeleteWindow()
         {
             InitializeComponent();
+
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
@@ -42,22 +41,22 @@ namespace SalaryApp
             dataTableCompany = Model.Select($"SELECT NameCompany, INN FROM Company");
             for (int i = 0; i < dataTableCompany.Rows.Count; i++)
             {
-                string NameCompany = Convert.ToString(dataTableCompany.Rows[i][0]);
-                string resultCompany = $"{NameCompany}";
+                string nameCompany = Convert.ToString(dataTableCompany.Rows[i][0]);
+                string resultCompany = $"{nameCompany}";
                 Company.Items.Add(resultCompany);
             }
+
             dataTablePost = Model.Select($"Select Post.NamePost, Subdivision.NameSub\r\nFrom Post, Subdivision\r\nWhere Post.FK_Sub = Subdivision.Id");
             for (int i = 0; i < dataTablePost.Rows.Count; i++)
             {
-                string NamePost = Convert.ToString(dataTablePost.Rows[i][0]);
-                string resultPost = $"{NamePost}";
+                string namePost = Convert.ToString(dataTablePost.Rows[i][0]);
+                string resultPost = $"{namePost}";
                 Post.Items.Add(resultPost);
             }
         }
 
         private void TableNumber_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             dataTableData = Model.Select($"EXEC DataForAdmin {Convert.ToInt32(TableNumber.SelectedValue.ToString())}");
             DateOfBirth.Text = dataTableData.Rows[0][0].ToString();
             AddressEmployee.Text = dataTableData.Rows[0][1].ToString();
@@ -74,19 +73,19 @@ namespace SalaryApp
             IsUnion.Text = dataTableData.Rows[0][12].ToString();
             LoginUser.Text = dataTableData.Rows[0][17].ToString();
             PasswordUser.Text = dataTableData.Rows[0][18].ToString();
+
             for (int i = 0; i < dataTableCompany.Rows.Count; i++)
             {
                 if (Convert.ToString(dataTableCompany.Rows[i][0]) == dataTableData.Rows[0][13].ToString())
                     Company.Text = Company.Items.GetItemAt(i).ToString();                    
             }
+
             for (int i = 0; i < dataTablePost.Rows.Count; i++)
             {
                 if (Convert.ToString(dataTablePost.Rows[i][0]) == dataTableData.Rows[0][15].ToString())
                     Post.Text = Post.Items.GetItemAt(i).ToString();
-
             }
         }
-
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {

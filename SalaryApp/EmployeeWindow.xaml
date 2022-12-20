@@ -6,111 +6,124 @@
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
         Title="Сотрудник" Height="600" Width="800">
-    <Grid Margin="15">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <Grid Margin="0 0 0 50">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+    <Grid Background="#CDC5C2">
+        <Border 
+            MinWidth="400" 
+            MaxHeight="650" 
+            Margin="50" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="45,20,45,20" 
+            CornerRadius="20"
+        >
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition MaxWidth="300" />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="Табельный номер" />
-                <Label Grid.Column="1" Grid.Row="0" Name="tableNumberLbl" />
-                <Label Grid.Column="0" Grid.Row="1" Content="ФИО" />
-                <Label Grid.Column="1" Grid.Row="1" Name="nameLbl" />
-                <Label Grid.Column="0" Grid.Row="2" Content="Должность" />
-                <Label Grid.Column="1" Grid.Row="2" Name="postLbl" />
-                <Label Grid.Column="0" Grid.Row="3" Content="Подразделение" />
-                <Label Grid.Column="1" Grid.Row="3" Name="divisionLbl" />
-                <Label Grid.Column="0" Grid.Row="4" Content="Предприятие" />
-                <Label Grid.Column="1" Grid.Row="5" Name="companynLbl" />
-            </Grid>
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <DatePicker Width="100" Name="startDate"  BorderThickness="0">
-                    <DatePicker.Resources>
-                        <Style TargetType="DatePickerTextBox">
-                            <Setter Property="Control.Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <TextBox 
-                                            x:Name="PART_TextBox"
-                                            Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
-                                            RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" 
-                                        />
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="IsReadOnly" Value="True" />
-                        </Style>
-                    </DatePicker.Resources>
-                </DatePicker>
-            </StackPanel>
-        </Grid>
 
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0" Content="Количество дней" />
-            <Label Grid.Column="1" Grid.Row="0" Name="countDaysLbl" />
-            <Label Grid.Column="0" Grid.Row="1" Content="Количество ночей" />
-            <Label Grid.Column="1" Grid.Row="1" Name="countNightsLbl" />
-            <Label Grid.Column="0" Grid.Row="2" Content="Количество РВД" />
-            <Label Grid.Column="1" Grid.Row="2" Name="countRVDLbl" />
-            <Label Grid.Column="0" Grid.Row="3" Content="Отпуск" />
-            <Label Grid.Column="1" Grid.Row="3" Name="vacationLbl" />
-            <Label Grid.Column="0" Grid.Row="4" Content="Больничный" />
-            <Label Grid.Column="1" Grid.Row="4" Name="medicalLbl" />
-            <Label Grid.Column="0" Grid.Row="5" Content="Доплата" />
-            <Label Grid.Column="1" Grid.Row="5" Name="addPaymentLbl" />
-            <Label Grid.Column="0" Grid.Row="6" Content="Название надбавки" />
-            <Label Grid.Column="1" Grid.Row="6" Name="nameAllowanceLbl" />
-            <Label Grid.Column="0" Grid.Row="7" Content="Надбавка" />
-            <Label Grid.Column="1" Grid.Row="7" Name="allowanceLbl" />
-            <Label Grid.Column="0" Grid.Row="8" Content="Премия" />
-            <Label Grid.Column="1" Grid.Row="8" Name="prizeLbl" />
-            <Label Grid.Column="0" Grid.Row="9" Content="Начислено" />
-            <Label Grid.Column="1" Grid.Row="9" Name="accruedLbl" />
-            <Label Grid.Column="0" Grid.Row="10" Content="Удержано" />
-            <Label Grid.Column="1" Grid.Row="10" Name="withheldLbl" />
-            <Label Grid.Column="0" Grid.Row="11" Content="Выплачено" />
-            <Label Grid.Column="1" Grid.Row="11" Name="paidLbl" />
-        </Grid>
+                <Grid Margin="0 0 0 50">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition MaxWidth="300" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Табельный номер" />
+                        <Label Grid.Column="1" Grid.Row="0" Name="tableNumberLbl" />
+                        <Label Grid.Column="0" Grid.Row="1" Content="ФИО" />
+                        <Label Grid.Column="1" Grid.Row="1" Name="nameLbl" />
+                        <Label Grid.Column="0" Grid.Row="2" Content="Должность" />
+                        <Label Grid.Column="1" Grid.Row="2" Name="postLbl" />
+                        <Label Grid.Column="0" Grid.Row="3" Content="Подразделение" />
+                        <Label Grid.Column="1" Grid.Row="3" Name="divisionLbl" />
+                        <Label Grid.Column="0" Grid.Row="4" Content="Предприятие" />
+                        <Label Grid.Column="1" Grid.Row="5" Name="companynLbl" />
+                    </Grid>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <DatePicker Width="100" Name="datePicker"  BorderThickness="0">
+                            <DatePicker.Resources>
+                                <Style TargetType="DatePickerTextBox">
+                                    <Setter Property="Control.Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <TextBox 
+                                                x:Name="PART_TextBox"
+                                                Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
+                                                RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" 
+                                            />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="IsReadOnly" Value="True" />
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                        <Button Content="расчет" Click="Button_Click" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Количество дней" />
+                    <Label Grid.Column="1" Grid.Row="0" Name="countDaysLbl" />
+                    <Label Grid.Column="0" Grid.Row="1" Content="Количество ночей" />
+                    <Label Grid.Column="1" Grid.Row="1" Name="countNightsLbl" />
+                    <Label Grid.Column="0" Grid.Row="2" Content="Количество РВД" />
+                    <Label Grid.Column="1" Grid.Row="2" Name="countRVDLbl" />
+                    <Label Grid.Column="0" Grid.Row="3" Content="Отпуск" />
+                    <Label Grid.Column="1" Grid.Row="3" Name="vacationLbl" />
+                    <Label Grid.Column="0" Grid.Row="4" Content="Больничный" />
+                    <Label Grid.Column="1" Grid.Row="4" Name="medicalLbl" />
+                    <Label Grid.Column="0" Grid.Row="5" Content="Доплата" />
+                    <Label Grid.Column="1" Grid.Row="5" Name="addPaymentLbl" />
+                    <Label Grid.Column="0" Grid.Row="6" Content="Название надбавки" />
+                    <Label Grid.Column="1" Grid.Row="6" Name="nameAllowanceLbl" />
+                    <Label Grid.Column="0" Grid.Row="7" Content="Надбавка" />
+                    <Label Grid.Column="1" Grid.Row="7" Name="allowanceLbl" />
+                    <Label Grid.Column="0" Grid.Row="8" Content="Премия" />
+                    <Label Grid.Column="1" Grid.Row="8" Name="prizeLbl" />
+                    <Label Grid.Column="0" Grid.Row="9" Content="Начислено" />
+                    <Label Grid.Column="1" Grid.Row="9" Name="accruedLbl" />
+                    <Label Grid.Column="0" Grid.Row="10" Content="Удержано" />
+                    <Label Grid.Column="1" Grid.Row="10" Name="withheldLbl" />
+                    <Label Grid.Column="0" Grid.Row="11" Content="Выплачено" />
+                    <Label Grid.Column="1" Grid.Row="11" Name="paidLbl" />
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

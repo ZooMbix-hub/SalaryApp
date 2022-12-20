@@ -26,6 +26,7 @@ namespace SalaryApp
         public Аccountant()
         {
             InitializeComponent();
+
             // вывод данных в comboBox
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -62,7 +63,7 @@ namespace SalaryApp
             string startDateM = StartDateM.Text;
             string endDateM = EndDateM.Text;
             
-            if (StartDateV.Text == "" & EndDateV.Text == "")
+            /*if (StartDateV.Text == "" & EndDateV.Text == "")
             {
                 startDateV = null;
                 endDateV = null;
@@ -71,13 +72,20 @@ namespace SalaryApp
             {
                 startDateM = null;
                 endDateM = null;
-            }
-            MessageBox.Show($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', '{startDateV}', '{endDateV}', '{startDateM}', '{endDateM}', '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
+            }*/
 
-            Model.Select($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', '{startDateV}', '{endDateV}', '{startDateM}', '{endDateM}', '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
+            MessageBox.Show($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
+
+            Model.Select($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'"); /*ошибка с null в FK_TableList, странно что не передаем в процедуру, ведь там она есть*/
             MessageBox.Show("Данные успешно добавлены");
         }
 
-
+        public string Check(string value)
+        {
+            if (value == "")
+                return "null";
+            else
+                return $"'{value}'";
+        }
     }
 }
