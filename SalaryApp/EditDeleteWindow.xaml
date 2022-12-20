@@ -32,7 +32,7 @@
         <Label Content="Паспортные данные" Margin="200,140,64,270" Grid.Column="3"/>
         <Label Content="Реквизиты" Margin="200,195,64,215" Grid.Column="3"/>
         <Label Content="Снилс" Margin="200,246,64,164" Grid.Column="3"/>
-        <Label Content="Табельный номер" Margin="45,138,218,272" Grid.Column="1"/>
+        <Label Content="Табельный номер" Margin="45,138,210,272" Grid.Column="1"/>
         <Label Content="ФИО" Margin="45,190,218,220" Grid.Column="1"/>
         <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Margin="46,265,205,147" Grid.Column="1"/>
         <Label Content="Стаж работы" Margin="45,241,218,169" Grid.Column="1"/>
@@ -49,7 +49,7 @@
         <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Margin="200,372,50,40" Grid.Column="3"/>
         <Label Content="Пароль" Margin="200,349,64,61" Grid.Column="3"/>
         <ComboBox Name="TableNumber" Margin="45,23,99,379" SelectionChanged="TableNumber_SelectionChanged" Grid.Column="1"/>
-        <Button Content="Внести изменения" Margin="13,23,212,379" Grid.Column="3"/>
+        <Button Content="Внести изменения" Margin="13,23,212,379" Grid.Column="3" Click="Button_Click_1"/>
         <Button Content="Удалить работника" Margin="181,23,44,379" Click="Button_Click" Grid.Column="3"/>
 
 
