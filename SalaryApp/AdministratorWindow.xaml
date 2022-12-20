@@ -9,16 +9,16 @@
     <Grid>
         <Button Content="Добавить сотрудника" Margin="50,29,613,370"/>
         <Button Content="Изменить\Удалить сотрудника" Margin="252,29,362,370" Click="Button_Click"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,126,250,286"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,181,250,231"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,231,250,181"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,283,250,129"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="430,335,250,77"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,126,86,286"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,181,86,231"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,231,86,181"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,123,630,289"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,175,630,237"/>
+        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Width="120" Margin="430,126,250,286"/>
+        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Width="120" Margin="430,181,250,231"/>
+        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Width="120" Margin="430,231,250,181"/>
+        <TextBox Name="Education" TextWrapping="Wrap" Text="" Width="120" Margin="430,283,250,129"/>
+        <TextBox Name="INN" TextWrapping="Wrap" Text="" Width="120" Margin="430,335,250,77"/>
+        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Width="120" Margin="594,126,86,286"/>
+        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Width="120" Margin="594,181,86,231"/>
+        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Width="120" Margin="594,231,86,181"/>
+        <TextBox Name="TableNumberT" TextWrapping="Wrap" Text="" Width="120" Margin="50,123,630,289"/>
+        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Width="120" Margin="50,175,630,237"/>
         <Label Content="Дата рождения" Margin="430,102,264,308"/>
         <Label Content="Адрес" Margin="430,157,264,253"/>
         <Label Content="Телефон" Margin="430,207,264,203"/>
@@ -29,16 +29,16 @@
         <Label Content="Снилс" Margin="594,208,100,202"/>
         <Label Content="Табельный номер" Margin="50,99,644,311"/>
         <Label Content="ФИО" Margin="50,151,644,259"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,226,630,186"/>
+        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Width="120" Margin="50,226,630,186"/>
         <Label Content="Стаж работы" Margin="50,202,644,208"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,277,630,135"/>
+        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Width="120" Margin="50,277,630,135"/>
         <Label Content="Проф уровень" Margin="50,253,644,157"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="50,328,630,84"/>
+        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Width="120" Margin="50,328,630,84"/>
         <Label Content="Членство в профсоюзе" Margin="50,304,644,106"/>
         <Label Content="Предприятие" Margin="225,99,469,311"/>
-        <ComboBox Margin="225,123,429,289"/>
+        <ComboBox Name="Company" Margin="225,123,429,289"/>
         <Label Content="Должность" Margin="225,151,469,259"/>
-        <ComboBox Margin="225,175,429,237"/>
+        <ComboBox Name="Post" Margin="225,175,429,237"/>
         <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,282,86,130"/>
         <Label Content="Логин" Margin="594,259,100,151"/>
         <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,334,86,78"/>

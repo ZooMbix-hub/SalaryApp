@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Xml.Linq;
+
 
 namespace SalaryApp
 {
@@ -22,6 +26,8 @@ namespace SalaryApp
         DataTable dataTableData;
         DataTable dataTableCompany;
         DataTable dataTablePost;
+        DataTable dataTableDelet;
+        DataTable dataTableEdit;
 
 
         public EditDeleteWindow()
@@ -37,16 +43,14 @@ namespace SalaryApp
             for (int i = 0; i < dataTableCompany.Rows.Count; i++)
             {
                 string NameCompany = Convert.ToString(dataTableCompany.Rows[i][0]);
-                string INNCompany = Convert.ToString(dataTableCompany.Rows[i][1]);
-                string resultCompany = $"{NameCompany} {INNCompany}";
+                string resultCompany = $"{NameCompany}";
                 Company.Items.Add(resultCompany);
             }
             dataTablePost = Model.Select($"Select Post.NamePost, Subdivision.NameSub\r\nFrom Post, Subdivision\r\nWhere Post.FK_Sub = Subdivision.Id");
             for (int i = 0; i < dataTablePost.Rows.Count; i++)
             {
                 string NamePost = Convert.ToString(dataTablePost.Rows[i][0]);
-                string NameSubP = Convert.ToString(dataTablePost.Rows[i][1]);
-                string resultPost = $"{NamePost} {NameSubP}";
+                string resultPost = $"{NamePost}";
                 Post.Items.Add(resultPost);
             }
         }
@@ -81,6 +85,20 @@ namespace SalaryApp
                     Post.Text = Post.Items.GetItemAt(i).ToString();
 
             }
+        }
+
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            dataTableDelet = Model.Select($"EXEC Delet {TableNumberT.Text}, '{LoginUser.Text}', '{PasswordUser.Text}'");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            dataTableEdit = Model.Select($"EXEC Edit '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}', '{INN.Text}', " +
+                $"'{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}', '{TableNumberT.Text}', '{FullName.Text}'," +
+                $"'{WorkExperience.Text}', '{ProfLevel.Text}', '{IsUnion.Text}', '{Company.Text}'," +
+                $"'{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}'");
         }
     }
 }

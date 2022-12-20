@@ -41,10 +41,5 @@ namespace SalaryApp
             Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{Date.Text}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
             MessageBox.Show("Данные успешно добавлены");
         }
-
-        private void comboBoxTabel_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
     }
 }
