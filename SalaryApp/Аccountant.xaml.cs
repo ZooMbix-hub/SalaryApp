@@ -13,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using System.Data.OleDb;
 
 namespace SalaryApp
 {
@@ -23,58 +26,58 @@ namespace SalaryApp
         public Аccountant()
         {
             InitializeComponent();
-
             // вывод данных в comboBox
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                TableNumber.Items.Add(dataTable.Rows[i][0]);
+                string tableNumber = Convert.ToString(dataTable.Rows[i][0]);
+                string name = Convert.ToString(dataTable.Rows[i][1]);
+                string result = $"{tableNumber} {name}";
+                tableNumberCmbBox.Items.Add(result);
             }
 
             dataTable = Model.Select($"SELECT * FROM TypeОfAward");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                Award.Items.Add(dataTable.Rows[i][1]);
+                string nameAward = Convert.ToString(dataTable.Rows[i][1]);
+                
+                AwardCmbBox.Items.Add(nameAward);
             }
 
             dataTable = Model.Select($"SELECT * FROM TypeОfAllowances");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                Allowance.Items.Add(dataTable.Rows[i][1]);
+                string nameAllowance = Convert.ToString(dataTable.Rows[i][1]);
+                
+                AllowanceCmbBox.Items.Add(nameAllowance);
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string startDateVacation;
-            string endDateVacation;
+
+            string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
+
+            string startDateV = StartDateV.Text;
+            string endDateV = EndDateV.Text;
+            string startDateM = StartDateM.Text;
+            string endDateM = EndDateM.Text;
             
-            if (Vacation.IsChecked == false)
+            if (StartDateV.Text == "" & EndDateV.Text == "")
             {
-                startDateVacation = StartDateV.Text;
-                endDateVacation = StartDateV.Text;
+                startDateV = null;
+                endDateV = null;
             }
-            else
+            if (StartDateM.SelectedDate == null & EndDateM.SelectedDate == null)
             {
-                startDateVacation = null;
-                endDateVacation = null;
+                startDateM = null;
+                endDateM = null;
             }
+            MessageBox.Show($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', '{startDateV}', '{endDateV}', '{startDateM}', '{endDateM}', '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
 
-            string startDateMedical;
-            string endDateMedical;
-
-            if (Medical.IsChecked == false)
-            {
-                startDateMedical = StartDateV.Text;
-                endDateMedical = StartDateV.Text;
-            }
-            else
-            {
-                startDateMedical = null;
-                endDateMedical = null;
-            }
-
-            Model.Select($"EXEC payment_entry '{Convert.ToInt32(TableNumber.Text)}', '{Date.Text}', '{startDateMedical}', '{endDateMedical}', '{startDateVacation}', '{endDateVacation}', '{Award.Text}', '{Allowance.Text}'");
+            Model.Select($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', '{startDateV}', '{endDateV}', '{startDateM}', '{endDateM}', '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
             MessageBox.Show("Данные успешно добавлены");
         }
+
+
     }
 }
