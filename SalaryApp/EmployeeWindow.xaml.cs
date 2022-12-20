@@ -22,7 +22,8 @@ namespace SalaryApp
         public EmployeeWindow()
         {
             InitializeComponent();
-            dataTable = Model.Select("Select * FROM Employee");
+            dataTable = Model.Select("EXEC salaryView '01-06-2020', 1009");
+            MessageBox.Show(dataTable.Rows[0][7].ToString());
         }
     }
 }
