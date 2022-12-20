@@ -52,7 +52,7 @@ namespace SalaryApp
                     /*Hide();*/
                     break;
                 case "Сотрудник":
-                    EmployeeWindow EmployeeWindow = new EmployeeWindow();
+                    EmployeeWindow EmployeeWindow = new EmployeeWindow(tableNumber);
                     EmployeeWindow.Show();
                     /*Hide();*/
                     break;
