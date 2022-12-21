@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
+
     public partial class Window1 : Window
     {
         DataTable dataTable;
@@ -37,9 +38,17 @@ namespace SalaryApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
-            Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{Date.Text}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
-            MessageBox.Show("Данные успешно добавлены");
+            try
+            {
+                string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
+                Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{Date.Text}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
+                MessageBox.Show("Данные успешно добавлены");
+            }
+            catch
+            {
+                MessageBox.Show("Данные введены неверно");
+            }
+            
         }
     }
 }

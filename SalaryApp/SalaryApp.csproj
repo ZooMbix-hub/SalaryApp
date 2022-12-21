@@ -67,6 +67,9 @@
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="StatisticWindow.xaml.cs">
+      <DependentUpon>StatisticWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimeSheetWindow.xaml.cs">
       <DependentUpon>TimeSheetWindow.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StatisticWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TimeSheetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

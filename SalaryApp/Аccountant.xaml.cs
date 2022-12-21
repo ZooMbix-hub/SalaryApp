@@ -52,32 +52,27 @@ namespace SalaryApp
                 
                 AllowanceCmbBox.Items.Add(nameAllowance);
             }
+            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
-
-            string startDateV = StartDateV.Text;
-            string endDateV = EndDateV.Text;
-            string startDateM = StartDateM.Text;
-            string endDateM = EndDateM.Text;
-            
-            /*if (StartDateV.Text == "" & EndDateV.Text == "")
+            try
             {
-                startDateV = null;
-                endDateV = null;
+                int tableNumber = Convert.ToInt32(tableNumberCmbBox.Text.Split(' ')[0]);
+
+                string startDateV = StartDateV.Text;
+                string endDateV = EndDateV.Text;
+                string startDateM = StartDateM.Text;
+                string endDateM = EndDateM.Text;
+
+                Model.Select($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
+                MessageBox.Show("Данные успешно добавлены");
             }
-            if (StartDateM.SelectedDate == null & EndDateM.SelectedDate == null)
+            catch
             {
-                startDateM = null;
-                endDateM = null;
-            }*/
-
-            MessageBox.Show($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
-
-            Model.Select($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'"); /*ошибка с null в FK_TableList, странно что не передаем в процедуру, ведь там она есть*/
-            MessageBox.Show("Данные успешно добавлены");
+                MessageBox.Show("Данные введены неверно");
+            }
+           
         }
 
         public string Check(string value)
@@ -87,5 +82,6 @@ namespace SalaryApp
             else
                 return $"'{value}'";
         }
+
     }
 }

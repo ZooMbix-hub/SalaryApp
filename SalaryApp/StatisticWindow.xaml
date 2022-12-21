@@ -1,0 +1,82 @@
+﻿<Window x:Class="SalaryApp.StatisticWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        mc:Ignorable="d"
+        Title="Статистика организации" Height="1200" Width="1100" WindowStartupLocation="CenterOwner" WindowState="Maximized">
+    <Window.Resources>
+        <SolidColorBrush x:Key="GridLine1" Color="Gray" />
+        <SolidColorBrush x:Key="GridLine2" Color="Gray"/>
+    </Window.Resources>
+    <Grid Background="#CDC5C2" >
+        <Border 
+            MinWidth="400" 
+            MaxHeight="1200" 
+            Margin="50" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="45,20,45,20" 
+        >
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="15" 
+                        FontWeight="Bold" 
+                        Content="Средняя заработная плата сотрудников" 
+                        Padding="0" 
+                        Margin="0,0,0,30" Grid.Column="0"></Label>
+                    <Label FontSize="15" 
+                        FontWeight="Bold" 
+                        Content="Количество сотрудников на предприятиях" 
+                        Padding="0" 
+                        Margin="0,0,0,30" Grid.Column="2"></Label>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid AutoGenerateColumns="False" 
+                              Height="500" 
+                              HorizontalAlignment="Left" 
+                              Name="dataGrid1" 
+                              VerticalAlignment="Top" 
+                              Width="700"
+                              Grid.Column="0"
+                              VerticalGridLinesBrush="{StaticResource GridLine1}"
+                              HorizontalGridLinesBrush="{StaticResource GridLine2}">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding Path=NameEmployee}" Header="Сотрудник" Width="250" />
+                            <DataGridTextColumn Binding="{Binding Path=Post}" Header="Должность" Width="250" />
+                            <DataGridTextColumn Binding="{Binding Path=SalaryAVG}" Header="Средняя зарплата" Width="200" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid AutoGenerateColumns="False" 
+                              Height="500" 
+                              HorizontalAlignment="Left" 
+                              Name="dataGrid2" 
+                              VerticalAlignment="Top" 
+                              Width="400"
+                              Grid.Column="2"
+                              VerticalGridLinesBrush="{StaticResource GridLine1}"
+                              HorizontalGridLinesBrush="{StaticResource GridLine2}">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding Path=NameCompany}" Header="Предприятие" Width="200" />
+                            <DataGridTextColumn Binding="{Binding Path=CountEmployee}" Header="Количество сотрудников" Width="200" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+                
+               
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
