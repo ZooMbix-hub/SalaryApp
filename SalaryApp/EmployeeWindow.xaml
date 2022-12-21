@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
         Title="Сотрудник" Height="692" Width="810">
-    <Grid Background="#CDC5C2">
+    <Grid Background="#ffdadada">
         <Border 
             MinWidth="400" 
             MaxHeight="650" 
