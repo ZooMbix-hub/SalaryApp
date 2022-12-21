@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.Security.Principal;
 
 namespace SalaryApp
 {
@@ -42,28 +43,31 @@ namespace SalaryApp
             {
                 MessageBox.Show("Неверный логин или пароль");
             }
-
+            string LoginEmployee = login.Text;
+            string PaswordEmployee = password.Password;
+            
             // разграничение доступа
             switch (role)
             {
                 case "Ответственный за табель":
                     Window1 TimeSheetWindow = new Window1(); //поменять название
                     TimeSheetWindow.Show();
-                    /*Hide();*/
+                    Close();
                     break;
                 case "Сотрудник":
                     EmployeeWindow EmployeeWindow = new EmployeeWindow(tableNumber);
                     EmployeeWindow.Show();
-                    /*Hide();*/
+                    Close();
                     break;
                 case "Бухгалер":
-                    Аccountant Аccount = new Аccountant();
+                    Аccountant Аccount = new Аccountant(LoginEmployee, PaswordEmployee);
                     Аccount.Show();
-                    /*Hide();*/
+                    Close();
                     break;
                 case "Администратор":
                     AdministratorWindow Administrator = new AdministratorWindow();
                     Administrator.Show();
+                    Close();
                     break;
             }
         }

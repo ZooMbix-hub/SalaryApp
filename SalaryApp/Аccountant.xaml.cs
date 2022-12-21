@@ -22,10 +22,17 @@ namespace SalaryApp
     public partial class Аccountant : Window
     {
         DataTable dataTable;
+        DataTable tabnum;
 
-        public Аccountant()
+        public Аccountant(string LoginEmployee, string PaswordEmployee)
         {
             InitializeComponent();
+
+            string log = LoginEmployee;
+            string pas = PaswordEmployee;
+
+            tabnum = Model.Select($"Select Employee.TableNumber FROM UserData, Employee WHERE UserData.Id = Employee.FK_UserData AND UserData.LoginUser ='{log}' AND UserData.PasswordUser ='{pas}'");
+            YourTabNum.Text = Convert.ToString(tabnum.Rows[0][0]);
 
             // вывод данных в comboBox
             dataTable = Model.Select($"SELECT * FROM Employee");
@@ -52,7 +59,9 @@ namespace SalaryApp
                 
                 AllowanceCmbBox.Items.Add(nameAllowance);
             }
-            
+
+            tabnum = Model.Select($"SELECT * FROM TypeОfAllowances");
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -83,5 +92,19 @@ namespace SalaryApp
                 return $"'{value}'";
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow= new MainWindow();
+            mainwindow.Show();
+            Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            string tabnumaccountant = YourTabNum.Text;
+            EmployeeWindow employeewindow = new EmployeeWindow(tabnumaccountant);
+            employeewindow.Show();
+            Close();
+        }
     }
 }

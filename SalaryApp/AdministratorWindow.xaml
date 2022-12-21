@@ -8,7 +8,7 @@
         Title="Администратор" Height="450" Width="800">
     <Grid>
         <Button Content="Добавить сотрудника" Margin="50,29,613,370"/>
-        <Button Content="Изменить\Удалить сотрудника" Margin="252,29,362,370" Click="Button_Click"/>
+        <Button Content="Изменить\Удалить сотрудника" Margin="251,29,363,370" Click="Button_Click"/>
         <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Width="120" Margin="430,126,250,286"/>
         <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Width="120" Margin="430,181,250,231"/>
         <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Width="120" Margin="430,231,250,181"/>
@@ -39,9 +39,10 @@
         <ComboBox Name="Company" Margin="225,123,429,289"/>
         <Label Content="Должность" Margin="225,151,469,259"/>
         <ComboBox Name="Post" Margin="225,175,429,237"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,282,86,130"/>
+        <TextBox TextWrapping="Wrap" Text="" Width="120" Margin="594,282,86,130"/>
         <Label Content="Логин" Margin="594,259,100,151"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120" Margin="594,334,86,78"/>
+        <TextBox TextWrapping="Wrap" Text="" Width="120" Margin="594,334,86,78"/>
         <Label Content="Пароль" Margin="594,311,100,99"/>
+        <Button Content="Выход" Margin="658,0,10,405" Click="Button_Click_1"/>
     </Grid>
 </Window>

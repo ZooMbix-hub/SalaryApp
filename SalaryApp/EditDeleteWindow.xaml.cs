@@ -90,6 +90,7 @@ namespace SalaryApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             dataTableDelet = Model.Select($"EXEC Delet {TableNumberT.Text}, '{LoginUser.Text}', '{PasswordUser.Text}'");
+            MessageBox.Show("Сотрудник удален");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -98,6 +99,14 @@ namespace SalaryApp
                 $"'{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}', '{TableNumberT.Text}', '{FullName.Text}'," +
                 $"'{WorkExperience.Text}', '{ProfLevel.Text}', '{IsUnion.Text}', '{Company.Text}'," +
                 $"'{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}'");
+            MessageBox.Show("Сотрудник изменен");
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AdministratorWindow adminwindow = new AdministratorWindow();
+            adminwindow.Show();
+            Close();
         }
     }
 }

@@ -20,21 +20,26 @@ namespace SalaryApp
         DataTable dataTable;
         private string tableNumber;
 
-        public EmployeeWindow()
+        public EmployeeWindow(string tabnumaccountant)
         {
             InitializeComponent();
-            dataTable = Model.Select("EXEC salaryView '01-06-2020', 1009");
-            MessageBox.Show(dataTable.Rows[0][7].ToString());
+            //dataTable = Model.Select("EXEC salaryView '01-06-2020', 1009");
+            //MessageBox.Show(dataTable.Rows[0][7].ToString());
+            tableNumberLbl.Content = tabnumaccountant;
         }
 
-        public EmployeeWindow(string tableNumber)
-        {
-            this.tableNumber = tableNumber;
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+            Close();
         }
     }
 }

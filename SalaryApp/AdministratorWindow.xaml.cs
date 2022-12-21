@@ -25,7 +25,17 @@ namespace SalaryApp
         {
             EditDeleteWindow EditDelete = new EditDeleteWindow();
             EditDelete.Show();
+            Close();
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+            Close();
+
+            
         }
     }
 }

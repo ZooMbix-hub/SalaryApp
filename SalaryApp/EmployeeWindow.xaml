@@ -123,6 +123,7 @@
                     <Label Grid.Column="0" Grid.Row="11" Content="Выплачено" />
                     <Label Grid.Column="1" Grid.Row="11" Name="paidLbl" />
                 </Grid>
+                <Button Content="Выход" Margin="522,232,10,52" Grid.Row="1" Click="Button_Click_1"/>
             </Grid>
         </Border>
     </Grid>
