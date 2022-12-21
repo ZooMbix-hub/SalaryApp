@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    /// <summary>
-    /// Логика взаимодействия для AdministratorWindow.xaml
-    /// </summary>
     public partial class AdministratorWindow : Window
     {
         public AdministratorWindow()

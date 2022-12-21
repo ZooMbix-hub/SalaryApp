@@ -51,7 +51,5 @@
         <ComboBox Name="TableNumber" Margin="45,23,99,379" SelectionChanged="TableNumber_SelectionChanged" Grid.Column="1"/>
         <Button Content="Внести изменения" Margin="13,23,212,379" Grid.Column="3" Click="Button_Click_1"/>
         <Button Content="Удалить работника" Margin="181,23,44,379" Click="Button_Click" Grid.Column="3"/>
-
-
     </Grid>
 </Window>

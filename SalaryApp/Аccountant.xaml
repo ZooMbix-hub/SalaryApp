@@ -14,7 +14,8 @@
             Background="White" 
             VerticalAlignment="Center" 
             Padding="45,20,45,20" 
-            CornerRadius="20">
+            CornerRadius="20"
+        >
             <StackPanel>
                 <Grid>
                     <Label 
@@ -26,146 +27,166 @@
                     />
                 </Grid>
                 <Grid>
-                    <Label Content="Сотрудник"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0">
-                    </Label>
+                    <Label 
+                        Content="Сотрудник"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0" 
+                    />
                 </Grid>
                 <Grid>
-                    <ComboBox Name="tableNumberCmbBox"
-                              Margin="0,5,5,0" 
-                              Padding="0,5,0,0"
-                              HorizontalAlignment="Left"
-                              Width="300"/>
+                    <ComboBox 
+                        Name="tableNumberCmbBox"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                        HorizontalAlignment="Left"
+                        Width="300"
+                    />
                 </Grid>
                 <Grid>
-                    <Label Content="Расчетный период"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0">
-                    </Label>
+                    <Label 
+                        Content="Расчетный период"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0" 
+                    />
                 </Grid>
                 <Grid>
-                    <DatePicker Name="datePicker"
-                                Margin="0,5,5,15" 
-                                Padding="0,5,0,0"/>
+                    <DatePicker 
+                        Name="datePicker"
+                        Margin="0,5,5,15" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
-                    <Label Content="Отпуск" 
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0"
-                           FontSize="12" 
-                           FontWeight="Bold"/>
+                    <Label 
+                        Content="Отпуск" 
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                        FontSize="12" 
+                        FontWeight="Bold"
+                    />
                 </Grid>
                 <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                    <Label Content="Дата начала" Grid.Column="0"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0"/>
-                    <Label Content="Дата окончания" Grid.Column="1"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Content="Дата начала" Grid.Column="0"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
+                    <Label 
+                        Content="Дата окончания" Grid.Column="1"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <DatePicker Name="StartDateV" Grid.Column="0"
-                                Margin="0,5,5,0" 
-                                Padding="0,5,0,0"/>
-                    <DatePicker Name="EndDateV" Grid.Column="1"
-                                Margin="0,5,5,0" 
-                                Padding="0,5,0,0"/>
+                    <DatePicker 
+                        Name="StartDateV" Grid.Column="0"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                     />
+                    <DatePicker 
+                        Name="EndDateV" 
+                        Grid.Column="1"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
 
                 <Grid>
-                    <Label Content="Больничный"
-                           Margin="0,15,5,0" 
-                           Padding="0,5,0,0"
-                           FontSize="12" 
-                           FontWeight="Bold"/>
+                    <Label 
+                        Content="Больничный"
+                        Margin="0,15,5,0" 
+                        Padding="0,5,0,0"
+                        FontSize="12" 
+                        FontWeight="Bold"
+                    />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Дата начала" Grid.Column="0"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0"/>
-                    <Label Content="Дата окончания" Grid.Column="1"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0"/>
+                    <Label 
+                        Content="Дата начала" 
+                        Grid.Column="0"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
+                    <Label 
+                        Content="Дата окончания" 
+                        Grid.Column="1"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <DatePicker Name="StartDateM" Grid.Column="0"
-                                Margin="0,5,5,0" 
-                                Padding="0,5,0,0"/>
-                    <DatePicker Name="EndDateM" Grid.Column="1"
-                                Margin="0,5,5,0" 
-                                Padding="0,5,0,0"/>
+                    <DatePicker 
+                        Name="StartDateM" 
+                        Grid.Column="0"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
+                    <DatePicker 
+                        Name="EndDateM" 
+                        Grid.Column="1"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
-                    <Label Content="Премия"
-                           Margin="0,15,5,0" 
-                           Padding="0,5,0,0"/>
+                    <Label 
+                        Content="Премия"
+                        Margin="0,15,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
-                    <ComboBox Name ="AwardCmbBox"
-                              HorizontalAlignment="Left"
-                              Width="300"
-                              Margin="0,5,5,0" 
-                              Padding="0,5,0,0"/>
+                    <ComboBox 
+                        Name ="AwardCmbBox"
+                        HorizontalAlignment="Left"
+                        Width="300"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
-                    <Label Content="Надбавка"
-                           Margin="0,5,5,0" 
-                           Padding="0,5,0,0"/>
+                    <Label 
+                        Content="Надбавка"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
-                    <ComboBox Name="AllowanceCmbBox"
-                              HorizontalAlignment="Left"
-                              Width="300"
-                              Margin="0,5,5,0" 
-                              Padding="0,5,0,0"/>
+                    <ComboBox 
+                        Name="AllowanceCmbBox"
+                        HorizontalAlignment="Left"
+                        Width="300"
+                        Margin="0,5,5,0" 
+                        Padding="0,5,0,0"
+                    />
                 </Grid>
                 <Grid>
-                    <Button Content="Добавить данные"
-                            HorizontalAlignment="Right"
-                            Width="200"
-                            Margin="0,10,5,0" 
-                            Padding="0,5,0,5"
-                            Background="#CDC5C2" Click="Button_Click" />
+                    <Button 
+                        Content="Добавить данные"
+                        HorizontalAlignment="Right"
+                        Width="200"
+                        Margin="0,10,5,0" 
+                        Padding="0,5,0,5"
+                        Background="#CDC5C2" Click="Button_Click" 
+                    />
                 </Grid>
             </StackPanel>
         </Border>
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-        
-        
-        
-       
-        
     </Grid>
 </Window>
