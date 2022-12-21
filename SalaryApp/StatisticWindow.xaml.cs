@@ -19,6 +19,7 @@ namespace SalaryApp
     public partial class StatisticWindow : Window
     {
         DataTable dataTable;
+
         public class DataObject
         {
             public string NameCompany { get; set; }
@@ -28,9 +29,11 @@ namespace SalaryApp
             public string SalaryAVG { get; set; }
 
         }
+
         public StatisticWindow()
         {
             InitializeComponent();
+
             dataTable = Model.Select($"SELECT * FROM salaryAVG()");
             var list = new ObservableCollection<DataObject>();
             for (int i = 0; i < dataTable.Rows.Count; i++)

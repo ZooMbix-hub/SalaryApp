@@ -60,7 +60,7 @@ namespace SalaryApp
                     Close();
                     break;
                 case "Бухгалер":
-                    Аccountant Аccount = new Аccountant(LoginEmployee, PaswordEmployee);
+                    Аccountant Аccount = new Аccountant(LoginEmployee, PaswordEmployee);  //поменять название
                     Аccount.Show();
                     Close();
                     break;

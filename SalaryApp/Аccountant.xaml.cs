@@ -61,8 +61,8 @@ namespace SalaryApp
             }
 
             tabnum = Model.Select($"SELECT * FROM TypeОfAllowances");
-
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
