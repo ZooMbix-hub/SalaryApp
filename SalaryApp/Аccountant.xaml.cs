@@ -1,21 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
-using System.Data.OleDb;
 
 namespace SalaryApp
 {
@@ -48,7 +33,7 @@ namespace SalaryApp
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 string nameAward = Convert.ToString(dataTable.Rows[i][1]);
-                
+
                 AwardCmbBox.Items.Add(nameAward);
             }
 
@@ -56,7 +41,7 @@ namespace SalaryApp
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 string nameAllowance = Convert.ToString(dataTable.Rows[i][1]);
-                
+
                 AllowanceCmbBox.Items.Add(nameAllowance);
             }
 
@@ -81,7 +66,7 @@ namespace SalaryApp
             {
                 MessageBox.Show("Данные введены неверно");
             }
-           
+
         }
 
         public string Check(string value)
@@ -94,7 +79,7 @@ namespace SalaryApp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow mainwindow= new MainWindow();
+            MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             Close();
         }
