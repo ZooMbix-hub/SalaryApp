@@ -26,6 +26,7 @@
                         Margin="0,0,0,30" 
                     />
                 </Grid>
+                <TextBox Name="TableNumTimeSheet" TextWrapping="Wrap" Text="" Width="506"/>
                 <Grid>
                     <Label 
                         Content="Табельный номер сотрудника" 
@@ -108,6 +109,7 @@
                         HorizontalAlignment="Right"
                     />
                 </Grid>
+                <Button Content="Просмотр зп" Width="135" Click="Button_Click_1"/>
             </StackPanel>
         </Border>
     </Grid>

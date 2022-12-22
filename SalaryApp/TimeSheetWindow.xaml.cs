@@ -16,14 +16,16 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-
+    
     public partial class Window1 : Window
     {
         DataTable dataTable;
-
-        public Window1()
+        string TableNumTime;
+        public Window1(string TableNumTime)
         {
             InitializeComponent();
+            this.TableNumTime = TableNumTime;
+            TableNumTimeSheet.Text = TableNumTime;
 
             dataTable = Model.Select($"SELECT * FROM Employee");
 
@@ -49,6 +51,13 @@ namespace SalaryApp
                 MessageBox.Show("Данные введены неверно");
             }
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            EmployeeWindow employeewindow = new EmployeeWindow(TableNumTime);
+            employeewindow.Show();
+            Close();
         }
     }
 }
