@@ -10,7 +10,7 @@
         <SolidColorBrush x:Key="GridLine1" Color="Gray" />
         <SolidColorBrush x:Key="GridLine2" Color="Gray"/>
     </Window.Resources>
-    <Grid Background="#CDC5C2" >
+    <Grid Background="#ffdadada" >
         <Border 
             MinWidth="400" 
             MaxHeight="1200" 
