@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Расчетный лист" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Расчетный лист" Height="500" Width="800" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada">
         <Border 
             MinWidth="400" 
@@ -38,7 +38,6 @@
                         Grid.Column="1"
                     />
                 </Grid>
-
                 <Grid>
                     <ComboBox 
                         x:Name="tableNumberCmbBox"
@@ -64,7 +63,6 @@
                         FontWeight="Bold"
                     />
                 </Grid>
-                
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -83,7 +81,6 @@
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                     />
                 </Grid>
-
                 <Grid>
                     <Label 
                         Content="Больничный"
@@ -93,7 +90,6 @@
                         FontWeight="Bold"
                     />
                 </Grid>
-
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />

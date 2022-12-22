@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Авторизация" Height="400" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Авторизация" Height="400" Width="500" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada" >
         <Border 
             MinWidth="300" 

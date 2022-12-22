@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
-        Title="Сотрудник" Height="692" Width="810" WindowStartupLocation="CenterScreen">
+        Title="Сотрудник" Height="692" Width="810" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada">
         <Border 
             MinWidth="400" 

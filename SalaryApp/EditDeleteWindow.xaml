@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Изменение\Удаление работника" Height="450" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="Изменение\Удаление работника" Height="450" Width="1000" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada">
         <Border 
             MinWidth="400" 

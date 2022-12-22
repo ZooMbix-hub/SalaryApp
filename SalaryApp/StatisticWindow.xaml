@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
-        Title="Статистика организации" Height="1200" Width="1100" WindowStartupLocation="CenterOwner" WindowState="Maximized">
+        Title="Статистика организации" Height="1200" Width="1100" WindowStartupLocation="CenterOwner" WindowState="Maximized" Icon="/Icons/iconWindow.ico">
     <Window.Resources>
         <SolidColorBrush x:Key="GridLine1" Color="Gray" />
         <SolidColorBrush x:Key="GridLine2" Color="Gray"/>
