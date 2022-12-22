@@ -8,23 +8,20 @@ namespace SalaryApp
     {
         DataTable dataTable;
         DataTable tabnum;
-        string tableNumberAccount;
-        public Аccountant(string tableNumberAccount)
+        string tableNumber;
+        public Аccountant(string tableNumber)
         {
             InitializeComponent();
 
-            
-            this.tableNumberAccount = tableNumberAccount;
-           
-
+            this.tableNumber = tableNumber;
 
             // вывод данных в comboBox
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                string tableNumber = Convert.ToString(dataTable.Rows[i][0]);
+                string tableNumberData = Convert.ToString(dataTable.Rows[i][0]);
                 string name = Convert.ToString(dataTable.Rows[i][1]);
-                string result = $"{tableNumber} {name}";
+                string result = $"{tableNumberData} {name}";
                 tableNumberCmbBox.Items.Add(result);
             }
 
@@ -50,6 +47,7 @@ namespace SalaryApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string date = "";
+
             try
             {
                 string[] words = datePicker.Text.ToString().Split(new char[] { '.' });
@@ -59,6 +57,7 @@ namespace SalaryApp
             {
                 MessageBox.Show("Введите дату");
             }
+
             try
             {
                 int tableNumber = Convert.ToInt32(tableNumberCmbBox.Text.Split(' ')[0]);
@@ -95,8 +94,7 @@ namespace SalaryApp
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
-            EmployeeWindow employeewindow = new EmployeeWindow(tableNumberAccount);
+            EmployeeWindow employeewindow = new EmployeeWindow(tableNumber);
             employeewindow.Show();
             Close();
         }

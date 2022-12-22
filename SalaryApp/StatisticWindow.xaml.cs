@@ -19,7 +19,8 @@ namespace SalaryApp
     public partial class StatisticWindow : Window
     {
         DataTable dataTable;
-        string TableNumberAdmin;
+        string tableNumber;
+
         public class DataObject
         {
             public string NameCompany { get; set; }
@@ -27,34 +28,41 @@ namespace SalaryApp
             public string NameEmployee { get; set; }
             public string Post { get; set; }
             public string SalaryAVG { get; set; }
-
         }
 
-        public StatisticWindow(string TableNumberAdmin)
+        public StatisticWindow(string tableNumber)
         {
             InitializeComponent();
-            this.TableNumberAdmin = TableNumberAdmin;
+
+            this.tableNumber = tableNumber;
             dataTable = Model.Select($"SELECT * FROM salaryAVG()");
+
             var list = new ObservableCollection<DataObject>();
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                list.Add(new DataObject() { NameEmployee = Convert.ToString(dataTable.Rows[i][1]), Post = Convert.ToString(dataTable.Rows[i][2]), SalaryAVG = Convert.ToString(dataTable.Rows[i][3]) });
+                list.Add(new DataObject() { 
+                    NameEmployee = Convert.ToString(dataTable.Rows[i][1]), 
+                    Post = Convert.ToString(dataTable.Rows[i][2]), 
+                    SalaryAVG = Convert.ToString(dataTable.Rows[i][3]) 
+                });
             }
             this.dataGrid1.ItemsSource = list;
-
 
             dataTable = Model.Select($"SELECT * FROM employeeCount()");
             var list2 = new ObservableCollection<DataObject>();
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                list2.Add(new DataObject() { NameCompany = Convert.ToString(dataTable.Rows[i][0]), CountEmployee = Convert.ToString(dataTable.Rows[i][1]) });
+                list2.Add(new DataObject() { 
+                    NameCompany = Convert.ToString(dataTable.Rows[i][0]),
+                    CountEmployee = Convert.ToString(dataTable.Rows[i][1]) 
+                });
             }
             this.dataGrid2.ItemsSource = list2;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AdministratorWindow adminwindow = new AdministratorWindow(TableNumberAdmin);
+            AdministratorWindow adminwindow = new AdministratorWindow(tableNumber);
             adminwindow.Show();
             Close();
         }

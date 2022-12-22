@@ -27,11 +27,13 @@ namespace SalaryApp
         DataTable dataTablePost;
         DataTable dataTableDelet;
         DataTable dataTableEdit;
-        string TableNumberAdmin;
-        public EditDeleteWindow(string TableNumberAdmin)
+        string tableNumber;
+
+        public EditDeleteWindow(string tableNumber)
         {
             InitializeComponent();
-            this.TableNumberAdmin = TableNumberAdmin;
+
+            this.tableNumber = tableNumber;
 
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -112,7 +114,7 @@ namespace SalaryApp
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            AdministratorWindow adminwindow = new AdministratorWindow(TableNumberAdmin);
+            AdministratorWindow adminwindow = new AdministratorWindow(tableNumber);
             adminwindow.Show();
             Close();
         }
