@@ -4,53 +4,144 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Изменение\Удаление работника" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="27*"/>
-            <ColumnDefinition Width="366*"/>
-            <ColumnDefinition Width="38*"/>
-            <ColumnDefinition Width="369*"/>
-        </Grid.ColumnDefinitions>
+        Title="Изменение\Удаление работника" Height="450" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid Background="#ffdadada">
+        <Border 
+            MinWidth="400" 
+            MaxHeight="650" 
+            Margin="50" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="45,20,45,20" 
+            CornerRadius="20"
+        >
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Name="TableNumber" Margin="0,0,10,0"  SelectionChanged="TableNumber_SelectionChanged" materialDesign:HintAssist.Hint="Табельный номер сотрудника"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                    <Button Content="Внести изменения" Margin="0,0,10,0" Grid.Column="1" Click="Button_Click_1"/>
+                    <Button Content="Удалить" Click="Button_Click" Margin="0,0,10,0" Grid.Column="2"/>
+                    <Button Content="Назад"  Grid.Column="3" Click="Button_Click_2" Margin="0,0,10,0"/>
 
-        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Margin="36,164,214,248" Grid.Column="3"/>
-        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Margin="36,219,214,193" Grid.Column="3"/>
-        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Margin="36,269,214,143" Grid.Column="3"/>
-        <TextBox Name="Education" TextWrapping="Wrap" Text="" Margin="36,321,214,91" Grid.Column="3"/>
-        <TextBox Name="INN" TextWrapping="Wrap" Text="" Margin="36,373,214,39" Grid.Column="3"/>
-        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Margin="200,164,50,248" Grid.Column="3"/>
-        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Margin="200,219,50,193" Grid.Column="3"/>
-        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Margin="200,269,50,143" Grid.Column="3"/>
-        <TextBox IsReadOnly="True" Name="TableNumberT" TextWrapping="Wrap" Margin="46,162,205,250" Grid.Column="1"/>
-        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Margin="46,214,205,198" Grid.Column="1"/>
-        <Label Content="Дата рождения" Margin="36,140,228,270" Grid.Column="3"/>
-        <Label Content="Адрес" Margin="36,195,228,215" Grid.Column="3"/>
-        <Label Content="Телефон" Margin="36,245,228,165" Grid.Column="3"/>
-        <Label Content="Образование" Margin="36,297,228,113" Grid.Column="3"/>
-        <Label Content="ИНН" Margin="36,349,228,61" Grid.Column="3"/>
-        <Label Content="Паспортные данные" Margin="200,140,64,270" Grid.Column="3"/>
-        <Label Content="Реквизиты" Margin="200,195,64,215" Grid.Column="3"/>
-        <Label Content="Снилс" Margin="200,246,64,164" Grid.Column="3"/>
-        <Label Content="Табельный номер" Margin="45,138,210,272" Grid.Column="1"/>
-        <Label Content="ФИО" Margin="45,190,218,220" Grid.Column="1"/>
-        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Margin="46,265,205,147" Grid.Column="1"/>
-        <Label Content="Стаж работы" Margin="45,241,218,169" Grid.Column="1"/>
-        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Margin="46,316,205,96" Grid.Column="1"/>
-        <Label Content="Проф уровень" Margin="45,292,218,118" Grid.Column="1"/>
-        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Margin="46,367,205,45" Grid.Column="1"/>
-        <Label Content="Членство в профсоюзе" Margin="45,343,218,67" Grid.Column="1"/>
-        <Label Content="Предприятие" Margin="235,137,28,273" Grid.Column="1"/>
-        <ComboBox Name="Company" Margin="235,161,4,251" Grid.Column="1"/>
-        <Label Content="Должность" Margin="235,189,28,221" Grid.Column="1"/>
-        <ComboBox Name="Post" Margin="235,213,4,199" Grid.Column="1"/>
-        <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Margin="200,320,50,92" Grid.Column="3"/>
-        <Label Content="Логин" Margin="200,297,64,113" Grid.Column="3"/>
-        <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Margin="200,372,50,40" Grid.Column="3"/>
-        <Label Content="Пароль" Margin="200,349,64,61" Grid.Column="3"/>
-        <ComboBox Name="TableNumber" Margin="45,23,99,379" SelectionChanged="TableNumber_SelectionChanged" Grid.Column="1"/>
-        <Button Content="Внести изменения" Margin="287,23,342,379" Grid.Column="1" Click="Button_Click_1" Grid.ColumnSpan="3"/>
-        <Button Content="Удалить работника" Margin="41,23,184,379" Click="Button_Click" Grid.Column="3"/>
-        <Button Content="Назад" Margin="271,0,0,410" Grid.Column="3" Click="Button_Click_2"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox IsReadOnly="True" Name="TableNumberT" TextWrapping="Wrap" Margin="0,0,10,0" Grid.Column="0"
+                             materialDesign:HintAssist.Hint="Табельный номер" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="Education" TextWrapping="Wrap" Text="" Margin="0,0,10,0" Grid.Column="1"
+                             materialDesign:HintAssist.Hint="Образование" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    <ComboBox Name="Company" Grid.Column="2" Margin="0,0,10,0"
+                              materialDesign:HintAssist.Hint="Предприятие" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                    <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Grid.Column="3"
+                             materialDesign:HintAssist.Hint="Логин" Margin="0,0,10,0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    
+                  
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Name="FullName" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="ФИО" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="PassportData" TextWrapping="Wrap" Text=""  Grid.Column="1" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Паспортные данные" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    <ComboBox Name="Post" Grid.Column="2" Margin="0,0,10,0"
+                              materialDesign:HintAssist.Hint="Должность" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                    <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Grid.Column="3" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Пароль" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                  
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Дата рождения" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="INN" TextWrapping="Wrap" Text="" Grid.Column="1" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="ИНН" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                    <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Grid.Column="2" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Опыт работы" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="Role" TextWrapping="Wrap" Text="" Grid.Column="3" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Роль" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Номер телефона" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="Snils" TextWrapping="Wrap" Text="" Grid.Column="1" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Снилс" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+
+                    <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Grid.Column="2" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Профильный уровень" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text=""  Grid.Column="0"
+                             materialDesign:HintAssist.Hint="Адрес проживания" Margin="0,0,10,0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Grid.Column="1"
+                             materialDesign:HintAssist.Hint="Реквизиты" Margin="0,0,10,0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Grid.Column="2"
+                             materialDesign:HintAssist.Hint="Членство в Профсоюзе" Margin="0,0,10,0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    
+                </Grid>
+                <Grid>
+                </Grid>
+               
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

@@ -81,7 +81,10 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <Button Content="Назад" Width="128" Click="Button_Click"/>
+                <Grid>
+                    <Button Content="Назад" Width="128" Click="Button_Click" HorizontalAlignment="Right"/>
+                </Grid>
+                
             </StackPanel>
         </Border>
     </Grid>

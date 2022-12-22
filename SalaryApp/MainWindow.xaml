@@ -19,10 +19,10 @@
         >
             <StackPanel >
                 <Grid>
-                    <TextBox Padding="3" Name="login" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="login" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 </Grid>
                 <Grid>
-                    <PasswordBox Padding="3" Name="password" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                    <PasswordBox Name="password" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
 
                 </Grid>
                 <Grid>

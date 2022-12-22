@@ -25,7 +25,7 @@ namespace SalaryApp
         {
             InitializeComponent();
             this.TableNumTime = TableNumTime;
-            TableNumTimeSheet.Text = TableNumTime;
+            
 
             dataTable = Model.Select($"SELECT * FROM Employee");
 
@@ -57,6 +57,13 @@ namespace SalaryApp
         {
             EmployeeWindow employeewindow = new EmployeeWindow(TableNumTime);
             employeewindow.Show();
+            Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
             Close();
         }
     }

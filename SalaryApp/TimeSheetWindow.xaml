@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Табель учета рабочего времени" Height="600" Width="700" WindowStartupLocation="CenterScreen">
-    <Grid Background="#CDC5C2" >
+        Title="Табель учета рабочего времени" Height="500" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid Background="#ffdadada" >
         <Border 
             MinWidth="400" 
             MaxHeight="650" 
@@ -18,34 +19,32 @@
         >
             <StackPanel>
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
                     <Label 
                         FontSize="18" 
                         FontWeight="Bold" 
                         Content="Табель учета рабочего времени" 
-                        Padding="0" 
-                        Margin="0,0,0,30" 
+                        Padding="0"
+                       
+                        Grid.Column="0"
                     />
-                </Grid>
-                <TextBox IsReadOnly="True" Name="TableNumTimeSheet" TextWrapping="Wrap" Text="" Width="506"/>
-                <Grid>
-                    <Label 
-                        Content="Табельный номер сотрудника" 
-                        Margin="0,5,5,5" 
-                        Padding="0,5,0,0" 
-                    />
-                </Grid>
-                <Grid>
-                    <ComboBox Name="tableNumberCmbBox" Padding="5"/>
+                    <Button Content="Выход"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Width="100" Click="Button_Click_2">
+                        
+                    </Button>
+                  
                 </Grid>
                 <Grid>
-                    <Label 
-                        Content="Дата составления табельного листа" 
-                        Margin="0,5,5,5" 
-                        Padding="0,5,0,0"
-                    />
+                    <ComboBox Name="tableNumberCmbBox" materialDesign:HintAssist.Hint="Табельный номер сотрудника"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
                 </Grid>
+
                 <Grid>
-                    <DatePicker Name="Date" Padding="5" SelectedDateFormat="Short">
+                    <DatePicker Name="Date" SelectedDateFormat="Short" materialDesign:HintAssist.Hint="Дата составления табельного листа" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
                         <DatePicker.Resources>
                             <Style TargetType="DatePickerTextBox">
                                 <Setter Property="Control.Template">
@@ -65,51 +64,50 @@
                     </DatePicker>
                 </Grid>
                 <Grid>
-                    <Label 
-                        Content="Количество отработанных дней" 
-                        Margin="0,5,5,5" 
-                        Padding="0,5,0,0" 
-                    />
-                </Grid>
-                <Grid>
                     <TextBox 
                         Name="numberDaysTextBox" 
                         TextWrapping="Wrap" 
-                        Padding="5"
+                        materialDesign:HintAssist.Hint="Количество отработанных дней" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     />
                 </Grid>
                 <Grid>
-                    <Label 
-                        Content="Количество отработанных ночей" 
-                        Margin="0,5,5,5" 
-                        Padding="0,5,0,0" 
-                    />
+                    <TextBox Name="numberNightTextBox" 
+                             TextWrapping="Wrap"
+                             materialDesign:HintAssist.Hint="Количество отработанных ночей" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 </Grid>
                 <Grid>
-                    <TextBox Name="numberNightTextBox" TextWrapping="Wrap" Padding="5"/>
+                    <TextBox Name="numberRVD" 
+                             TextWrapping="Wrap" 
+                             materialDesign:HintAssist.Hint="Количество отработанных выходных и праздничных дней" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 </Grid>
                 <Grid>
-                    <Label 
-                        Content="Количество отработанных выходных и праздничных дней" 
-                        Margin="0,5,5,5" 
-                        Padding="0,5,0,0" 
-                    />
-                </Grid>
-                <Grid>
-                    <TextBox Name="numberRVD" TextWrapping="Wrap" Padding="5"/>
-                </Grid>
-                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
                     <Button 
-                      
                         Margin="0,10,0,0" 
                         Width="150" 
                         Padding="5" 
                         Content="Добавить" 
                         Click="Button_Click" 
                         HorizontalAlignment="Right"
+                        Grid.Column="1"
+                    />
+                    <Button 
+                        Margin="0,10,0,0" 
+                        Width="150" 
+                        Padding="5" 
+                        Content="Просмотр зп" 
+                        Click="Button_Click_1"
+                        HorizontalAlignment="Left"
+                        Grid.Column="0"
                     />
                 </Grid>
-                <Button Content="Просмотр зп" Width="135" Click="Button_Click_1"/>
+               
             </StackPanel>
         </Border>
     </Grid>
