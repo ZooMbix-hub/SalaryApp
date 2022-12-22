@@ -9,6 +9,7 @@ namespace SalaryApp
         DataTable dataTable;
         DataTable tabnum;
         string tableNumber;
+
         public Аccountant(string tableNumber)
         {
             InitializeComponent();
@@ -74,7 +75,6 @@ namespace SalaryApp
             {
                 MessageBox.Show("Данные введены неверно");
             }
-
         }
 
         public string Check(string value)

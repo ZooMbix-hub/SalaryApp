@@ -76,8 +76,16 @@
                         HorizontalGridLinesBrush="{StaticResource GridLine2}"
                     >
                         <DataGrid.Columns >
-                            <DataGridTextColumn Binding="{Binding Path=NameCompany}" Header="Предприятие" Width="200" />
-                            <DataGridTextColumn Binding="{Binding Path=CountEmployee}" Header="Количество сотрудников" Width="200" />
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=NameCompany}" 
+                                Header="Предприятие" 
+                                Width="200" 
+                            />
+                            <DataGridTextColumn 
+                                Binding="{Binding Path=CountEmployee}" 
+                                Header="Количество сотрудников" 
+                                Width="200" 
+                            />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
