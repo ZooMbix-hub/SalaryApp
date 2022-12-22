@@ -28,61 +28,59 @@
                         FontWeight="Bold" 
                         Content="Табель учета рабочего времени" 
                         Padding="0"
-                       
                         Grid.Column="0"
                     />
-                    <Button Content="Выход"
-                            Grid.Column="1"
-                            HorizontalAlignment="Right"
-                            Width="100" Click="Button_Click_2">
-                        
-                    </Button>
-                  
+                    <Button 
+                        Content="Выход"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Width="100" Click="Button_Click_2"
+                    />
                 </Grid>
-                <Grid>
-                    <ComboBox Name="tableNumberCmbBox" materialDesign:HintAssist.Hint="Табельный номер сотрудника"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                </Grid>
-
-                <Grid>
-                    <DatePicker Name="Date" SelectedDateFormat="Short" materialDesign:HintAssist.Hint="Дата составления табельного листа" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
-                        <DatePicker.Resources>
-                            <Style TargetType="DatePickerTextBox">
-                                <Setter Property="Control.Template">
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <TextBox 
-                                                x:Name="PART_TextBox"
-                                                Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
-                                                RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}"
-                                            />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Setter Property="IsReadOnly" Value="True" />
-                            </Style>
-                        </DatePicker.Resources>
-                    </DatePicker>
-                </Grid>
-                <Grid>
+                
+                <ComboBox 
+                    Name="tableNumberCmbBox" 
+                    materialDesign:HintAssist.Hint="Табельный номер сотрудника" 
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                />
+                <DatePicker Name="Date" SelectedDateFormat="Short" materialDesign:HintAssist.Hint="Дата составления табельного листа" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox 
+                                            x:Name="PART_TextBox"
+                                            Text="{Binding Path=SelectedDate, StringFormat ={}{0:01-MM-yyyy}, 
+                                            RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}"
+                                        />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="IsReadOnly" Value="True" />
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <StackPanel Name="textBoxContainer">
                     <TextBox 
                         Name="numberDaysTextBox" 
                         TextWrapping="Wrap" 
                         materialDesign:HintAssist.Hint="Количество отработанных дней" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     />
+                    <TextBox 
+                        Name="numberNightTextBox" 
+                        TextWrapping="Wrap"
+                        materialDesign:HintAssist.Hint="Количество отработанных ночей" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     />
-                </Grid>
-                <Grid>
-                    <TextBox Name="numberNightTextBox" 
-                             TextWrapping="Wrap"
-                             materialDesign:HintAssist.Hint="Количество отработанных ночей" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                </Grid>
-                <Grid>
-                    <TextBox Name="numberRVD" 
-                             TextWrapping="Wrap" 
-                             materialDesign:HintAssist.Hint="Количество отработанных выходных и праздничных дней" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                </Grid>
+                    <TextBox
+                        Name="numberRVD" 
+                        TextWrapping="Wrap" 
+                        materialDesign:HintAssist.Hint="Количество отработанных выходных и праздничных дней" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -107,7 +105,6 @@
                         Grid.Column="0"
                     />
                 </Grid>
-               
             </StackPanel>
         </Border>
     </Grid>

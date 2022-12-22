@@ -33,9 +33,6 @@ namespace SalaryApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //проверка логина и пароля
-            
-
-
             try
             {
                 dataTable = Model.Select($"EXEC autorization '{login.Text}', '{password.Password}'");
@@ -46,7 +43,6 @@ namespace SalaryApp
             {
                 MessageBox.Show("Неверный логин или пароль");
             }
-            
             
             // разграничение доступа
             switch (role)

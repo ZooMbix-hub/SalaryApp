@@ -17,12 +17,14 @@ namespace SalaryApp
 {
     public partial class AdministratorWindow : Window
     {
-        string TableNumberAdmin;
         DataTable dataTable;
-        public AdministratorWindow(string TableNumberAdmin)
+        string tableNumber;
+
+        public AdministratorWindow(string tableNumber)
         {
             InitializeComponent();
-            this.TableNumberAdmin = TableNumberAdmin;
+
+            this.tableNumber = tableNumber;
             dataTable = Model.Select($"SELECT * FROM RoleUser");
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -31,6 +33,7 @@ namespace SalaryApp
                 
                 Role.Items.Add(roles);
             }
+
             dataTable = Model.Select($"SELECT * FROM Company");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
@@ -38,6 +41,7 @@ namespace SalaryApp
 
                 Company.Items.Add(companies);
             }
+
             dataTable = Model.Select($"SELECT * FROM Post");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
@@ -45,6 +49,7 @@ namespace SalaryApp
 
                 Post.Items.Add(posts);
             }
+
             dataTable = Model.Select($"SELECT * FROM Employee");
             
             int lastStr = Convert.ToInt32(dataTable.Rows.Count - 1);
@@ -52,37 +57,50 @@ namespace SalaryApp
             TableNumberT.Text = Convert.ToString(tabNum + 1);
         }
 
+        /// <summary>
+        /// Изменения сотрудника
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_ClickChange(object sender, RoutedEventArgs e)
         {
-            //изменить сотрудника
-            EditDeleteWindow EditDelete = new EditDeleteWindow(TableNumberAdmin);
+            EditDeleteWindow EditDelete = new EditDeleteWindow(tableNumber);
             EditDelete.Show();
             Close();
-
         }
 
+        /// <summary>
+        /// Выход из приложения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_ClickExit(object sender, RoutedEventArgs e)
         {
-            //выход
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             Close();
-
-            
         }
 
+        /// <summary>
+        /// Просмотр зп
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_ClickView(object sender, RoutedEventArgs e)
         {
-            //просмотр зп
-            EmployeeWindow employeewindow = new EmployeeWindow(TableNumberAdmin);
+            EmployeeWindow employeewindow = new EmployeeWindow(tableNumber);
             employeewindow.Show();
             Close();
         }
 
+        /// <summary>
+        /// Статистика данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_ClickStatic(object sender, RoutedEventArgs e)
         {
-            //статистика
-            StatisticWindow statisticwindow = new StatisticWindow(TableNumberAdmin);
+            StatisticWindow statisticwindow = new StatisticWindow(tableNumber);
             statisticwindow.Show();
             Close();
         }
@@ -102,7 +120,6 @@ namespace SalaryApp
                     union = "0";
                 }
 
-
                 Model.Select($"EXEC employeeEntry '{Convert.ToInt32(TableNumberT.Text)}', '{FullName.Text}', '{Convert.ToInt32(WorkExperience.Text)}', '{Convert.ToInt32(ProfLevel.Text)}', '{union}', " +
                     $"'{Company.Text}', '{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}', '{Role.Text}', '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}'" +
                     $", '{INN.Text}', '{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}'");
@@ -112,8 +129,6 @@ namespace SalaryApp
             {
                 MessageBox.Show("Данные введены неверно");
             }
-              
-           
         }
     }
 }

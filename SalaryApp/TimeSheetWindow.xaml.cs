@@ -16,24 +16,23 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    
     public partial class Window1 : Window
     {
         DataTable dataTable;
-        string TableNumTime;
-        public Window1(string TableNumTime)
+        string tableNumber;
+
+        public Window1(string tableNumber)
         {
             InitializeComponent();
-            this.TableNumTime = TableNumTime;
-            
+
+            this.tableNumber = tableNumber;
 
             dataTable = Model.Select($"SELECT * FROM Employee");
-
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                string tableNumber = Convert.ToString(dataTable.Rows[i][0]);
+                string tableNumberData = Convert.ToString(dataTable.Rows[i][0]);
                 string name = Convert.ToString(dataTable.Rows[i][1]);
-                string result = $"{tableNumber} {name}";
+                string result = $"{tableNumberData} {name}";
                 tableNumberCmbBox.Items.Add(result);
             }
         }
@@ -41,6 +40,7 @@ namespace SalaryApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string date = "";
+
             try
             {
                 string[] words = Date.Text.ToString().Split(new char[] { '.' });
@@ -50,6 +50,7 @@ namespace SalaryApp
             {
                 MessageBox.Show("Введите дату");
             }
+
             try
             {
                 string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
@@ -60,12 +61,11 @@ namespace SalaryApp
             {
                 MessageBox.Show("Данные введены неверно");
             }
-            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            EmployeeWindow employeewindow = new EmployeeWindow(TableNumTime);
+            EmployeeWindow employeewindow = new EmployeeWindow(tableNumber);
             employeewindow.Show();
             Close();
         }
