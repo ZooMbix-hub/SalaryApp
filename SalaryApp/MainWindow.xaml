@@ -25,11 +25,11 @@
                     <PasswordBox Name="password" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
 
                 </Grid>
-                <Grid>
+                <Grid Cursor="">
                     <Button 
                         Width="80" 
                         HorizontalAlignment="Right"  
-                        Content="SIGN UP" 
+                        Content="Войти" 
                         Click="Button_Click" 
                         Margin="0,20,0,0" 
                         Padding="5"
