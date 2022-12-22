@@ -25,13 +25,10 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                  
-                    
                     <Button Content="Изменить сотрудника" Click="Button_ClickChange" Margin="0,0,10,0" Grid.Column="0"/>
                     <Button Content="Просмотр зп" Margin="0,0,10,0"  Click="Button_ClickView" Grid.Column="1"/>
                     <Button Content="Статистика" Margin="0,0,10,0" Grid.Column="2"  Click="Button_ClickStatic"/>
                     <Button Content="Выход"  Margin="0,0,10,0" Grid.Column="3" Click="Button_ClickExit"/>
-
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -53,8 +50,6 @@
                     <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Grid.Column="3"
                              materialDesign:HintAssist.Hint="Логин" Margin="0,0,10,0"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
-
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -63,21 +58,18 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-
                     <TextBox Name="FullName" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="ФИО" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <TextBox Name="PassportData" TextWrapping="Wrap" Text=""  Grid.Column="1" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Паспортные данные" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
                     <ComboBox Name="Post" Grid.Column="2" Margin="0,0,10,0"
                               materialDesign:HintAssist.Hint="Должность" 
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
                     <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Grid.Column="3" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Пароль" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -92,15 +84,12 @@
                     <TextBox Name="INN" TextWrapping="Wrap" Text="" Grid.Column="1" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="ИНН" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
                     <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Grid.Column="2" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Опыт работы" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <ComboBox Name="Role" Text="" Grid.Column="3" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Роль" 
                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-
-
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -115,12 +104,9 @@
                     <TextBox Name="Snils" TextWrapping="Wrap" Text="" Grid.Column="1" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Снилс" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
-
                     <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Grid.Column="2" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Профильный уровень" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -142,19 +128,11 @@
                         <ComboBoxItem Content="Да"/>
                         <ComboBoxItem Content="Нет"/>
                     </ComboBox>
-
                 </Grid>
                 <Grid>
                     <Button Content="Добавить сотрудника" Margin="0,10,0,0" HorizontalAlignment="Right" Click="Button_ClickAdd" />
-                    
-                   
                 </Grid>
-                
-             
             </StackPanel>
         </Border>
     </Grid>
-    
-        
-   
 </Window>

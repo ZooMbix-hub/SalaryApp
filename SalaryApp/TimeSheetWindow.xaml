@@ -43,7 +43,12 @@
                     materialDesign:HintAssist.Hint="Табельный номер сотрудника" 
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                 />
-                <DatePicker Name="Date" SelectedDateFormat="Short" materialDesign:HintAssist.Hint="Дата составления табельного листа" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
+                <DatePicker 
+                    Name="Date" 
+                    SelectedDateFormat="Short" 
+                    materialDesign:HintAssist.Hint="Дата составления табельного листа" 
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                >
                     <DatePicker.Resources>
                         <Style TargetType="DatePickerTextBox">
                             <Setter Property="Control.Template">
