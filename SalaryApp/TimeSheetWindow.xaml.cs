@@ -40,10 +40,20 @@ namespace SalaryApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string date = "";
+            try
+            {
+                string[] words = Date.Text.ToString().Split(new char[] { '.' });
+                date = string.Join(".", "01", words[1], words[2]);
+            }
+            catch
+            {
+                MessageBox.Show("Введите дату");
+            }
             try
             {
                 string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
-                Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{Date.Text}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
+                Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{date}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch

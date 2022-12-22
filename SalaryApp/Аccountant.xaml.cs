@@ -15,7 +15,7 @@ namespace SalaryApp
 
             
             this.tableNumberAccount = tableNumberAccount;
-            YourTabNum.Text = tableNumberAccount;
+           
 
 
             // вывод данных в comboBox
@@ -49,6 +49,16 @@ namespace SalaryApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string date = "";
+            try
+            {
+                string[] words = datePicker.Text.ToString().Split(new char[] { '.' });
+                date = string.Join(".", "01", words[1], words[2]);
+            }
+            catch
+            {
+                MessageBox.Show("Введите дату");
+            }
             try
             {
                 int tableNumber = Convert.ToInt32(tableNumberCmbBox.Text.Split(' ')[0]);
@@ -58,7 +68,7 @@ namespace SalaryApp
                 string startDateM = StartDateM.Text;
                 string endDateM = EndDateM.Text;
 
-                Model.Select($"EXEC payment_entry '{tableNumber}', '{datePicker.Text}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
+                Model.Select($"EXEC payment_entry '{tableNumber}', '{date}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch
