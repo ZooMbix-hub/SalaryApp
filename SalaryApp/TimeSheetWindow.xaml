@@ -26,7 +26,7 @@
                         Margin="0,0,0,30" 
                     />
                 </Grid>
-                <TextBox Name="TableNumTimeSheet" TextWrapping="Wrap" Text="" Width="506"/>
+                <TextBox IsReadOnly="True" Name="TableNumTimeSheet" TextWrapping="Wrap" Text="" Width="506"/>
                 <Grid>
                     <Label 
                         Content="Табельный номер сотрудника" 

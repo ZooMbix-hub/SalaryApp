@@ -26,7 +26,7 @@
                         Padding="0,5,0,0"
                     />
                 </Grid>
-                <TextBox Name="YourTabNum" TextWrapping="Wrap" Text="" Width="600" Height="28"/>
+                <TextBox IsReadOnly="True" Name="YourTabNum" TextWrapping="Wrap" Text="" Width="600" Height="28"/>
                 <Grid>
                     <Label 
                         Content="Сотрудник"

@@ -19,7 +19,7 @@ namespace SalaryApp
     public partial class StatisticWindow : Window
     {
         DataTable dataTable;
-
+        string TableNumberAdmin;
         public class DataObject
         {
             public string NameCompany { get; set; }
@@ -30,10 +30,10 @@ namespace SalaryApp
 
         }
 
-        public StatisticWindow()
+        public StatisticWindow(string TableNumberAdmin)
         {
             InitializeComponent();
-
+            this.TableNumberAdmin = TableNumberAdmin;
             dataTable = Model.Select($"SELECT * FROM salaryAVG()");
             var list = new ObservableCollection<DataObject>();
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -50,6 +50,13 @@ namespace SalaryApp
                 list2.Add(new DataObject() { NameCompany = Convert.ToString(dataTable.Rows[i][0]), CountEmployee = Convert.ToString(dataTable.Rows[i][1]) });
             }
             this.dataGrid2.ItemsSource = list2;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AdministratorWindow adminwindow = new AdministratorWindow(TableNumberAdmin);
+            adminwindow.Show();
+            Close();
         }
     }
 }

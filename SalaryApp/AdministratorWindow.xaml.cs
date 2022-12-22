@@ -47,5 +47,12 @@ namespace SalaryApp
             employeewindow.Show();
             Close();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            StatisticWindow statisticwindow = new StatisticWindow(TableNumberAdmin);
+            statisticwindow.Show();
+            Close();
+        }
     }
 }
