@@ -20,6 +20,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -33,7 +34,7 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
+                    <Grid Grid.Column="0" >
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
@@ -46,18 +47,25 @@
                             <ColumnDefinition MaxWidth="300" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Grid.Row="0" Content="Табельный номер" />
-                        <Label Grid.Column="1" Grid.Row="0" Name="tableNumberLbl" />
+                        <Label Grid.Column="1" Grid.Row="0" Name="tableNumberLbl" FontWeight="Bold" />
                         <Label Grid.Column="0" Grid.Row="1" Content="ФИО" />
-                        <Label Grid.Column="1" Grid.Row="1" Name="nameLbl" />
+                        <Label Grid.Column="1" Grid.Row="1" Name="nameLbl" FontWeight="Bold" />
                         <Label Grid.Column="0" Grid.Row="2" Content="Должность" />
-                        <Label Grid.Column="1" Grid.Row="2" Name="postLbl" />
+                        <Label Grid.Column="1" Grid.Row="2" Name="postLbl" FontWeight="Bold" />
                         <Label Grid.Column="0" Grid.Row="3" Content="Подразделение" />
-                        <Label Grid.Column="1" Grid.Row="3" Name="divisionLbl" />
+                        <Label Grid.Column="1" Grid.Row="3" Name="divisionLbl" FontWeight="Bold" />
                         <Label Grid.Column="0" Grid.Row="4" Content="Предприятие" />
-                        <Label Grid.Column="1" Grid.Row="5" Name="companynLbl" />
+                        <Label Grid.Column="1" Grid.Row="5" Name="companynLbl" FontWeight="Bold" />
                     </Grid>
-                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <DatePicker Width="100" Name="datePicker"  BorderThickness="0">
+                    <Grid Grid.Column="1" Margin="50 0 0 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <DatePicker Grid.Column="0" Name="datePicker"  BorderThickness="0">
                             <DatePicker.Resources>
                                 <Style TargetType="DatePickerTextBox">
                                     <Setter Property="Control.Template">
@@ -75,12 +83,13 @@
                                 </Style>
                             </DatePicker.Resources>
                         </DatePicker>
-                        <Button Content="расчет" Click="Button_Click"/>
-                    </StackPanel>
+                        <Button Grid.Column="1" Content="Расчет" Click="Button_Click" HorizontalAlignment="Right"/>
+                    </Grid>
                 </Grid>
-
+                
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
+                        <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
@@ -126,7 +135,8 @@
                     <Label Grid.Column="0" Grid.Row="12" Content="Выплачено" />
                     <Label Grid.Column="1" Grid.Row="12" Name="paidLbl" />
                 </Grid>
-                <Button Content="Выход" Margin="522,232,10,52" Grid.Row="1" Click="Button_Click_1"/>
+
+                <Button Grid.Row="3" Content="Выход" Click="Button_Click_1" HorizontalAlignment="Right"/>
             </Grid>
         </Border>
     </Grid>
