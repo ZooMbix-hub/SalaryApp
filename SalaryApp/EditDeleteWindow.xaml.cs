@@ -27,10 +27,11 @@ namespace SalaryApp
         DataTable dataTablePost;
         DataTable dataTableDelet;
         DataTable dataTableEdit;
-
-        public EditDeleteWindow()
+        string TableNumberAdmin;
+        public EditDeleteWindow(string TableNumberAdmin)
         {
             InitializeComponent();
+            this.TableNumberAdmin = TableNumberAdmin;
 
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -95,16 +96,23 @@ namespace SalaryApp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            dataTableEdit = Model.Select($"EXEC Edit '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}', '{INN.Text}', " +
-                $"'{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}', '{TableNumberT.Text}', '{FullName.Text}'," +
-                $"'{WorkExperience.Text}', '{ProfLevel.Text}', '{IsUnion.Text}', '{Company.Text}'," +
-                $"'{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}'");
-            MessageBox.Show("Сотрудник изменен");
+            try
+            {
+                dataTableEdit = Model.Select($"EXEC Edit '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}', '{INN.Text}', " +
+                    $"'{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}', '{TableNumberT.Text}', '{FullName.Text}'," +
+                    $"'{WorkExperience.Text}', '{ProfLevel.Text}', '{IsUnion.Text}', '{Company.Text}'," +
+                    $"'{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}'");
+                MessageBox.Show("Сотрудник изменен");
+            }
+            catch 
+            {
+                MessageBox.Show("Данные введены не коректно");
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            AdministratorWindow adminwindow = new AdministratorWindow();
+            AdministratorWindow adminwindow = new AdministratorWindow(TableNumberAdmin);
             adminwindow.Show();
             Close();
         }

@@ -26,16 +26,20 @@
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="400"/>
                     </Grid.ColumnDefinitions>
-                    <Label FontSize="15" 
+                    <Label 
+                        FontSize="15" 
                         FontWeight="Bold" 
                         Content="Средняя заработная плата сотрудников" 
                         Padding="0" 
-                        Margin="0,0,0,30" Grid.Column="0"></Label>
-                    <Label FontSize="15" 
+                        Margin="0,0,0,30" Grid.Column="0" 
+                    />
+                    <Label 
+                        FontSize="15" 
                         FontWeight="Bold" 
                         Content="Количество сотрудников на предприятиях" 
                         Padding="0" 
-                        Margin="0,0,0,30" Grid.Column="2"></Label>
+                        Margin="0,0,0,30" Grid.Column="2" 
+                    />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -43,39 +47,41 @@
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="400"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid AutoGenerateColumns="False" 
-                              Height="500" 
-                              HorizontalAlignment="Left" 
-                              Name="dataGrid1" 
-                              VerticalAlignment="Top" 
-                              Width="700"
-                              Grid.Column="0"
-                              VerticalGridLinesBrush="{StaticResource GridLine1}"
-                              HorizontalGridLinesBrush="{StaticResource GridLine2}">
+                    <DataGrid 
+                        AutoGenerateColumns="False" 
+                        Height="500" 
+                        HorizontalAlignment="Left" 
+                        Name="dataGrid1" 
+                        VerticalAlignment="Top" 
+                        Width="700"
+                        Grid.Column="0"
+                        VerticalGridLinesBrush="{StaticResource GridLine1}"
+                        HorizontalGridLinesBrush="{StaticResource GridLine2}"
+                    >
                         <DataGrid.Columns >
                             <DataGridTextColumn Binding="{Binding Path=NameEmployee}" Header="Сотрудник" Width="250" />
                             <DataGridTextColumn Binding="{Binding Path=Post}" Header="Должность" Width="250" />
                             <DataGridTextColumn Binding="{Binding Path=SalaryAVG}" Header="Средняя зарплата" Width="200" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid AutoGenerateColumns="False" 
-                              Height="500" 
-                              HorizontalAlignment="Left" 
-                              Name="dataGrid2" 
-                              VerticalAlignment="Top" 
-                              Width="400"
-                              Grid.Column="2"
-                              VerticalGridLinesBrush="{StaticResource GridLine1}"
-                              HorizontalGridLinesBrush="{StaticResource GridLine2}">
+                    <DataGrid 
+                        AutoGenerateColumns="False" 
+                        Height="500" 
+                        HorizontalAlignment="Left" 
+                        Name="dataGrid2" 
+                        VerticalAlignment="Top" 
+                        Width="400"
+                        Grid.Column="2"
+                        VerticalGridLinesBrush="{StaticResource GridLine1}"
+                        HorizontalGridLinesBrush="{StaticResource GridLine2}"
+                    >
                         <DataGrid.Columns >
                             <DataGridTextColumn Binding="{Binding Path=NameCompany}" Header="Предприятие" Width="200" />
                             <DataGridTextColumn Binding="{Binding Path=CountEmployee}" Header="Количество сотрудников" Width="200" />
                         </DataGrid.Columns>
                     </DataGrid>
-
                 </Grid>
-                
-               
+                <Button Content="Назад" Width="128" Click="Button_Click"/>
             </StackPanel>
         </Border>
     </Grid>

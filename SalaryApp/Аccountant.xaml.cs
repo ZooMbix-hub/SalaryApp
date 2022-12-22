@@ -8,16 +8,15 @@ namespace SalaryApp
     {
         DataTable dataTable;
         DataTable tabnum;
-
-        public Аccountant(string LoginEmployee, string PaswordEmployee)
+        string tableNumberAccount;
+        public Аccountant(string tableNumberAccount)
         {
             InitializeComponent();
 
-            string log = LoginEmployee;
-            string pas = PaswordEmployee;
+            
+            this.tableNumberAccount = tableNumberAccount;
+            YourTabNum.Text = tableNumberAccount;
 
-            tabnum = Model.Select($"Select Employee.TableNumber FROM UserData, Employee WHERE UserData.Id = Employee.FK_UserData AND UserData.LoginUser ='{log}' AND UserData.PasswordUser ='{pas}'");
-            YourTabNum.Text = Convert.ToString(tabnum.Rows[0][0]);
 
             // вывод данных в comboBox
             dataTable = Model.Select($"SELECT * FROM Employee");
@@ -46,8 +45,8 @@ namespace SalaryApp
             }
 
             tabnum = Model.Select($"SELECT * FROM TypeОfAllowances");
-
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -86,8 +85,8 @@ namespace SalaryApp
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            string tabnumaccountant = YourTabNum.Text;
-            EmployeeWindow employeewindow = new EmployeeWindow(tabnumaccountant);
+            
+            EmployeeWindow employeewindow = new EmployeeWindow(tableNumberAccount);
             employeewindow.Show();
             Close();
         }

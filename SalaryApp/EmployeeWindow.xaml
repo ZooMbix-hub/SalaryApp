@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
-        Title="Сотрудник" Height="600" Width="800">
-    <Grid Background="#CDC5C2">
+        Title="Сотрудник" Height="692" Width="810">
+    <Grid Background="#ffdadada">
         <Border 
             MinWidth="400" 
             MaxHeight="650" 
-            Margin="50" 
+            Margin="50,0,50,0" 
             Background="White" 
             VerticalAlignment="Center" 
             Padding="45,20,45,20" 
-            CornerRadius="20"
+            CornerRadius="20" Height="534"
         >
             <Grid>
                 <Grid.RowDefinitions>
@@ -25,7 +25,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Grid Margin="0 0 0 50">
+                <Grid Margin="0 0 0 10">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
@@ -75,12 +75,13 @@
                                 </Style>
                             </DatePicker.Resources>
                         </DatePicker>
-                        <Button Content="расчет" Click="Button_Click" />
+                        <Button Content="расчет" Click="Button_Click"/>
                     </StackPanel>
                 </Grid>
 
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
+                        <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
@@ -114,14 +115,16 @@
                     <Label Grid.Column="1" Grid.Row="6" Name="nameAllowanceLbl" />
                     <Label Grid.Column="0" Grid.Row="7" Content="Надбавка" />
                     <Label Grid.Column="1" Grid.Row="7" Name="allowanceLbl" />
-                    <Label Grid.Column="0" Grid.Row="8" Content="Премия" />
-                    <Label Grid.Column="1" Grid.Row="8" Name="prizeLbl" />
-                    <Label Grid.Column="0" Grid.Row="9" Content="Начислено" />
-                    <Label Grid.Column="1" Grid.Row="9" Name="accruedLbl" />
-                    <Label Grid.Column="0" Grid.Row="10" Content="Удержано" />
-                    <Label Grid.Column="1" Grid.Row="10" Name="withheldLbl" />
-                    <Label Grid.Column="0" Grid.Row="11" Content="Выплачено" />
-                    <Label Grid.Column="1" Grid.Row="11" Name="paidLbl" />
+                    <Label Grid.Column="0" Grid.Row="8" Content="Название премии" />
+                    <Label Grid.Column="1" Grid.Row="8" Name="namePrizeLbl" />
+                    <Label Grid.Column="0" Grid.Row="9" Content="Премия" />
+                    <Label Grid.Column="1" Grid.Row="9" Name="prizeLbl" />
+                    <Label Grid.Column="0" Grid.Row="10" Content="Начислено" />
+                    <Label Grid.Column="1" Grid.Row="10" Name="accruedLbl" />
+                    <Label Grid.Column="0" Grid.Row="11" Content="Удержано" />
+                    <Label Grid.Column="1" Grid.Row="11" Name="withheldLbl" />
+                    <Label Grid.Column="0" Grid.Row="12" Content="Выплачено" />
+                    <Label Grid.Column="1" Grid.Row="12" Name="paidLbl" />
                 </Grid>
                 <Button Content="Выход" Margin="522,232,10,52" Grid.Row="1" Click="Button_Click_1"/>
             </Grid>

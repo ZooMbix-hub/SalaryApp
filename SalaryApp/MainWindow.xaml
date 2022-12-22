@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Авторизация" Height="400" Width="500" WindowStartupLocation="CenterScreen">
-    <Grid Background="#CDC5C2" >
+    <Grid Background="#ffdadada" >
         <Border 
             MinWidth="300" 
             Margin="15" 
@@ -18,20 +19,14 @@
         >
             <StackPanel >
                 <Grid>
-                    <Label Content="LOGIN" Margin="0,5,5,5" Padding="0,5,0,0" />
+                    <TextBox Padding="3" Name="login" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 </Grid>
                 <Grid>
-                    <TextBox Name="login" TextWrapping="Wrap" Padding="3"/>
-                </Grid>
-                <Grid>
-                    <Label Content="PASSWORD" Margin="0,5,5,5" Padding="0,5,0,0" />
-                </Grid>
-                <Grid>
-                    <PasswordBox Name="password" Padding="3"/>
+                    <PasswordBox Padding="3" Name="password" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+
                 </Grid>
                 <Grid>
                     <Button 
-                        Background="#CDC5C2" 
                         Width="80" 
                         HorizontalAlignment="Right"  
                         Content="SIGN UP" 

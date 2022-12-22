@@ -16,14 +16,17 @@ namespace SalaryApp
 {
     public partial class AdministratorWindow : Window
     {
-        public AdministratorWindow()
+        string TableNumberAdmin;
+        public AdministratorWindow(string TableNumberAdmin)
         {
             InitializeComponent();
+            this.TableNumberAdmin = TableNumberAdmin;
+            TableNumAdmin.Text = TableNumberAdmin;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EditDeleteWindow EditDelete = new EditDeleteWindow();
+            EditDeleteWindow EditDelete = new EditDeleteWindow(TableNumberAdmin);
             EditDelete.Show();
             Close();
 
@@ -36,6 +39,20 @@ namespace SalaryApp
             Close();
 
             
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            EmployeeWindow employeewindow = new EmployeeWindow(TableNumberAdmin);
+            employeewindow.Show();
+            Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            StatisticWindow statisticwindow = new StatisticWindow(TableNumberAdmin);
+            statisticwindow.Show();
+            Close();
         }
     }
 }

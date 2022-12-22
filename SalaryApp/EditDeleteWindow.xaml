@@ -22,7 +22,7 @@
         <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Margin="200,164,50,248" Grid.Column="3"/>
         <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Margin="200,219,50,193" Grid.Column="3"/>
         <TextBox Name="Snils" TextWrapping="Wrap" Text="" Margin="200,269,50,143" Grid.Column="3"/>
-        <TextBox Name="TableNumberT" TextWrapping="Wrap" Margin="46,162,205,250" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" Name="TableNumberT" TextWrapping="Wrap" Margin="46,162,205,250" Grid.Column="1"/>
         <TextBox Name="FullName" TextWrapping="Wrap" Text="" Margin="46,214,205,198" Grid.Column="1"/>
         <Label Content="Дата рождения" Margin="36,140,228,270" Grid.Column="3"/>
         <Label Content="Адрес" Margin="36,195,228,215" Grid.Column="3"/>

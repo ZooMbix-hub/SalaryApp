@@ -33,6 +33,9 @@ namespace SalaryApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //проверка логина и пароля
+            
+
+
             try
             {
                 dataTable = Model.Select($"EXEC autorization '{login.Text}', '{password.Password}'");
@@ -43,14 +46,13 @@ namespace SalaryApp
             {
                 MessageBox.Show("Неверный логин или пароль");
             }
-            string LoginEmployee = login.Text;
-            string PaswordEmployee = password.Password;
+            
             
             // разграничение доступа
             switch (role)
             {
                 case "Ответственный за табель":
-                    Window1 TimeSheetWindow = new Window1(); //поменять название
+                    Window1 TimeSheetWindow = new Window1(tableNumber); //поменять название
                     TimeSheetWindow.Show();
                     Close();
                     break;
@@ -60,12 +62,12 @@ namespace SalaryApp
                     Close();
                     break;
                 case "Бухгалер":
-                    Аccountant Аccount = new Аccountant(LoginEmployee, PaswordEmployee);
+                    Аccountant Аccount = new Аccountant(tableNumber);  //поменять название
                     Аccount.Show();
                     Close();
                     break;
                 case "Администратор":
-                    AdministratorWindow Administrator = new AdministratorWindow();
+                    AdministratorWindow Administrator = new AdministratorWindow(tableNumber);
                     Administrator.Show();
                     Close();
                     break;

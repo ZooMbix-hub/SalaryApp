@@ -7,42 +7,45 @@
         mc:Ignorable="d"
         Title="Администратор" Height="450" Width="800">
     <Grid>
-        <Button Content="Добавить сотрудника" Margin="50,29,613,370"/>
-        <Button Content="Изменить\Удалить сотрудника" Margin="251,29,363,370" Click="Button_Click"/>
-        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Width="120" Margin="430,126,250,286"/>
-        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Width="120" Margin="430,181,250,231"/>
-        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Width="120" Margin="430,231,250,181"/>
-        <TextBox Name="Education" TextWrapping="Wrap" Text="" Width="120" Margin="430,283,250,129"/>
-        <TextBox Name="INN" TextWrapping="Wrap" Text="" Width="120" Margin="430,335,250,77"/>
-        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Width="120" Margin="594,126,86,286"/>
-        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Width="120" Margin="594,181,86,231"/>
-        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Width="120" Margin="594,231,86,181"/>
-        <TextBox Name="TableNumberT" TextWrapping="Wrap" Text="" Width="120" Margin="50,123,630,289"/>
-        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Width="120" Margin="50,175,630,237"/>
-        <Label Content="Дата рождения" Margin="430,102,264,308"/>
-        <Label Content="Адрес" Margin="430,157,264,253"/>
-        <Label Content="Телефон" Margin="430,207,264,203"/>
-        <Label Content="Образование" Margin="430,259,264,151"/>
-        <Label Content="ИНН" Margin="430,311,264,99"/>
-        <Label Content="Паспортные данные" Margin="594,102,100,308"/>
-        <Label Content="Реквизиты" Margin="594,157,100,253"/>
-        <Label Content="Снилс" Margin="594,208,100,202"/>
-        <Label Content="Табельный номер" Margin="50,99,644,311"/>
-        <Label Content="ФИО" Margin="50,151,644,259"/>
-        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Width="120" Margin="50,226,630,186"/>
-        <Label Content="Стаж работы" Margin="50,202,644,208"/>
-        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Width="120" Margin="50,277,630,135"/>
-        <Label Content="Проф уровень" Margin="50,253,644,157"/>
-        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Width="120" Margin="50,328,630,84"/>
-        <Label Content="Членство в профсоюзе" Margin="50,304,644,106"/>
-        <Label Content="Предприятие" Margin="225,99,469,311"/>
-        <ComboBox Name="Company" Margin="225,123,429,289"/>
-        <Label Content="Должность" Margin="225,151,469,259"/>
-        <ComboBox Name="Post" Margin="225,175,429,237"/>
-        <TextBox TextWrapping="Wrap" Text="" Width="120" Margin="594,282,86,130"/>
-        <Label Content="Логин" Margin="594,259,100,151"/>
-        <TextBox TextWrapping="Wrap" Text="" Width="120" Margin="594,334,86,78"/>
-        <Label Content="Пароль" Margin="594,311,100,99"/>
+        <Button Content="Добавить сотрудника" Margin="234,26,429,376"/>
+        <Button Content="Изменить\Удалить сотрудника" Margin="390,26,224,376" Click="Button_Click"/>
+        <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Width="120" Margin="434,172,246,240"/>
+        <TextBox Name="AddressEmployee" TextWrapping="Wrap" Text="" Width="120" Margin="434,227,246,185"/>
+        <TextBox Name="Telephone" TextWrapping="Wrap" Text="" Width="120" Margin="434,277,246,135"/>
+        <TextBox Name="Education" TextWrapping="Wrap" Text="" Width="120" Margin="434,329,246,83"/>
+        <TextBox Name="INN" TextWrapping="Wrap" Text="" Width="120" Margin="434,381,246,31"/>
+        <TextBox Name="PassportData" TextWrapping="Wrap" Text="" Width="120" Margin="598,172,82,240"/>
+        <TextBox Name="Requisites" TextWrapping="Wrap" Text="" Width="120" Margin="598,227,82,185"/>
+        <TextBox Name="Snils" TextWrapping="Wrap" Text="" Width="120" Margin="598,277,82,135"/>
+        <TextBox Name="TableNumberT" TextWrapping="Wrap" Text="" Width="120" Margin="54,169,626,243"/>
+        <TextBox Name="FullName" TextWrapping="Wrap" Text="" Width="120" Margin="54,221,626,191"/>
+        <Label Content="Дата рождения" Margin="434,148,260,262"/>
+        <Label Content="Адрес" Margin="434,203,260,207"/>
+        <Label Content="Телефон" Margin="434,253,260,157"/>
+        <Label Content="Образование" Margin="434,305,260,105"/>
+        <Label Content="ИНН" Margin="434,357,260,53"/>
+        <Label Content="Паспортные данные" Margin="598,148,96,262"/>
+        <Label Content="Реквизиты" Margin="598,203,96,207"/>
+        <Label Content="Снилс" Margin="598,254,96,156"/>
+        <Label Content="Табельный номер" Margin="54,145,640,265"/>
+        <Label Content="ФИО" Margin="54,197,640,213"/>
+        <TextBox Name="WorkExperience" TextWrapping="Wrap" Text="" Width="120" Margin="54,272,626,140"/>
+        <Label Content="Стаж работы" Margin="54,248,640,162"/>
+        <TextBox Name="ProfLevel" TextWrapping="Wrap" Text="" Width="120" Margin="54,323,626,89"/>
+        <Label Content="Проф уровень" Margin="54,299,640,111"/>
+        <TextBox Name="IsUnion" TextWrapping="Wrap" Text="" Width="120" Margin="54,374,626,38"/>
+        <Label Content="Членство в профсоюзе" Margin="54,350,640,60"/>
+        <Label Content="Предприятие" Margin="229,145,465,265"/>
+        <ComboBox Name="Company" Margin="229,169,425,0" VerticalAlignment="Top"/>
+        <Label Content="Должность" Margin="229,197,465,213"/>
+        <ComboBox Name="Post" Margin="229,221,425,0" VerticalAlignment="Top"/>
+        <TextBox TextWrapping="Wrap" Text="" Width="120" Margin="598,328,82,84"/>
+        <Label Content="Логин" Margin="598,305,96,105"/>
+        <TextBox TextWrapping="Wrap" Text="" Width="120" Margin="598,380,82,32"/>
+        <Label Content="Пароль" Margin="598,357,96,53"/>
         <Button Content="Выход" Margin="658,0,10,405" Click="Button_Click_1"/>
+        <Button Content="Просмотр зп" Margin="658,32,10,370" Click="Button_Click_2"/>
+        <TextBox Name="TableNumAdmin" TextWrapping="Wrap" Text="" Margin="36,19,630,386"/>
+        <Button Content="Статистика" Margin="658,69,5,333" Click="Button_Click_3"/>
     </Grid>
 </Window>
