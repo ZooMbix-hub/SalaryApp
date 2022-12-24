@@ -45,7 +45,7 @@ namespace SalaryApp
             tabnum = Model.Select($"SELECT * FROM TypeОfAllowances");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
         {
             string date = "";
 
@@ -69,6 +69,9 @@ namespace SalaryApp
                 string endDateM = EndDateM.Text;
 
                 Model.Select($"EXEC payment_entry '{tableNumber}', '{date}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
+                
+                ClearFields();
+                
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch
@@ -85,18 +88,30 @@ namespace SalaryApp
                 return $"'{value}'";
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Exit(object sender, RoutedEventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Viewing(object sender, RoutedEventArgs e)
         {
             EmployeeWindow employeewindow = new EmployeeWindow(tableNumber);
             employeewindow.Show();
             Close();
+        }
+
+        private void ClearFields()
+        {
+            tableNumberCmbBox.Text = "";
+            datePicker.Text = "";
+            StartDateV.Text = "";
+            EndDateV.Text = "";
+            StartDateM.Text = "";
+            EndDateM.Text = "";
+            AwardCmbBox.Text = "";
+            AllowanceCmbBox.Text = "";
         }
     }
 }

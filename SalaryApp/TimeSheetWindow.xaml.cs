@@ -37,13 +37,13 @@ namespace SalaryApp
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
         {
             string date = "";
 
             try
             {
-                string[] words = Date.Text.ToString().Split(new char[] { '.' });
+                string[] words = datePicker.Text.ToString().Split(new char[] { '.' });
                 date = string.Join(".", "01", words[1], words[2]);
             }
             catch
@@ -55,6 +55,7 @@ namespace SalaryApp
             {
                 string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
                 Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{date}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
+                ClearFields();
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch
@@ -63,18 +64,27 @@ namespace SalaryApp
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Viewing(object sender, RoutedEventArgs e)
         {
             EmployeeWindow employeewindow = new EmployeeWindow(tableNumber);
             employeewindow.Show();
             Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Exit(object sender, RoutedEventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             Close();
+        }
+
+        private void ClearFields()
+        {
+            tableNumberCmbBox.Text = "";
+            datePicker.Text = "";
+            numberDaysTextBox.Text = "";
+            numberNightTextBox.Text = "";
+            numberRVD.Text = "";
         }
     }
 }

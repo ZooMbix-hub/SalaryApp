@@ -34,7 +34,7 @@
                         Content="Выход"
                         Grid.Column="1"
                         HorizontalAlignment="Right"
-                        Width="100" Click="Button_Click_2"
+                        Width="100" Click="Exit"
                     />
                 </Grid>
                 
@@ -44,7 +44,7 @@
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                 />
                 <DatePicker 
-                    Name="Date" 
+                    Name="datePicker" 
                     SelectedDateFormat="Short" 
                     materialDesign:HintAssist.Hint="Дата составления табельного листа" 
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
@@ -96,7 +96,7 @@
                         Width="150" 
                         Padding="5" 
                         Content="Добавить" 
-                        Click="Button_Click" 
+                        Click="Add" 
                         HorizontalAlignment="Right"
                         Grid.Column="1"
                     />
@@ -105,7 +105,7 @@
                         Width="150" 
                         Padding="5" 
                         Content="Просмотр зп" 
-                        Click="Button_Click_1"
+                        Click="Viewing"
                         HorizontalAlignment="Left"
                         Grid.Column="0"
                     />
