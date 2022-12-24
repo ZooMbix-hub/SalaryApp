@@ -54,8 +54,14 @@ namespace SalaryApp
             try
             {
                 string tableNumber = tableNumberCmbBox.Text.Split(' ')[0];
+
+                if (CheckRow(tableNumber, date) == true)
+                    return;
+
                 Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{date}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
+               
                 ClearFields();
+                
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch
@@ -76,6 +82,27 @@ namespace SalaryApp
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
             Close();
+        }
+
+        private bool CheckRow(string tableNumber, string date)
+        {
+            DataTable existTable = Model.Select($"SELECT * FROM TimeSheet WHERE FK_TableNumber = '{tableNumber}' AND DateTimeSheet = '{date}'");
+            
+            try
+            {
+                if (existTable.Rows[0] != null)
+                {
+                    MessageBox.Show("Данные уже существуют");
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void ClearFields()
