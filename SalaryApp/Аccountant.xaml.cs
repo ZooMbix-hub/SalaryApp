@@ -63,6 +63,9 @@ namespace SalaryApp
             {
                 int tableNumber = Convert.ToInt32(tableNumberCmbBox.Text.Split(' ')[0]);
 
+                if (CheckRow(tableNumber.ToString(), date) == true)
+                    return;
+
                 string startDateV = StartDateV.Text;
                 string endDateV = EndDateV.Text;
                 string startDateM = StartDateM.Text;
@@ -77,6 +80,25 @@ namespace SalaryApp
             catch
             {
                 MessageBox.Show("Данные введены неверно");
+            }
+        }
+
+        private bool CheckRow(string tableNumber, string date)
+        {
+            DataTable existTable = Model.Select($"SELECT * FROM Payment, TimeSheet WHERE Payment.FK_TableNumber = '{tableNumber}' AND TimeSheet.DateTimeSheet = '{date}' And Payment.FK_TableList = TimeSheet.Id");
+
+            try
+            {
+                if (existTable.Rows[0] != null)
+                {
+                    MessageBox.Show("Данные уже существуют");
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
             }
         }
 

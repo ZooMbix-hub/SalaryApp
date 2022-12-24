@@ -94,10 +94,8 @@ namespace SalaryApp
                 {
                     MessageBox.Show("Данные уже существуют");
                     return true;
-                } else
-                {
-                    return false;
-                }
+                } 
+                return false;
             }
             catch
             {
