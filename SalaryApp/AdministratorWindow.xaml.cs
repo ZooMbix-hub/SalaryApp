@@ -50,11 +50,7 @@ namespace SalaryApp
                 Post.Items.Add(posts);
             }
 
-            dataTable = Model.Select($"SELECT * FROM Employee");
-            
-            int lastStr = Convert.ToInt32(dataTable.Rows.Count - 1);
-            int tabNum = Convert.ToInt32(dataTable.Rows[lastStr][0]);
-            TableNumberT.Text = Convert.ToString(tabNum + 1);
+            GetTableNumber();
         }
 
         /// <summary>
@@ -123,12 +119,47 @@ namespace SalaryApp
                 Model.Select($"EXEC employeeEntry '{Convert.ToInt32(TableNumberT.Text)}', '{FullName.Text}', '{Convert.ToInt32(WorkExperience.Text)}', '{Convert.ToInt32(ProfLevel.Text)}', '{union}', " +
                     $"'{Company.Text}', '{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}', '{Role.Text}', '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}'" +
                     $", '{INN.Text}', '{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}'");
+
+                ClearFields();
+
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch
             {
                 MessageBox.Show("Данные введены неверно");
             }
+        }
+
+        private void GetTableNumber()
+        {
+            dataTable = Model.Select($"SELECT * FROM Employee");
+
+            int lastStr = Convert.ToInt32(dataTable.Rows.Count - 1);
+            int tabNum = Convert.ToInt32(dataTable.Rows[lastStr][0]);
+            TableNumberT.Text = Convert.ToString(tabNum + 1);
+        }
+
+        private void ClearFields()
+        {
+            Education.Text = "";
+            Company.Text = "";
+            LoginUser.Text = "";
+            FullName.Text = "";
+            PassportData.Text = "";
+            Post.Text = "";
+            PasswordUser.Text = "";
+            DateOfBirth.Text = "";
+            INN.Text = "";
+            WorkExperience.Text = "";
+            Role.Text = "";
+            Telephone.Text = "";
+            Snils.Text = "";
+            ProfLevel.Text = "";
+            AddressEmployee.Text = "";
+            Requisites.Text = "";
+            IsUnion.Text = "";
+
+            GetTableNumber();
         }
     }
 }

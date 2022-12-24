@@ -42,6 +42,7 @@ namespace SalaryApp
             catch
             {
                 MessageBox.Show("Введите дату");
+                return;
             }
 
             try

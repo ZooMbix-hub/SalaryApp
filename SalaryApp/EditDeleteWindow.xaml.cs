@@ -35,11 +35,7 @@ namespace SalaryApp
 
             this.tableNumber = tableNumber;
 
-            dataTable = Model.Select($"SELECT * FROM Employee");
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                TableNumber.Items.Add(dataTable.Rows[i][0]);
-            }
+            GetTableNumbers();
 
             dataTableCompany = Model.Select($"SELECT NameCompany, INN FROM Company");
             for (int i = 0; i < dataTableCompany.Rows.Count; i++)
@@ -60,39 +56,45 @@ namespace SalaryApp
 
         private void TableNumber_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dataTableData = Model.Select($"EXEC DataForAdmin {Convert.ToInt32(TableNumber.SelectedValue.ToString())}");
-            DateOfBirth.Text = dataTableData.Rows[0][0].ToString();
-            AddressEmployee.Text = dataTableData.Rows[0][1].ToString();
-            Telephone.Text = dataTableData.Rows[0][2].ToString();
-            Education.Text = dataTableData.Rows[0][3].ToString();
-            INN.Text = dataTableData.Rows[0][4].ToString();
-            PassportData.Text = dataTableData.Rows[0][5].ToString();
-            Requisites.Text = dataTableData.Rows[0][6].ToString();
-            Snils.Text = dataTableData.Rows[0][7].ToString();
-            TableNumberT.Text = dataTableData.Rows[0][8].ToString();
-            FullName.Text = dataTableData.Rows[0][9].ToString();
-            WorkExperience.Text = dataTableData.Rows[0][10].ToString();
-            ProfLevel.Text = dataTableData.Rows[0][11].ToString();
-            IsUnion.Text = dataTableData.Rows[0][12].ToString();
-            LoginUser.Text = dataTableData.Rows[0][17].ToString();
-            PasswordUser.Text = dataTableData.Rows[0][18].ToString();
-
-            for (int i = 0; i < dataTableCompany.Rows.Count; i++)
+            if (TableNumber.SelectedValue != null)
             {
-                if (Convert.ToString(dataTableCompany.Rows[i][0]) == dataTableData.Rows[0][13].ToString())
-                    Company.Text = Company.Items.GetItemAt(i).ToString();                    
-            }
+                dataTableData = Model.Select($"EXEC DataForAdmin {Convert.ToInt32(TableNumber.SelectedValue.ToString())}");
+                DateOfBirth.Text = dataTableData.Rows[0][0].ToString();
+                AddressEmployee.Text = dataTableData.Rows[0][1].ToString();
+                Telephone.Text = dataTableData.Rows[0][2].ToString();
+                Education.Text = dataTableData.Rows[0][3].ToString();
+                INN.Text = dataTableData.Rows[0][4].ToString();
+                PassportData.Text = dataTableData.Rows[0][5].ToString();
+                Requisites.Text = dataTableData.Rows[0][6].ToString();
+                Snils.Text = dataTableData.Rows[0][7].ToString();
+                TableNumberT.Text = dataTableData.Rows[0][8].ToString();
+                FullName.Text = dataTableData.Rows[0][9].ToString();
+                WorkExperience.Text = dataTableData.Rows[0][10].ToString();
+                ProfLevel.Text = dataTableData.Rows[0][11].ToString();
+                IsUnion.Text = dataTableData.Rows[0][12].ToString();
+                LoginUser.Text = dataTableData.Rows[0][17].ToString();
+                PasswordUser.Text = dataTableData.Rows[0][18].ToString();
 
-            for (int i = 0; i < dataTablePost.Rows.Count; i++)
-            {
-                if (Convert.ToString(dataTablePost.Rows[i][0]) == dataTableData.Rows[0][15].ToString())
-                    Post.Text = Post.Items.GetItemAt(i).ToString();
+                for (int i = 0; i < dataTableCompany.Rows.Count; i++)
+                {
+                    if (Convert.ToString(dataTableCompany.Rows[i][0]) == dataTableData.Rows[0][13].ToString())
+                        Company.Text = Company.Items.GetItemAt(i).ToString();
+                }
+
+                for (int i = 0; i < dataTablePost.Rows.Count; i++)
+                {
+                    if (Convert.ToString(dataTablePost.Rows[i][0]) == dataTableData.Rows[0][15].ToString())
+                        Post.Text = Post.Items.GetItemAt(i).ToString();
+                }
             }
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             dataTableDelet = Model.Select($"EXEC Delet {TableNumberT.Text}, '{LoginUser.Text}', '{PasswordUser.Text}'");
+
+            ClearFields();
+
             MessageBox.Show("Сотрудник удален");
         }
 
@@ -104,6 +106,9 @@ namespace SalaryApp
                     $"'{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}', '{TableNumberT.Text}', '{FullName.Text}'," +
                     $"'{WorkExperience.Text}', '{ProfLevel.Text}', '{IsUnion.Text}', '{Company.Text}'," +
                     $"'{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}'");
+
+                ClearFields();
+
                 MessageBox.Show("Сотрудник изменен");
             }
             catch 
@@ -117,6 +122,39 @@ namespace SalaryApp
             AdministratorWindow adminwindow = new AdministratorWindow(tableNumber);
             adminwindow.Show();
             Close();
+        }
+
+        private void GetTableNumbers()
+        {
+            dataTable = Model.Select($"SELECT * FROM Employee");
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                TableNumber.Items.Add(dataTable.Rows[i][0]);
+            }
+        }
+
+        private void ClearFields()
+        {
+            TableNumber.Text = "";
+            TableNumberT.Text = "";
+            Education.Text = "";
+            Company.Text = "";
+            LoginUser.Text = "";
+            FullName.Text = "";
+            PassportData.Text = "";
+            Post.Text = "";
+            PasswordUser.Text = "";
+            DateOfBirth.Text = "";
+            INN.Text = "";
+            WorkExperience.Text = "";
+            Telephone.Text = "";
+            Telephone.Text = "";
+            ProfLevel.Text = "";
+            AddressEmployee.Text = "";
+            Requisites.Text = "";
+            IsUnion.Text = "";
+
+            GetTableNumbers();
         }
     }
 }
