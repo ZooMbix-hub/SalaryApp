@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Сотрудник" Height="692" Width="810" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada">
@@ -65,7 +66,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <DatePicker Grid.Column="0" Name="datePicker"  BorderThickness="0">
+                        <DatePicker Name="datePicker" Grid.Column="0" BorderThickness="0" SelectedDate="{x:Static sys:DateTime.Now}">
                             <DatePicker.Resources>
                                 <Style TargetType="DatePickerTextBox">
                                     <Setter Property="Control.Template">

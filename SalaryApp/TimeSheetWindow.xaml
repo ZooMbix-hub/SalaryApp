@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Табель учета рабочего времени" Height="500" Width="700" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada" >
@@ -48,6 +49,7 @@
                     SelectedDateFormat="Short" 
                     materialDesign:HintAssist.Hint="Дата составления табельного листа" 
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                    SelectedDate="{x:Static sys:DateTime.Now}"
                 >
                     <DatePicker.Resources>
                         <Style TargetType="DatePickerTextBox">

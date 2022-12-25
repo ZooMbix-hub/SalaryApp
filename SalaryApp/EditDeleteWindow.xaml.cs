@@ -146,6 +146,7 @@ namespace SalaryApp
             PasswordUser.Text = "";
             DateOfBirth.Text = "";
             INN.Text = "";
+            Snils.Text = "";
             WorkExperience.Text = "";
             Telephone.Text = "";
             Telephone.Text = "";

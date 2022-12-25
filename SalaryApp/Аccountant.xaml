@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Расчетный лист" Height="500" Width="800" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada">
@@ -51,6 +52,7 @@
                         x:Name="datePicker"
                         materialDesign:HintAssist.Hint="Расчетный период"  
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                        SelectedDate="{x:Static sys:DateTime.Now}"
                     />
                 </Grid>
                 <Grid>
