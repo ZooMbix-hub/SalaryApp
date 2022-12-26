@@ -141,6 +141,14 @@ namespace SalaryApp
 
         private void Button_ClickAdd(object sender, RoutedEventArgs e)
         {
+            /*var test = Hasher.HashPassword(PasswordUser.Text);
+            MessageBox.Show(test);*/
+
+            /*var test = Hasher.Encrypt(PasswordUser.Text, "111");
+            MessageBox.Show(test.ToString());
+            var test2 = Hasher.Decrypt(test, "111");
+            MessageBox.Show(test2.ToString());*/
+
             //добавить сотрудника
             
             try
