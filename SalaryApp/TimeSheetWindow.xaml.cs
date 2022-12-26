@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SalaryApp
 {
@@ -20,13 +21,25 @@ namespace SalaryApp
     {
         DataTable dataTable;
         string tableNumber;
+        Errors error;
+        public class Errors
+        {
+            public int Days { get; set; }
+            public int Night { get; set; }
+            public int RVD { get; set; } 
+
+        }
 
         public Window1(string tableNumber)
         {
             InitializeComponent();
 
-            this.tableNumber = tableNumber;
+            error = new Errors();
+            this.DataContext = error;
 
+
+
+            this.tableNumber = tableNumber;
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {

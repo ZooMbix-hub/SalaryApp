@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SalaryApp
 {
@@ -19,10 +22,44 @@ namespace SalaryApp
     {
         DataTable dataTable;
         string tableNumber;
+        PersonModel error;
+        public class PersonModel : IDataErrorInfo
+        {
+            public string FullName { get; set; }
 
+            public string this[string columnName]
+            {
+                get
+                {
+                    string error = String.Empty;
+                    switch (columnName)
+                    {
+                        case "FullName":
+                            if (String.IsNullOrEmpty(FullName))
+                            {
+                                error = "Пустое поле";
+                            }
+                            break;
+                       
+                    }
+                    return error;
+                }
+            }
+            public string Error
+            {
+                get { throw new NotImplementedException(); }
+            }
+        }
+        public interface IDataErrorInfo
+        {
+            string Error { get; }
+            string this[string columnName] { get; }
+        }
         public AdministratorWindow(string tableNumber)
         {
             InitializeComponent();
+            error = new PersonModel();
+            this.DataContext = error;
 
             this.tableNumber = tableNumber;
             dataTable = Model.Select($"SELECT * FROM RoleUser");
@@ -52,7 +89,8 @@ namespace SalaryApp
 
             GetTableNumber();
         }
-
+      
+        
         /// <summary>
         /// Изменения сотрудника
         /// </summary>
@@ -104,6 +142,7 @@ namespace SalaryApp
         private void Button_ClickAdd(object sender, RoutedEventArgs e)
         {
             //добавить сотрудника
+            
             try
             {
                 string union;
@@ -161,5 +200,6 @@ namespace SalaryApp
 
             GetTableNumber();
         }
+       
     }
 }

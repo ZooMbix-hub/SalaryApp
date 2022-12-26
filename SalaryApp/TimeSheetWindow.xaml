@@ -7,11 +7,11 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Табель учета рабочего времени" Height="500" Width="700" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
+        Title="Табель учета рабочего времени" Height="600" Width="700" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
     <Grid Background="#ffdadada" >
         <Border 
             MinWidth="400" 
-            MaxHeight="650" 
+            MaxHeight="700" 
             Margin="50" 
             Background="White" 
             VerticalAlignment="Center" 
@@ -43,6 +43,7 @@
                     Name="tableNumberCmbBox" 
                     materialDesign:HintAssist.Hint="Табельный номер сотрудника" 
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    Margin="0,0,0,10"
                 />
                 <DatePicker 
                     Name="datePicker" 
@@ -50,6 +51,7 @@
                     materialDesign:HintAssist.Hint="Дата составления табельного листа" 
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                     SelectedDate="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,10"
                 >
                     <DatePicker.Resources>
                         <Style TargetType="DatePickerTextBox">
@@ -74,19 +76,46 @@
                         TextWrapping="Wrap" 
                         materialDesign:HintAssist.Hint="Количество отработанных дней" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     />
+                        Margin="0,0,0,10"
+                     >
+                        <TextBox.Text>
+                            <Binding Path="Days">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBox 
                         Name="numberNightTextBox" 
                         TextWrapping="Wrap"
                         materialDesign:HintAssist.Hint="Количество отработанных ночей" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                    />
+                        Margin="0,0,0,10"
+                     >
+                        <TextBox.Text>
+                            <Binding Path="Night">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBox
                         Name="numberRVD" 
                         TextWrapping="Wrap" 
                         materialDesign:HintAssist.Hint="Количество отработанных выходных и праздничных дней" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                    />
+                        Margin="0,0,0,10"
+                     >
+                        <TextBox.Text>
+                            <Binding Path="RVD">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                 </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>

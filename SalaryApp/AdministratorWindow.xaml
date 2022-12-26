@@ -42,8 +42,9 @@
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <TextBox Name="Education" TextWrapping="Wrap" Text="" Margin="0,0,10,0" Grid.Column="1"
                              materialDesign:HintAssist.Hint="Образование" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             
+                             />
                     <ComboBox Name="Company" Grid.Column="2" Margin="0,0,10,0"
                               materialDesign:HintAssist.Hint="Предприятие" 
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
@@ -58,9 +59,18 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="FullName" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
+                    <TextBox Name="FullName" TextWrapping="Wrap" Grid.Column="0" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="ФИО" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             >
+                        <TextBox.Text>
+                            <Binding Path="FullName" NotifyOnValidationError="True">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBox Name="PassportData" TextWrapping="Wrap" Text=""  Grid.Column="1" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Паспортные данные" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -78,9 +88,8 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="DateOfBirth" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
-                             materialDesign:HintAssist.Hint="Дата рождения" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <DatePicker Name="DateOfBirth" Grid.Column="0" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Дата рождения" />
                     <TextBox Name="INN" TextWrapping="Wrap" Text="" Grid.Column="1" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="ИНН" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
