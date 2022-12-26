@@ -43,8 +43,15 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=7.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.7.0.1\lib\net462\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=7.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.7.0.1\lib\net462\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -73,6 +80,7 @@
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="PasswordHasher.cs" />
     <Compile Include="StatisticWindow.xaml.cs">
       <DependentUpon>StatisticWindow.xaml</DependentUpon>
     </Compile>

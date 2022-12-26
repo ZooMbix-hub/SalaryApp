@@ -16,7 +16,6 @@ namespace SalaryApp
 
             this.tableNumber = tableNumber;
 
-            // вывод данных в comboBox
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
