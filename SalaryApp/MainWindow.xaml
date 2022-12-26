@@ -20,7 +20,7 @@
             <StackPanel >
                 <Grid>
                     <TextBox 
-                        Name="login" 
+                        Name="loginTxt" 
                         materialDesign:HintAssist.Hint="Введите логин" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0 0 0 10"
@@ -28,7 +28,7 @@
                 </Grid>
                 <Grid>
                     <PasswordBox 
-                        Name="password"
+                        Name="passwordTxt"
                         materialDesign:HintAssist.Hint="Введите пароль" 
                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                     />

@@ -37,20 +37,40 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBox IsReadOnly="True" Name="TableNumberT" TextWrapping="Wrap" Margin="0,0,10,0" Grid.Column="0"
-                             materialDesign:HintAssist.Hint="Табельный номер" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBox Name="Education" TextWrapping="Wrap" Text="" Margin="0,0,10,0" Grid.Column="1"
-                             materialDesign:HintAssist.Hint="Образование" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             
-                             />
-                    <ComboBox Name="Company" Grid.Column="2" Margin="0,0,10,0"
-                              materialDesign:HintAssist.Hint="Предприятие" 
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                    <TextBox Name="LoginUser" TextWrapping="Wrap" Text="" Grid.Column="3"
-                             materialDesign:HintAssist.Hint="Логин" Margin="0,0,10,0"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox 
+                        IsReadOnly="True" 
+                        Name="TableNumberT" 
+                        TextWrapping="Wrap" 
+                        Margin="0,0,10,0" 
+                        Grid.Column="0"
+                        materialDesign:HintAssist.Hint="Табельный номер" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                    <TextBox 
+                        Name="Education" 
+                        TextWrapping="Wrap" 
+                        Text=""
+                        Margin="0,0,10,0" 
+                        Grid.Column="1"
+                        materialDesign:HintAssist.Hint="Образование" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                    <ComboBox 
+                        Name="Company" 
+                        Grid.Column="2" 
+                        Margin="0,0,10,0"
+                        materialDesign:HintAssist.Hint="Предприятие" 
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    />
+                    <TextBox 
+                        Name="LoginUser"
+                        TextWrapping="Wrap" 
+                        Text="" 
+                        Grid.Column="3"
+                        materialDesign:HintAssist.Hint="Логин"
+                        Margin="0,0,10,0"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -59,10 +79,14 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="FullName" TextWrapping="Wrap" Grid.Column="0" Margin="0,0,10,0"
-                             materialDesign:HintAssist.Hint="ФИО" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             >
+                    <TextBox 
+                        Name="FullName" 
+                        TextWrapping="Wrap" 
+                        Grid.Column="0" 
+                        Margin="0,0,10,0"
+                        materialDesign:HintAssist.Hint="ФИО" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    >
                         <TextBox.Text>
                             <Binding Path="FullName" NotifyOnValidationError="True">
                                 <Binding.ValidationRules>

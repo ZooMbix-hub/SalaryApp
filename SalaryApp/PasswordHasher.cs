@@ -9,22 +9,10 @@ namespace SalaryApp
 {
     public class Hasher
     {
-        public static string HashPassword(string password)
-        {
-            MD5 md5 = MD5.Create();
-
-            byte[] b = Encoding.ASCII.GetBytes(password);
-            byte[] hash = md5.ComputeHash(b);
-
-            StringBuilder sb = new StringBuilder();
-            foreach (var a in hash) 
-                sb.Append(a.ToString("X2"));
-
-            return Convert.ToString(sb);
-        }
+        static string secretKey = "amogus228";
 
         [Obsolete]
-        public static string Encrypt(string targetValue, string key)
+        public static string Encrypt(string targetValue)
         {
             if (string.IsNullOrEmpty(targetValue))
             {
@@ -36,11 +24,11 @@ namespace SalaryApp
             byte[] inputByteArray = Encoding.Default.GetBytes(targetValue);
             // Устанавливаем вектор инициализации симметричного алгоритма, дважды хешируя пароль   
             des.Key = Encoding.ASCII.GetBytes(FormsAuthentication.HashPasswordForStoringInConfigFile
-                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(key, "md5").
+                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(secretKey, "md5").
                                                         Substring(0, 8), "sha1").Substring(0, 8));
             // Устанавливаем секретный ключ алгоритма, дважды хешируя пароль   
             des.IV = Encoding.ASCII.GetBytes(FormsAuthentication.HashPasswordForStoringInConfigFile
-                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(key, "md5")
+                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(secretKey, "md5")
                                                         .Substring(0, 8), "md5").Substring(0, 8));
             var ms = new MemoryStream();
             var cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write);
@@ -54,7 +42,7 @@ namespace SalaryApp
         }
 
         [Obsolete]
-        public static string Decrypt(string targetValue, string key)
+        public static string Decrypt(string targetValue)
         {
             if (string.IsNullOrEmpty(targetValue))
             {
@@ -72,11 +60,11 @@ namespace SalaryApp
             }
             // Устанавливаем вектор инициализации симметричного алгоритма, дважды хешируя пароль   
             des.Key = Encoding.ASCII.GetBytes(FormsAuthentication.HashPasswordForStoringInConfigFile
-                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(key, "md5").
+                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(secretKey, "md5").
                                                         Substring(0, 8), "sha1").Substring(0, 8));
             // Устанавливаем секретный ключ алгоритма, дважды хешируя пароль   
             des.IV = Encoding.ASCII.GetBytes(FormsAuthentication.HashPasswordForStoringInConfigFile
-                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(key, "md5")
+                                                    (FormsAuthentication.HashPasswordForStoringInConfigFile(secretKey, "md5")
                                                         .Substring(0, 8), "md5").Substring(0, 8));
             // Определяем поток памяти
             var ms = new MemoryStream();
