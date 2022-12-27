@@ -31,14 +31,16 @@
                         FontWeight="Bold" 
                         Content="Средняя заработная плата сотрудников" 
                         Padding="0" 
-                        Margin="0,0,0,30" Grid.Column="0" 
+                        Margin="0,0,0,30" 
+                        Grid.Column="0" 
                     />
                     <Label 
                         FontSize="15" 
                         FontWeight="Bold" 
                         Content="Количество сотрудников на предприятиях" 
                         Padding="0" 
-                        Margin="0,0,0,30" Grid.Column="2" 
+                        Margin="0,0,0,30" 
+                        Grid.Column="2" 
                     />
                 </Grid>
                 <Grid>
@@ -92,7 +94,6 @@
                 <Grid>
                     <Button Content="Назад" Width="128" Click="Button_Click" HorizontalAlignment="Right"/>
                 </Grid>
-                
             </StackPanel>
         </Border>
     </Grid>

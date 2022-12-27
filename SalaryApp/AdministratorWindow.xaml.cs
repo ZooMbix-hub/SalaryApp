@@ -23,6 +23,7 @@ namespace SalaryApp
         DataTable dataTable;
         string tableNumber;
         PersonModel error;
+
         public class PersonModel : IDataErrorInfo
         {
             public string FullName { get; set; }
@@ -50,11 +51,13 @@ namespace SalaryApp
                 get { throw new NotImplementedException(); }
             }
         }
+
         public interface IDataErrorInfo
         {
             string Error { get; }
             string this[string columnName] { get; }
         }
+
         public AdministratorWindow(string tableNumber)
         {
             InitializeComponent();
@@ -141,30 +144,14 @@ namespace SalaryApp
 
         private void Button_ClickAdd(object sender, RoutedEventArgs e)
         {
-            /*var test = Hasher.HashPassword(PasswordUser.Text);
-            MessageBox.Show(test);*/
-
-            /*var test = Hasher.Encrypt(PasswordUser.Text, "111");
-            MessageBox.Show(test.ToString());
-            var test2 = Hasher.Decrypt(test, "111");
-            MessageBox.Show(test2.ToString());*/
-
-            //добавить сотрудника
-            
             try
             {
-                string union;
-                if (IsUnion.Text == "Да")
-                {
-                    union = "1";
-                }
-                else
-                {
-                    union = "0";
-                }
+                string union = IsUnion.Text == "Да" ? "1" : "0";
+
+                var password = Hasher.Encrypt(PasswordUser.Text);
 
                 Model.Select($"EXEC employeeEntry '{Convert.ToInt32(TableNumberT.Text)}', '{FullName.Text}', '{Convert.ToInt32(WorkExperience.Text)}', '{Convert.ToInt32(ProfLevel.Text)}', '{union}', " +
-                    $"'{Company.Text}', '{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}', '{Role.Text}', '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}'" +
+                    $"'{Company.Text}', '{Post.Text}', '{LoginUser.Text}', '{password}', '{Role.Text}', '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}'" +
                     $", '{INN.Text}', '{PassportData.Text}', '{Requisites.Text}', '{Snils.Text}'");
 
                 ClearFields();
@@ -208,6 +195,5 @@ namespace SalaryApp
 
             GetTableNumber();
         }
-       
     }
 }
