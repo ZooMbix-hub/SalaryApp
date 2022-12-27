@@ -7,8 +7,16 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Табель учета рабочего времени" Height="600" Width="700" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
+        Title="Табель учета рабочего времени" Height="600" Width="1600" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico" WindowState="Maximized">
+    <Window.Resources>
+        <SolidColorBrush x:Key="GridLine1" Color="Gray" />
+        <SolidColorBrush x:Key="GridLine2" Color="Gray"/>
+    </Window.Resources>
     <Grid Background="#ffdadada" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Border 
             MinWidth="400" 
             MaxHeight="700" 
@@ -17,6 +25,7 @@
             VerticalAlignment="Center" 
             Padding="45,20,45,20" 
             CornerRadius="20"
+            Grid.Column="0"
         >
             <StackPanel>
                 <Grid>
@@ -43,7 +52,9 @@
                     Name="tableNumberCmbBox" 
                     materialDesign:HintAssist.Hint="Табельный номер сотрудника" 
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    Margin="0,0,0,10">
+                    Margin="0,0,0,10"
+                    
+                    SelectionChanged="tableNumberCmbBox_SelectionChanged">
                    
                 </ComboBox>
                 <DatePicker 
@@ -121,6 +132,63 @@
                         Grid.Column="0"
                     />
                 </Grid>
+            </StackPanel>
+        </Border>
+        <Border MinWidth="700" 
+                MaxHeight="700" 
+                Margin="50" 
+                Background="White" 
+                VerticalAlignment="Center" 
+                Padding="45,20,45,20" 
+                CornerRadius="20"
+                Grid.Column="1">
+            <StackPanel>
+                <DataGrid 
+                        AutoGenerateColumns="False" 
+                        Height="400" 
+                        CanUserAddRows="false"
+                        HorizontalAlignment="Left" 
+                        Name="dataGrid1" 
+                        VerticalAlignment="Top" 
+                        Width="600"
+                        Grid.Column="2"
+                        VerticalGridLinesBrush="{StaticResource GridLine1}"
+                        HorizontalGridLinesBrush="{StaticResource GridLine2}"
+                    >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=Date}" 
+                                Header="Дата" 
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=Days}" 
+                                Header="Дни" 
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=Night}" 
+                                Header="Ночи" 
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=RVD}" 
+                                Header="РВД" 
+                            />
+                        <DataGridTemplateColumn >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Изменить" Click="Button_ClickChange"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" Click="Button_ClickDelete"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </Border>
     </Grid>

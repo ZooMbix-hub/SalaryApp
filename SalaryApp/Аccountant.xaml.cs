@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows;
+using System.Windows.Media;
 
 namespace SalaryApp
 {
@@ -46,6 +47,12 @@ namespace SalaryApp
 
         private void Add(object sender, RoutedEventArgs e)
         {
+            // Проверка полей
+            if (tableNumberCmbBox.SelectedItem == null)
+                tableNumberCmbBox.BorderBrush = new SolidColorBrush(Colors.Red);
+            else
+                tableNumberCmbBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+
             string date = "";
 
             try

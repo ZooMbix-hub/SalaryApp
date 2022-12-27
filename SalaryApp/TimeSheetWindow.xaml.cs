@@ -15,6 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using System.Web.UI.WebControls;
+using System.Collections.ObjectModel;
+using System.Windows.Media.Animation;
+
+
 
 namespace SalaryApp
 {
@@ -22,7 +26,14 @@ namespace SalaryApp
     {
         DataTable dataTable;
         string tableNumber;
-        
+        public class DataObject
+        {
+            public string Date { get; set; }
+            public string Days { get; set; }
+            public string Night { get; set; }
+            public string RVD { get; set; }
+        }
+      
         public Window1(string tableNumber)
         {
             InitializeComponent();
@@ -42,10 +53,64 @@ namespace SalaryApp
 
         private void Add(object sender, RoutedEventArgs e)
         {
+            // Проверка полей
             if (tableNumberCmbBox.SelectedItem == null)
                 tableNumberCmbBox.BorderBrush= new SolidColorBrush(Colors.Red);
             else
                 tableNumberCmbBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+
+            string textDays = numberDaysTextBox.Text;
+            bool checkDays = true;
+            if (String.IsNullOrEmpty(numberDaysTextBox.Text))
+                checkDays = false;
+            for (int i = 0; i < textDays.Length; i++)
+            {
+                if (char.IsLetter(textDays[i]))
+                {
+                    checkDays = false;
+                    break;
+                }
+            }
+            if (checkDays == false)
+                numberDaysTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
+            else
+                numberDaysTextBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+
+            string textNight = numberNightTextBox.Text;
+            bool checkNight = true;
+            if (String.IsNullOrEmpty(numberNightTextBox.Text))
+                checkNight = false;
+            for (int i = 0; i < textNight.Length; i++)
+            {
+                if (char.IsLetter(textNight[i]))
+                {
+                    checkNight = false;
+                    break;
+                }
+            }
+            if (checkNight == false)
+                numberNightTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
+            else
+                numberNightTextBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+
+            string textRVD = numberRVD.Text;
+            bool checkRVD = true;
+            if (String.IsNullOrEmpty(numberRVD.Text))
+                checkRVD = false;
+            for (int i = 0; i < textRVD.Length; i++)
+            {
+                if (char.IsLetter(textRVD[i]))
+                {
+                    checkRVD = false;
+                    break;
+                }
+            }
+            if (checkRVD == false)
+                numberRVD.BorderBrush = new SolidColorBrush(Colors.Red);
+            else
+                numberRVD.BorderBrush = new SolidColorBrush(Colors.Gray);
+
+
 
             string date = "";
 
@@ -67,7 +132,7 @@ namespace SalaryApp
                     return;
 
                 Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{date}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
-               
+                refresh(tableNumber);
                 ClearFields();
                 
                 MessageBox.Show("Данные успешно добавлены");
@@ -113,10 +178,48 @@ namespace SalaryApp
 
         private void ClearFields()
         {
-            tableNumberCmbBox.Text = "";
+            
             numberDaysTextBox.Text = "";
             numberNightTextBox.Text = "";
             numberRVD.Text = "";
+        }
+
+        private void tableNumberCmbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        { 
+            string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
+            refresh(tableNumber);
+        }
+
+        private void Button_ClickChange(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Button_ClickDelete(object sender, RoutedEventArgs e)
+        {
+            int index = dataGrid1.SelectedIndex;
+            string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
+            var cellInfo = dataGrid1.SelectedCells[0];
+            var date = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
+            Model.Select($"EXEC timeSheetDelete '{tableNumber}', '{date}'");
+            refresh(tableNumber);
+        }
+
+        private void refresh(string tableNumber)
+        {
+            dataTable = Model.Select($"SELECT * FROM TimeSheet WHERE FK_TableNumber = '{tableNumber}'");
+
+            var list = new ObservableCollection<DataObject>();
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                list.Add(new DataObject()
+                {
+                    Date = Convert.ToString(dataTable.Rows[i][2]).Split(' ')[0],
+                    Days = Convert.ToString(dataTable.Rows[i][3]),
+                    Night = Convert.ToString(dataTable.Rows[i][4]),
+                    RVD = Convert.ToString(dataTable.Rows[i][5])
+                });
+            }
+            this.dataGrid1.ItemsSource = list;
         }
     }
 }
