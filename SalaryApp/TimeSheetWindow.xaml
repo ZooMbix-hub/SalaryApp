@@ -38,13 +38,14 @@
                         Width="100" Click="Exit"
                     />
                 </Grid>
-                
+
                 <ComboBox 
                     Name="tableNumberCmbBox" 
                     materialDesign:HintAssist.Hint="Табельный номер сотрудника" 
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    Margin="0,0,0,10"
-                />
+                    Margin="0,0,0,10">
+                   
+                </ComboBox>
                 <DatePicker 
                     Name="datePicker" 
                     SelectedDateFormat="Short" 
@@ -73,18 +74,11 @@
                 <StackPanel Name="textBoxContainer">
                     <TextBox 
                         Name="numberDaysTextBox" 
-                        TextWrapping="Wrap" 
                         materialDesign:HintAssist.Hint="Количество отработанных дней" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,10"
                      >
-                        <TextBox.Text>
-                            <Binding Path="Days">
-                                <Binding.ValidationRules>
-                                    <ExceptionValidationRule />
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
+                      
                     </TextBox>
                     <TextBox 
                         Name="numberNightTextBox" 
@@ -93,13 +87,6 @@
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,10"
                      >
-                        <TextBox.Text>
-                            <Binding Path="Night">
-                                <Binding.ValidationRules>
-                                    <ExceptionValidationRule />
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
                     </TextBox>
                     <TextBox
                         Name="numberRVD" 
@@ -108,13 +95,6 @@
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,10"
                      >
-                        <TextBox.Text>
-                            <Binding Path="RVD">
-                                <Binding.ValidationRules>
-                                    <ExceptionValidationRule />
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
                     </TextBox>
                 </StackPanel>
                 <Grid>

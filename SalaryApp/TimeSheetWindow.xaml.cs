@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.Web.UI.WebControls;
 
 namespace SalaryApp
 {
@@ -21,23 +22,12 @@ namespace SalaryApp
     {
         DataTable dataTable;
         string tableNumber;
-        Errors error;
-        public class Errors
-        {
-            public int Days { get; set; }
-            public int Night { get; set; }
-            public int RVD { get; set; } 
-
-        }
-
+        
         public Window1(string tableNumber)
         {
             InitializeComponent();
 
-            error = new Errors();
-            this.DataContext = error;
-
-
+           
 
             this.tableNumber = tableNumber;
             dataTable = Model.Select($"SELECT * FROM Employee");
@@ -52,6 +42,11 @@ namespace SalaryApp
 
         private void Add(object sender, RoutedEventArgs e)
         {
+            if (tableNumberCmbBox.SelectedItem == null)
+                tableNumberCmbBox.BorderBrush= new SolidColorBrush(Colors.Red);
+            else
+                tableNumberCmbBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+
             string date = "";
 
             try
@@ -119,7 +114,6 @@ namespace SalaryApp
         private void ClearFields()
         {
             tableNumberCmbBox.Text = "";
-            datePicker.Text = "";
             numberDaysTextBox.Text = "";
             numberNightTextBox.Text = "";
             numberRVD.Text = "";
