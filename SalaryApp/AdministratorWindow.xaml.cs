@@ -195,5 +195,12 @@ namespace SalaryApp
 
             GetTableNumber();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DirectoryEditorWindow directoryEditor  = new DirectoryEditorWindow(tableNumber);
+            directoryEditor.Show();
+            Close();
+        }
     }
 }
