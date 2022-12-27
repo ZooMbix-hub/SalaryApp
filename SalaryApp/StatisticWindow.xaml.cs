@@ -38,7 +38,7 @@ namespace SalaryApp
             this.tableNumber = tableNumber;
 
             string query = $"SELECT * FROM salaryAVG()";
-            GetAllUsers(query);
+            GetGridSalary(query);
 
             dataTable = Model.Select($"SELECT * FROM employeeCount()");
             var list2 = new ObservableCollection<DataObject>();
@@ -71,17 +71,17 @@ namespace SalaryApp
             if (filterPost.SelectedValue != null)
             {
                 string query = $"SELECT * FROM salaryAVG() WHERE NamePost = '{filterPost.SelectedValue}'";
-                GetAllUsers(query);
+                GetGridSalary(query);
             }
 
             if (filterPost.SelectedValue.ToString() == "Все")
             {
                 string query = $"SELECT * FROM salaryAVG()";
-                GetAllUsers(query);
+                GetGridSalary(query);
             }
         }
 
-        private void GetAllUsers(string query)
+        private void GetGridSalary(string query)
         {
             try
             {
