@@ -74,6 +74,9 @@
     <Compile Include="AdministratorWindow.xaml.cs">
       <DependentUpon>AdministratorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DirectoryEditorWindow.xaml.cs">
+      <DependentUpon>DirectoryEditorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditDeleteWindow.xaml.cs">
       <DependentUpon>EditDeleteWindow.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
       <DependentUpon>Аccountant.xaml</DependentUpon>
     </Compile>
     <Page Include="AdministratorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DirectoryEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

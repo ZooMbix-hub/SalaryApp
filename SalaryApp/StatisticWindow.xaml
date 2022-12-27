@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Статистика организации" Height="1200" Width="1100" WindowStartupLocation="CenterOwner" WindowState="Maximized" Icon="/Icons/iconWindow.ico">
     <Window.Resources>
@@ -53,7 +54,7 @@
                         AutoGenerateColumns="False" 
                         Height="500" 
                         HorizontalAlignment="Left" 
-                        Name="dataGrid1" 
+                        Name="gridSalary" 
                         VerticalAlignment="Top" 
                         Width="700"
                         Grid.Column="0"
@@ -70,7 +71,7 @@
                         AutoGenerateColumns="False" 
                         Height="500" 
                         HorizontalAlignment="Left" 
-                        Name="dataGrid2" 
+                        Name="gridEmployee" 
                         VerticalAlignment="Top" 
                         Width="400"
                         Grid.Column="2"
@@ -92,6 +93,15 @@
                     </DataGrid>
                 </Grid>
                 <Grid>
+                    <ComboBox 
+                        Name="filterPost"
+                        materialDesign:HintAssist.Hint="Фильтрация по" 
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                        SelectionChanged="ComboBox_SelectionChanged"
+                        Margin="0 0 0 10"
+                        Width="Auto"
+                        HorizontalAlignment="Left"
+                    />
                     <Button Content="Назад" Width="128" Click="Button_Click" HorizontalAlignment="Right"/>
                 </Grid>
             </StackPanel>

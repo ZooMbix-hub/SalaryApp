@@ -1,0 +1,179 @@
+﻿<Window x:Class="SalaryApp.DirectoryEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="DirectoryEditorWindow" Height="450" Width="800">
+    <Grid Background="#ffdadada">
+        <Border 
+            MinWidth="400" 
+            MaxHeight="650" 
+            Margin="10,0,10,0" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="45,20,45,20" 
+            CornerRadius="20" Height="434"
+        >
+            <StackPanel Margin="0,0,0,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Name="Company" Width="120" Margin="26,-8,26,0" materialDesign:HintAssist.Hint="Предприятие" 
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" SelectionChanged="Company_SelectionChanged"/>
+                    <ComboBox Name="Post" Width="120" Grid.Column="1" Margin="26,-8,26,0" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Должность" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="Post_SelectionChanged"/>
+                    <ComboBox Name ="TypeОfAllowances" Width="120" Grid.Column="2" Margin="26,-8,26,0"  materialDesign:HintAssist.Hint="Надбавка" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" SelectionChanged="TypeОfAllowances_SelectionChanged"/>
+                    <ComboBox Name ="TypeОfAward" Width="120" Grid.Column="3" Margin="26,-8,26,0" materialDesign:HintAssist.Hint="Премия" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" SelectionChanged="TypeОfAward_SelectionChanged"/>
+                </Grid>
+                <Grid x:Name="test">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                        Name="NameCompany" 
+                        TextWrapping="Wrap" 
+                        Margin="0,0,10,0" 
+                        Grid.Column="0"
+                        materialDesign:HintAssist.Hint="Наименование" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                    <TextBox 
+                        Name="NamePost" 
+                        TextWrapping="Wrap" 
+                        Text=""
+                        Margin="0,0,10,0" 
+                        Grid.Column="1"
+                        materialDesign:HintAssist.Hint="Наименование" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                    <TextBox 
+                        Name="NameAward"
+                        TextWrapping="Wrap" 
+                        Text="" 
+                        Grid.Column="3"
+                        materialDesign:HintAssist.Hint="Наименование"
+                        Margin="0,0,10,0"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                    <TextBox Name="NameAllowances" TextWrapping="Wrap" Grid.Column="2" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Наименование" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                        Name="Telephone" 
+                        TextWrapping="Wrap" 
+                        Grid.Column="0" 
+                        Margin="0,0,10,0"
+                        materialDesign:HintAssist.Hint="Телефон" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    >
+                        <TextBox.Text>
+                            <Binding Path="FullName" NotifyOnValidationError="True">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox Name="Salary" TextWrapping="Wrap" Text=""  Grid.Column="1" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Оклад" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="CostAward" TextWrapping="Wrap" Grid.Column="3" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Стоимость" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="CostAllowances" TextWrapping="Wrap" Grid.Column="2" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Стоимость" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="WorkingDays" TextWrapping="Wrap" Text="" Grid.Column="1" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Рабочие дни" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="INN" TextWrapping="Wrap" Text="" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="ИНН" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="AddressCompany" TextWrapping="Wrap" Text="" Grid.Column="0" Margin="0,0,10,0"
+                             materialDesign:HintAssist.Hint="Адресс" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <ComboBox Name="Subdivision" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Подразделение" 
+                             Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="38" Grid.Column="1"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Name="Region" materialDesign:HintAssist.Hint="Регион" 
+                             Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="0,0,10,0"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Внести изменения" Margin="10,5,10,7" Grid.Column="1" Click="Button_Click_2"/>
+                    <Button Content="Внести изменения" Grid.Column="2" Margin="10,5,10,7" Click="Button_Click_3"/>
+                    <Button Content="Внести изменения" Grid.Column="3" Margin="10,5,10,7" Click="Button_Click_4"/>
+                    <Button Content="Внести изменения" Margin="10,5,10,7" Click="Button_Click_1"/>
+                </Grid>
+                <Grid Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Удалить" Margin="10,10,10,18" Click="Button_Click_5"/>
+                    <Button Content="Удалить" Grid.Column="1" Margin="10,10,10,18" Click="Button_Click_6"/>
+                    <Button Content="Удалить" Grid.Column="2" Margin="10,10,10,18" Click="Button_Click_7"/>
+                    <Button Content="Удалить" Grid.Column="3" Margin="10,10,10,18" Click="Button_Click_8"/>
+                </Grid>
+                <Grid Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Назад" Margin="22,18,10,10" Click="Button_Click" Grid.Column="3"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
