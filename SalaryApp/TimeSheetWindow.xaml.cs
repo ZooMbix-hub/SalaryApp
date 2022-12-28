@@ -192,18 +192,29 @@ namespace SalaryApp
 
         private void Button_ClickChange(object sender, RoutedEventArgs e)
         {
-
+            
+            string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
+            var celldate = dataGrid1.SelectedCells[0];
+            var date = (celldate.Column.GetCellContent(celldate.Item) as TextBlock).Text;
+            var cellDays = dataGrid1.SelectedCells[1];
+            var days = (cellDays.Column.GetCellContent(cellDays.Item) as TextBlock).Text;
+            var cellNight = dataGrid1.SelectedCells[2];
+            var hight = (cellNight.Column.GetCellContent(cellNight.Item) as TextBlock).Text;
+            var cellRVD = dataGrid1.SelectedCells[3];
+            var RVD = (cellRVD.Column.GetCellContent(cellRVD.Item) as TextBlock).Text;
+            Model.Select($"EXEC timeSheetDelete '{tableNumber}', '{date}', '{days}', '{hight}', '{RVD}'");
+            refresh(tableNumber);
         }
         private void Button_ClickDelete(object sender, RoutedEventArgs e)
         {
-            int index = dataGrid1.SelectedIndex;
+           
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
             var cellInfo = dataGrid1.SelectedCells[0];
             var date = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
             Model.Select($"EXEC timeSheetDelete '{tableNumber}', '{date}'");
             refresh(tableNumber);
         }
-
+       
         private void refresh(string tableNumber)
         {
             dataTable = Model.Select($"SELECT * FROM TimeSheet WHERE FK_TableNumber = '{tableNumber}'");

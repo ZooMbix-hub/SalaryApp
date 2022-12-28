@@ -112,6 +112,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
+                       
                     </Grid.ColumnDefinitions>
                     <Button 
                         Margin="0,10,0,0" 
@@ -134,7 +135,7 @@
                 </Grid>
             </StackPanel>
         </Border>
-        <Border MinWidth="700" 
+        <Border MinWidth="600" 
                 MaxHeight="700" 
                 Margin="50" 
                 Background="White" 
@@ -159,6 +160,7 @@
                         <DataGridTextColumn 
                                 Binding="{Binding Path=Date}" 
                                 Header="Дата" 
+                                IsReadOnly="True"
                             />
                         <DataGridTextColumn 
                                 Binding="{Binding Path=Days}" 

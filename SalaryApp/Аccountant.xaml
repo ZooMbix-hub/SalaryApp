@@ -7,16 +7,22 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Расчетный лист" Height="500" Width="800" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico">
-    <Grid Background="#ffdadada">
+        Title="Расчетный лист" Height="500" Width="1800" WindowStartupLocation="CenterScreen" Icon="/Icons/iconWindow.ico" WindowState="Maximized">
+    <Window.Resources>
+        <SolidColorBrush x:Key="GridLine1" Color="Gray" />
+        <SolidColorBrush x:Key="GridLine2" Color="Gray"/>
+    </Window.Resources>
+    <Grid Background="#ffdadada" Margin="0,0,0,-410">
+
         <Border 
             MinWidth="400" 
             MaxHeight="400" 
-            Margin="50,0,50,0" 
+            Margin="24,25,0,0" 
             Background="White" 
-            VerticalAlignment="Center" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left"
             Padding="45,20,45,20" 
-            CornerRadius="20" Height="635"
+            CornerRadius="20" Height="405" Width="593"
         >
             <StackPanel>
                 <Grid>
@@ -44,7 +50,7 @@
                         HorizontalAlignment="Left"
                         Width="300"
                         materialDesign:HintAssist.Hint="Сотрудник"  
-                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="tableNumberCmbBox_SelectionChanged"
                     />
                 </Grid>
                 <Grid>
@@ -151,6 +157,126 @@
                         HorizontalAlignment="Left"
                     />
                 </Grid>
+            </StackPanel>
+        </Border>
+        <Border 
+                MaxHeight="700" 
+                Margin="641,29,480,0" 
+                Background="White"
+                VerticalAlignment="Top" 
+                Padding="45,20,45,20" 
+                CornerRadius="20" Height="383">
+            <StackPanel>
+                <DataGrid 
+                        AutoGenerateColumns="False" 
+                        Height="355" 
+                        CanUserAddRows="false"
+                        HorizontalAlignment="Left" 
+                        Name="dataGrid2" 
+                        Width="540"
+                        Grid.Column="2"
+                        VerticalGridLinesBrush="{StaticResource GridLine1}"
+                        HorizontalGridLinesBrush="{StaticResource GridLine2}"
+                    >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=DateTime}" 
+                                Header="Дата" 
+                                IsReadOnly="True"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=Days}" 
+                                Header="Дни" 
+                                IsReadOnly="True"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=Night}" 
+                                Header="Ночи" 
+                                IsReadOnly="True"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding Path=RVD}" 
+                                Header="РВД" 
+                                IsReadOnly="True"
+                            />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+        <Border MinWidth="400" 
+                MaxHeight="400" 
+                Margin="24,447,0,0" 
+                Background="White" 
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left"
+                Padding="45,20,45,20" 
+                CornerRadius="20" Height="318" Width="1491">
+            <StackPanel>
+                <DataGrid
+                        FontSize="12"
+                        AutoGenerateColumns="False" 
+                        Height="280" 
+                        CanUserAddRows="false" 
+                        x:Name="dataGrid1" 
+                        Width="1528"
+                        VerticalGridLinesBrush="{StaticResource GridLine1}"
+                        HorizontalGridLinesBrush="{StaticResource GridLine2}" 
+                    >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn 
+                                Binding="{Binding Date}" 
+                                Header="Дата" 
+                                IsReadOnly="True"
+                                Width="100"
+                                
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding startVacation}" 
+                                Header="Нач. отпуска" 
+                                Width="150"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding endVacation}" 
+                                Header="Окон. отпуска" 
+                                Width="150"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding startMedical}" 
+                                Header="Нач. больн." 
+                                Width="150"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding endMedical}" 
+                                Header="Окон. больн." 
+                                Width="150"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding award}" 
+                                Header="Премия" 
+                                Width="150"
+                            />
+                        <DataGridTextColumn 
+                                Binding="{Binding allowance}" 
+                                Header="Надбавка" 
+                                Width="150"
+                            />
+                        <DataGridTemplateColumn >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Изменить" Click="Button_ClickChange"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" Click="Button_ClickDelete"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </Border>
     </Grid>
