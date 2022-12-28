@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 
 namespace SalaryApp
 {
-    
     public partial class DirectoryEditorWindow : Window
     {
         DataTable dataTableComp;
@@ -43,7 +42,6 @@ namespace SalaryApp
             InitializeComponent();
             this.tableNumber = tableNumber;
             GetData();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -68,9 +66,6 @@ namespace SalaryApp
                         Region.Text = Region.Items.GetItemAt(i).ToString();
                 }
             }
-            
-            
-
         }
 
         private void Post_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -87,9 +82,7 @@ namespace SalaryApp
                     if (Convert.ToString(dataTableSubdivision.Rows[i][1]) == dataTablePostWhere.Rows[0][6].ToString())
                         Subdivision.Text = Subdivision.Items.GetItemAt(i).ToString();
                 }
-
             }
-            
         }
 
         private void TypeОfAllowances_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -100,9 +93,7 @@ namespace SalaryApp
 
                 NameAllowances.Text = dataTableAllowancesWhere.Rows[0][1].ToString();
                 CostAllowances.Text = dataTableAllowancesWhere.Rows[0][2].ToString();
-
             }
-
         }
 
         private void TypeОfAward_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -113,10 +104,7 @@ namespace SalaryApp
 
                 NameAward.Text = dataTableAwardWhere.Rows[0][1].ToString();
                 CostAward.Text = dataTableAwardWhere.Rows[0][2].ToString();
-
             }
-            
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -189,7 +177,6 @@ namespace SalaryApp
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 dataTableDeleteCompany = Model.Select($"EXEC DeleteCompany '{NameCompany.Text}'");
@@ -201,7 +188,6 @@ namespace SalaryApp
             {
                 MessageBox.Show("Данные введены не коректно");
             }
-
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
@@ -249,11 +235,8 @@ namespace SalaryApp
             }
         }
 
-
         private void GetData()
         {
-            
-
             dataTableComp = Model.Select($"SELECT * FROM Company");
             for (int i = 0; i < dataTableComp.Rows.Count; i++)
             {
@@ -296,8 +279,7 @@ namespace SalaryApp
                 Subdivision.Items.Add(NameRegion);
             }
         }
-
-
+        
         private void ClearFieldsCompany()
         {
             NameCompany.Text = "";
@@ -308,9 +290,8 @@ namespace SalaryApp
             Company.Text = "";
             Company.Items.Clear();
             GetData();
-
-
         }
+
         private void ClearFieldsPost()
         {
             NamePost.Text = "";
@@ -320,8 +301,8 @@ namespace SalaryApp
             Post.Text = "";
             Post.Items.Clear();
             GetData();
-
         }
+
         private void ClearFieldsAllowances()
         {
             NameAllowances.Text = "";
@@ -339,8 +320,6 @@ namespace SalaryApp
             TypeОfAward.Items.Clear();
             GetData();
         }
-
     }
-
 }
 
