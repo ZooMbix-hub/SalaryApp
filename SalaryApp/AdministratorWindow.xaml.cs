@@ -148,7 +148,7 @@ namespace SalaryApp
             {
                 string union = IsUnion.Text == "Да" ? "1" : "0";
 
-                /*var password = Hasher.Encrypt(PasswordUser.Text);*/
+                //var password = Hasher.Encrypt(PasswordUser.Text);
 
                 Model.Select($"EXEC employeeEntry '{Convert.ToInt32(TableNumberT.Text)}', '{FullName.Text}', '{Convert.ToInt32(WorkExperience.Text)}', '{Convert.ToInt32(ProfLevel.Text)}', '{union}', " +
                     $"'{Company.Text}', '{Post.Text}', '{LoginUser.Text}', '{PasswordUser.Text}', '{Role.Text}', '{DateOfBirth.Text}', '{AddressEmployee.Text}', '{Telephone.Text}', '{Education.Text}'" +

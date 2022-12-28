@@ -35,7 +35,7 @@ namespace SalaryApp
             //проверка логина и пароля
             try
             {
-                /*var password = Hasher.Encrypt(passwordTxt.Password);*/
+                //var password = Hasher.Encrypt(passwordTxt.Password);
 
                 dataTable = Model.Select($"EXEC autorization '{loginTxt.Text}', '{passwordTxt.Password}'");
                 role = dataTable.Rows[0][0].ToString();
