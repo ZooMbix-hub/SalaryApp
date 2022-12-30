@@ -74,10 +74,11 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="173*"/>
+                        <ColumnDefinition Width="203*" />
+                        <ColumnDefinition Width="203*" />
+                        <ColumnDefinition Width="203*" />
                     </Grid.ColumnDefinitions>
                     <TextBox 
                         Name="FullName" 
@@ -85,7 +86,7 @@
                         Grid.Column="0" 
                         Margin="0,0,10,0"
                         materialDesign:HintAssist.Hint="ФИО" 
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.ColumnSpan="2"
                     >
                         <TextBox.Text>
                             <Binding Path="FullName" NotifyOnValidationError="True">
@@ -95,13 +96,13 @@
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
-                    <TextBox Name="PassportData" TextWrapping="Wrap" Text=""  Grid.Column="1" Margin="0,0,10,0"
+                    <TextBox Name="PassportData" TextWrapping="Wrap" Text=""  Grid.Column="1" Margin="172,0,10,0"
                              materialDesign:HintAssist.Hint="Паспортные данные" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <ComboBox Name="Post" Grid.Column="2" Margin="0,0,10,0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.ColumnSpan="2"/>
+                    <ComboBox Name="Post" Grid.Column="3" Margin="0,0,10,0"
                               materialDesign:HintAssist.Hint="Должность" 
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                    <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Grid.Column="3" Margin="0,0,10,0"
+                    <TextBox Name="PasswordUser" TextWrapping="Wrap" Text="" Grid.Column="4" Margin="0,0,10,0"
                              materialDesign:HintAssist.Hint="Пароль" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 </Grid>
@@ -161,10 +162,12 @@
                         <ComboBoxItem Content="Да"/>
                         <ComboBoxItem Content="Нет"/>
                     </ComboBox>
-                    <Button Content="Редактор справочников" Grid.Column="3" Margin="30,2,0,3" Click="Button_Click"/>
+                    <Button Content="Редактор справочников" Grid.Column="3" Click="Button_Click"/>
                 </Grid>
-                <Grid>
-                    <Button Content="Добавить сотрудника" Margin="0,10,0,0" HorizontalAlignment="Right" Click="Button_ClickAdd" />
+                <Grid Margin="0,10,0,0">
+                    <Button Content="Просмотр пользователей" HorizontalAlignment="Left" Click="Button_ClickShowUsers" />
+
+                    <Button Content="Добавить сотрудника" HorizontalAlignment="Right" Click="Button_ClickAdd" Width="202"/>
                 </Grid>
             </StackPanel>
         </Border>

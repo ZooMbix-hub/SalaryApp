@@ -41,11 +41,11 @@ namespace SalaryApp
                                 error = "Пустое поле";
                             }
                             break;
-                       
                     }
                     return error;
                 }
             }
+
             public string Error
             {
                 get { throw new NotImplementedException(); }
@@ -93,12 +93,6 @@ namespace SalaryApp
             GetTableNumber();
         }
       
-        
-        /// <summary>
-        /// Изменения сотрудника
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Button_ClickChange(object sender, RoutedEventArgs e)
         {
             EditDeleteWindow EditDelete = new EditDeleteWindow(tableNumber);
@@ -106,11 +100,6 @@ namespace SalaryApp
             Close();
         }
 
-        /// <summary>
-        /// Выход из приложения
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Button_ClickExit(object sender, RoutedEventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
@@ -118,11 +107,6 @@ namespace SalaryApp
             Close();
         }
 
-        /// <summary>
-        /// Просмотр зп
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Button_ClickView(object sender, RoutedEventArgs e)
         {
             EmployeeWindow employeewindow = new EmployeeWindow(tableNumber);
@@ -130,11 +114,6 @@ namespace SalaryApp
             Close();
         }
 
-        /// <summary>
-        /// Статистика данных
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Button_ClickStatic(object sender, RoutedEventArgs e)
         {
             StatisticWindow statisticwindow = new StatisticWindow(tableNumber);
@@ -162,6 +141,13 @@ namespace SalaryApp
             {
                 MessageBox.Show("Данные введены неверно");
             }
+        }
+
+        private void Button_ClickShowUsers(object sender, RoutedEventArgs e)
+        {
+            ShowUsersWindow showUsersWindow = new ShowUsersWindow(tableNumber);
+            showUsersWindow.Show();
+            Close();
         }
 
         private void GetTableNumber()

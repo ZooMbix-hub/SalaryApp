@@ -1,0 +1,44 @@
+﻿<Window x:Class="SalaryApp.ShowUsersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalaryApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Просмотр пользователей" Height="971" Width="1482"  WindowState="Maximized" Icon="/Icons/iconWindow.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="817*" />
+            <RowDefinition Height="138*" />
+        </Grid.RowDefinitions>
+        <DataGrid 
+            Name="gridUsers" 
+            Grid.Row="0"
+        >
+            <DataGrid.Columns >
+                <DataGridTextColumn Binding="{Binding Path=TableNumber}" Header="Таб. номер" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=NameUser}" Header="ФИО" Width="70" />
+                <DataGridTextColumn Binding="{Binding Path=DateOfBirth}" Header="Дата рождения" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Phone}" Header="Телефон" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Adress}" Header="Адрес проживания" Width="110" />
+                <DataGridTextColumn Binding="{Binding Path=Education}" Header="Образование" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Path=Passport}" Header="Паспорт" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Inn}" Header="ИНН" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Snils}" Header="Снилс" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Requisites}" Header="Реквезиты" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Company}" Header="Предприятие" Width="auto" />
+                <DataGridTextColumn Binding="{Binding Path=Post}" Header="Должность" Width="110" />
+                <DataGridTextColumn Binding="{Binding Path=Experience}" Header="Опыт" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=ProfileLevel}" Header="Проф. уровень" Width="110" />
+                <DataGridTextColumn Binding="{Binding Path=TradeUnion}" Header="Профсоюз" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Margin="10,10,10,10">
+            <Button Content="Назад" Width="auto" HorizontalAlignment="Left" Click="Button_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
