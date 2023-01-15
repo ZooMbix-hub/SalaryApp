@@ -38,8 +38,6 @@ namespace SalaryApp
         {
             InitializeComponent();
 
-           
-
             this.tableNumber = tableNumber;
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -110,8 +108,6 @@ namespace SalaryApp
             else
                 numberRVD.BorderBrush = new SolidColorBrush(Colors.Gray);
 
-
-
             string date = "";
 
             try
@@ -132,7 +128,7 @@ namespace SalaryApp
                     return;
 
                 Model.Select($"EXEC timesheet_entry '{Convert.ToInt32(tableNumber)}', '{date}', '{Convert.ToInt32(numberDaysTextBox.Text)}', '{Convert.ToInt32(numberNightTextBox.Text)}', '{Convert.ToInt32(numberRVD.Text)}'");
-                refresh(tableNumber);
+                Refresh(tableNumber);
                 ClearFields();
                 
                 MessageBox.Show("Данные успешно добавлены");
@@ -178,7 +174,6 @@ namespace SalaryApp
 
         private void ClearFields()
         {
-            
             numberDaysTextBox.Text = "";
             numberNightTextBox.Text = "";
             numberRVD.Text = "";
@@ -187,12 +182,11 @@ namespace SalaryApp
         private void tableNumberCmbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { 
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
-            refresh(tableNumber);
+            Refresh(tableNumber);
         }
 
         private void Button_ClickChange(object sender, RoutedEventArgs e)
         {
-            
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
             var celldate = dataGrid1.SelectedCells[0];
             var date = (celldate.Column.GetCellContent(celldate.Item) as TextBlock).Text;
@@ -203,19 +197,18 @@ namespace SalaryApp
             var cellRVD = dataGrid1.SelectedCells[3];
             var RVD = (cellRVD.Column.GetCellContent(cellRVD.Item) as TextBlock).Text;
             Model.Select($"EXEC timeSheetDelete '{tableNumber}', '{date}', '{days}', '{hight}', '{RVD}'");
-            refresh(tableNumber);
+            Refresh(tableNumber);
         }
         private void Button_ClickDelete(object sender, RoutedEventArgs e)
         {
-           
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
             var cellInfo = dataGrid1.SelectedCells[0];
             var date = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
             Model.Select($"EXEC timeSheetDelete '{tableNumber}', '{date}'");
-            refresh(tableNumber);
+            Refresh(tableNumber);
         }
        
-        private void refresh(string tableNumber)
+        private void Refresh(string tableNumber)
         {
             dataTable = Model.Select($"SELECT * FROM TimeSheet WHERE FK_TableNumber = '{tableNumber}'");
 

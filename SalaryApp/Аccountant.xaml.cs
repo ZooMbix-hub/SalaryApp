@@ -101,7 +101,7 @@ namespace SalaryApp
                 Model.Select($"EXEC payment_entry '{tableNumber}', '{date}', {Check(startDateV)}, {Check(endDateV)}, {Check(startDateM)}, {Check(endDateM)}, '{AwardCmbBox.Text}', '{AllowanceCmbBox.Text}'");
                 
                 ClearFields();
-                refresh(tableNumber.ToString());
+                Refresh(tableNumber.ToString());
                 MessageBox.Show("Данные успешно добавлены");
             }
             catch
@@ -161,6 +161,7 @@ namespace SalaryApp
             AwardCmbBox.Text = "";
             AllowanceCmbBox.Text = "";
         }
+
         private void Button_ClickChange(object sender, RoutedEventArgs e)
         {
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
@@ -185,30 +186,27 @@ namespace SalaryApp
             var cellAllowance = dataGrid1.SelectedCells[6];
             var Allowance = (cellAllowance.Column.GetCellContent(cellAllowance.Item) as TextBlock).Text;
 
-
             Model.Select($"EXEC paymentChange '{tableNumber}', '{date}', '{StartVac}', '{EndVac}', '{StartMed}', '{EndMed}', '{Award}', '{Allowance}'");
-            refresh(tableNumber);
-
+            Refresh(tableNumber);
         }
+
         private void Button_ClickDelete(object sender, RoutedEventArgs e)
         {
-
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
             var cellInfo = dataGrid1.SelectedCells[0];
             var date = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
             Model.Select($"EXEC paymentDelete '{tableNumber}', '{date}'");
-            refresh(tableNumber);
+            Refresh(tableNumber);
         }
-
-        
 
         private void tableNumberCmbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string tableNumber = tableNumberCmbBox.SelectedItem.ToString().Split(' ')[0];
-            refresh(tableNumber);
-            refreshTime(tableNumber);
+            Refresh(tableNumber);
+            RefreshTime(tableNumber);
         }
-        private void refresh(string tableNumber)
+
+        private void Refresh(string tableNumber)
         {
             dataTableDate = Model.Select($"EXEC paymentDate '{tableNumber}'");
             dataTableMedical = Model.Select($"EXEC paymentMedical '{tableNumber}'");
@@ -264,11 +262,10 @@ namespace SalaryApp
                     allowance = allowance
                 });
             }
-
             this.dataGrid1.ItemsSource = list;
         }
 
-        private void refreshTime(string tableNumber)
+        private void RefreshTime(string tableNumber)
         {
             dataTable = Model.Select($"SELECT * FROM TimeSheet WHERE FK_TableNumber = '{tableNumber}'");
 
