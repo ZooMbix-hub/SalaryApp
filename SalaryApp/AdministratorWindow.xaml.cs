@@ -82,7 +82,6 @@ namespace SalaryApp
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string value = Convert.ToString(data.Rows[i][1]);
-
                 comboBox.Items.Add(value);
             }
         }
@@ -90,7 +89,6 @@ namespace SalaryApp
         private void GetTableNumber()
         {
             dataTable = Model.Select($"SELECT * FROM Employee");
-
             int lastStr = Convert.ToInt32(dataTable.Rows.Count - 1);
             int tabNum = Convert.ToInt32(dataTable.Rows[lastStr][0]);
             TableNumberT.Text = Convert.ToString(tabNum + 1);
