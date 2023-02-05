@@ -3,4 +3,4 @@
 Стек приложения:
 + C#
 + WPF (+ MUI Design)
-+ MSServer
++ MS Server
