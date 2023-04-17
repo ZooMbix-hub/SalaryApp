@@ -4,3 +4,4 @@
 + C#
 + WPF (+ MUI Design)
 + MS Server
++ SQL
