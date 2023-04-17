@@ -71,49 +71,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdministratorWindow.xaml.cs">
+    <Compile Include="Windows\Administator\AdministratorWindow.xaml.cs">
       <DependentUpon>AdministratorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DirectoryEditorWindow.xaml.cs">
+    <Compile Include="Windows\DirectoryEditor\DirectoryEditorWindow.xaml.cs">
       <DependentUpon>DirectoryEditorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditDeleteWindow.xaml.cs">
+    <Compile Include="Windows\EditDelete\EditDeleteWindow.xaml.cs">
       <DependentUpon>EditDeleteWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeWindow.xaml.cs">
+    <Compile Include="Windows\Employee\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs" />
-    <Compile Include="PasswordHasher.cs" />
-    <Compile Include="ShowUsersWindow.xaml.cs">
+    <Compile Include="Utils\Model.cs" />
+    <Compile Include="Utils\PasswordHasher.cs" />
+    <Compile Include="Windows\ShowUsers\ShowUsersWindow.xaml.cs">
       <DependentUpon>ShowUsersWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatisticWindow.xaml.cs">
+    <Compile Include="Windows\Statistic\StatisticWindow.xaml.cs">
       <DependentUpon>StatisticWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimeSheetWindow.xaml.cs">
+    <Compile Include="Windows\TimeSheet\TimeSheetWindow.xaml.cs">
       <DependentUpon>TimeSheetWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Аccountant.xaml.cs">
+    <Compile Include="Windows\Accountant\Аccountant.xaml.cs">
       <DependentUpon>Аccountant.xaml</DependentUpon>
     </Compile>
-    <Page Include="AdministratorWindow.xaml">
+    <Page Include="Windows\Administator\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DirectoryEditorWindow.xaml">
+    <Page Include="Windows\DirectoryEditor\DirectoryEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditDeleteWindow.xaml">
+    <Page Include="Windows\EditDelete\EditDeleteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmployeeWindow.xaml">
+    <Page Include="Windows\Employee\EmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -121,23 +121,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ShowUsersWindow.xaml">
+    <Page Include="Windows\ShowUsers\ShowUsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticWindow.xaml">
+    <Page Include="Windows\Statistic\StatisticWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TimeSheetWindow.xaml">
+    <Page Include="Windows\TimeSheet\TimeSheetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Аccountant.xaml">
+    <Page Include="Windows\Accountant\Аccountant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

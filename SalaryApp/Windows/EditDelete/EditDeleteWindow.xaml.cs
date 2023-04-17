@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -38,20 +39,54 @@ namespace SalaryApp
             GetTableNumbers();
 
             dataTableCompany = Model.Select($"SELECT NameCompany, INN FROM Company");
-            for (int i = 0; i < dataTableCompany.Rows.Count; i++)
-            {
-                string nameCompany = Convert.ToString(dataTableCompany.Rows[i][0]);
-                string resultCompany = $"{nameCompany}";
-                Company.Items.Add(resultCompany);
-            }
+            GetComboBox(dataTableCompany, Company);
 
-            dataTablePost = Model.Select($"Select Post.NamePost, Subdivision.NameSub\r\nFrom Post, Subdivision\r\nWhere Post.FK_Sub = Subdivision.Id");
-            for (int i = 0; i < dataTablePost.Rows.Count; i++)
+            dataTablePost = Model.Select($"Select Post.NamePost, Subdivision.NameSub From Post, Subdivision Where Post.FK_Sub = Subdivision.Id");
+            GetComboBox(dataTablePost, Post);
+        }
+
+        private void GetComboBox(DataTable data, ComboBox comboBox)
+        {
+            for (int i = 0; i < data.Rows.Count; i++)
             {
-                string namePost = Convert.ToString(dataTablePost.Rows[i][0]);
-                string resultPost = $"{namePost}";
-                Post.Items.Add(resultPost);
+                string value = Convert.ToString(data.Rows[i][0]);
+                string resultValue = $"{value}";
+                comboBox.Items.Add(resultValue);
             }
+        }
+
+        private void GetTableNumbers()
+        {
+            dataTable = Model.Select($"SELECT * FROM Employee");
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                TableNumber.Items.Add(dataTable.Rows[i][0]);
+            }
+        }
+
+        private void ClearFields()
+        {
+            TableNumber.Text = "";
+            TableNumberT.Text = "";
+            Education.Text = "";
+            Company.Text = "";
+            LoginUser.Text = "";
+            FullName.Text = "";
+            PassportData.Text = "";
+            Post.Text = "";
+            PasswordUser.Text = "";
+            DateOfBirth.Text = "";
+            INN.Text = "";
+            Snils.Text = "";
+            WorkExperience.Text = "";
+            Telephone.Text = "";
+            Telephone.Text = "";
+            ProfLevel.Text = "";
+            AddressEmployee.Text = "";
+            Requisites.Text = "";
+            IsUnion.Text = "";
+
+            GetTableNumbers();
         }
 
         private void TableNumber_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -122,40 +157,6 @@ namespace SalaryApp
             AdministratorWindow adminwindow = new AdministratorWindow(tableNumber);
             adminwindow.Show();
             Close();
-        }
-
-        private void GetTableNumbers()
-        {
-            dataTable = Model.Select($"SELECT * FROM Employee");
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                TableNumber.Items.Add(dataTable.Rows[i][0]);
-            }
-        }
-
-        private void ClearFields()
-        {
-            TableNumber.Text = "";
-            TableNumberT.Text = "";
-            Education.Text = "";
-            Company.Text = "";
-            LoginUser.Text = "";
-            FullName.Text = "";
-            PassportData.Text = "";
-            Post.Text = "";
-            PasswordUser.Text = "";
-            DateOfBirth.Text = "";
-            INN.Text = "";
-            Snils.Text = "";
-            WorkExperience.Text = "";
-            Telephone.Text = "";
-            Telephone.Text = "";
-            ProfLevel.Text = "";
-            AddressEmployee.Text = "";
-            Requisites.Text = "";
-            IsUnion.Text = "";
-
-            GetTableNumbers();
         }
     }
 }

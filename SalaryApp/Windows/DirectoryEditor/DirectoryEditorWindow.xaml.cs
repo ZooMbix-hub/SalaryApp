@@ -17,6 +17,7 @@ namespace SalaryApp
 {
     public partial class DirectoryEditorWindow : Window
     {
+        private DataTable dataTable;
         DataTable dataTableComp;
         DataTable dataTablePost;
         DataTable dataTableAllowances;
@@ -80,11 +81,9 @@ namespace SalaryApp
         {
             try
             {
-                dataTableEditCompany = Model.Select(query);
-
+                dataTable = Model.Select(query);
                 MessageBox.Show("Данные изменены_Добавлены");
                 comboBox.Items.Clear();
-
                 GetData();
             }
             catch

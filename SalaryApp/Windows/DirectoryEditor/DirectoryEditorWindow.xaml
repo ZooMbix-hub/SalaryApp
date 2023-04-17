@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DirectoryEditorWindow" Height="450" Width="800">
+        Title="DirectoryEditorWindow" WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid Background="#ffdadada">
         <Border 
             MinWidth="400" 
