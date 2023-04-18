@@ -18,14 +18,13 @@ using System.Web.UI.WebControls;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Animation;
 
-
-
 namespace SalaryApp
 {
     public partial class Window1 : Window
     {
         DataTable dataTable;
         string tableNumber;
+
         public class DataObject
         {
             public string Date { get; set; }
@@ -39,6 +38,7 @@ namespace SalaryApp
             InitializeComponent();
 
             this.tableNumber = tableNumber;
+
             dataTable = Model.Select($"SELECT * FROM Employee");
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
@@ -59,8 +59,10 @@ namespace SalaryApp
 
             string textDays = numberDaysTextBox.Text;
             bool checkDays = true;
+
             if (String.IsNullOrEmpty(numberDaysTextBox.Text))
                 checkDays = false;
+
             for (int i = 0; i < textDays.Length; i++)
             {
                 if (char.IsLetter(textDays[i]))
@@ -69,6 +71,7 @@ namespace SalaryApp
                     break;
                 }
             }
+
             if (checkDays == false)
                 numberDaysTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
             else
@@ -76,8 +79,10 @@ namespace SalaryApp
 
             string textNight = numberNightTextBox.Text;
             bool checkNight = true;
+
             if (String.IsNullOrEmpty(numberNightTextBox.Text))
                 checkNight = false;
+
             for (int i = 0; i < textNight.Length; i++)
             {
                 if (char.IsLetter(textNight[i]))
@@ -93,8 +98,10 @@ namespace SalaryApp
 
             string textRVD = numberRVD.Text;
             bool checkRVD = true;
+
             if (String.IsNullOrEmpty(numberRVD.Text))
                 checkRVD = false;
+
             for (int i = 0; i < textRVD.Length; i++)
             {
                 if (char.IsLetter(textRVD[i]))
@@ -103,6 +110,7 @@ namespace SalaryApp
                     break;
                 }
             }
+
             if (checkRVD == false)
                 numberRVD.BorderBrush = new SolidColorBrush(Colors.Red);
             else

@@ -53,7 +53,6 @@
                     materialDesign:HintAssist.Hint="Табельный номер сотрудника" 
                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                     Margin="0,0,0,10"
-                    
                     SelectionChanged="tableNumberCmbBox_SelectionChanged">
                    
                 </ComboBox>
@@ -88,7 +87,7 @@
                         materialDesign:HintAssist.Hint="Количество отработанных дней" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,10"
-                     >
+                    >
                       
                     </TextBox>
                     <TextBox 
@@ -97,7 +96,7 @@
                         materialDesign:HintAssist.Hint="Количество отработанных ночей" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,10"
-                     >
+                    >
                     </TextBox>
                     <TextBox
                         Name="numberRVD" 
@@ -105,7 +104,7 @@
                         materialDesign:HintAssist.Hint="Количество отработанных выходных и праздничных дней" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Margin="0,0,0,10"
-                     >
+                    >
                     </TextBox>
                 </StackPanel>
                 <Grid>
@@ -135,45 +134,47 @@
                 </Grid>
             </StackPanel>
         </Border>
-        <Border MinWidth="600" 
-                MaxHeight="700" 
-                Margin="50" 
-                Background="White" 
-                VerticalAlignment="Center" 
-                Padding="45,20,45,20" 
-                CornerRadius="20"
-                Grid.Column="1">
+        <Border 
+            MinWidth="600" 
+            MaxHeight="700" 
+            Margin="50" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="45,20,45,20" 
+            CornerRadius="20"
+            Grid.Column="1"
+        >
             <StackPanel>
                 <DataGrid 
-                        AutoGenerateColumns="False" 
-                        Height="400" 
-                        CanUserAddRows="false"
-                        HorizontalAlignment="Left" 
-                        Name="dataGrid1" 
-                        VerticalAlignment="Top" 
-                        Width="600"
-                        Grid.Column="2"
-                        VerticalGridLinesBrush="{StaticResource GridLine1}"
-                        HorizontalGridLinesBrush="{StaticResource GridLine2}"
-                    >
+                    AutoGenerateColumns="False" 
+                    Height="400" 
+                    CanUserAddRows="false"
+                    HorizontalAlignment="Left" 
+                    Name="dataGrid1" 
+                    VerticalAlignment="Top" 
+                    Width="600"
+                    Grid.Column="2"
+                    VerticalGridLinesBrush="{StaticResource GridLine1}"
+                    HorizontalGridLinesBrush="{StaticResource GridLine2}"
+                >
                     <DataGrid.Columns >
                         <DataGridTextColumn 
-                                Binding="{Binding Path=Date}" 
-                                Header="Дата" 
-                                IsReadOnly="True"
-                            />
+                            Binding="{Binding Path=Date}" 
+                            Header="Дата" 
+                            IsReadOnly="True"
+                        />
                         <DataGridTextColumn 
-                                Binding="{Binding Path=Days}" 
-                                Header="Дни" 
-                            />
+                            Binding="{Binding Path=Days}" 
+                            Header="Дни" 
+                        />
                         <DataGridTextColumn 
-                                Binding="{Binding Path=Night}" 
-                                Header="Ночи" 
-                            />
+                            Binding="{Binding Path=Night}" 
+                            Header="Ночи" 
+                        />
                         <DataGridTextColumn 
-                                Binding="{Binding Path=RVD}" 
-                                Header="РВД" 
-                            />
+                            Binding="{Binding Path=RVD}" 
+                            Header="РВД" 
+                        />
                         <DataGridTemplateColumn >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

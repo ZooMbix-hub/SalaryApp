@@ -17,6 +17,7 @@ namespace SalaryApp
         DataTable dataTableAllowances;
         DataTable tabnum;
         string tableNumber;
+
         public class DataObject
         {
             public string Date { get; set; }

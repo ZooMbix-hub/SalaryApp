@@ -45,8 +45,6 @@ namespace SalaryApp
         {
             InitializeComponent();
 
-
-
             dataTable = Model.Select("SELECT Employee.TableNumber, Employee.FullName, PersonalData.DateOfBirth, " +
                 "PersonalData.AddressEmployee, PersonalData.Telephone, PersonalData.Education, PersonalData.PassportData, " +
                 "PersonalData.INN, PersonalData.Snils, PersonalData.Requisites, Company.NameCompany, Post.NamePost, Employee.WorkExperience, Employee.ProfLevel, " +
@@ -55,6 +53,7 @@ namespace SalaryApp
                 "AND Employee.FK_UserData = UserData.Id");
 
             var list = new ObservableCollection<DataObject>();
+
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 list.Add(new DataObject()
@@ -76,6 +75,7 @@ namespace SalaryApp
                     TradeUnion = Convert.ToString(dataTable.Rows[i][14])
                 });
             }
+
             this.gridUsers.ItemsSource = list;
             this.tableNumber = tableNumber;
         }

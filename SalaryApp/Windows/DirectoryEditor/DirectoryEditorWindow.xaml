@@ -158,7 +158,6 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-
                     <Button Content="Удалить" Margin="10,10,10,18" Click="Button_Click_5"/>
                     <Button Content="Удалить" Grid.Column="1" Margin="10,10,10,18" Click="Button_Click_6"/>
                     <Button Content="Удалить" Grid.Column="2" Margin="10,10,10,18" Click="Button_Click_7"/>
