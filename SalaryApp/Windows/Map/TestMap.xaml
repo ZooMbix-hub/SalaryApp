@@ -8,23 +8,5 @@
         mc:Ignorable="d"
         Title="TestMap" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="141*"/>
-            <ColumnDefinition Width="29*"/>
-        </Grid.ColumnDefinitions>
-        
-        <esri:MapView x:Name="MainMapView"
-                      Map="{Binding Map}"
-                      GraphicsOverlays="{Binding GraphicsOverlays}"/>
-
-        <StackPanel Grid.Column="1">
-            <ComboBox x:Name="SelectMode" Background="Wheat">
-                <ComboBoxItem>Select</ComboBoxItem>
-                <ComboBoxItem>Edit</ComboBoxItem>
-                <ComboBoxItem>Delete</ComboBoxItem>
-            </ComboBox>
-            <TextBlock x:Name="nameblock" Visibility="Collapsed" Background="Wheat" Text="{Binding Parent.name}">
-            </TextBlock>
-        </StackPanel>
     </Grid>
 </Window>
