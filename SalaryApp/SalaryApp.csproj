@@ -85,6 +85,9 @@
     </Compile>
     <Compile Include="Utils\Model.cs" />
     <Compile Include="Utils\PasswordHasher.cs" />
+    <Compile Include="Windows\Map\TestMap.xaml.cs">
+      <DependentUpon>TestMap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ShowUsers\ShowUsersWindow.xaml.cs">
       <DependentUpon>ShowUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\Map\TestMap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\ShowUsers\ShowUsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
