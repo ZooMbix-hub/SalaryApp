@@ -90,6 +90,7 @@ namespace SalaryApp.Windows.MapWindow
 
             /* Добавление коэффициентов */
             var textStyle = new TextStyle("coeff", new GeoFont("Segoe UI", 16, DrawingFontStyles.Bold), GeoBrushes.DarkRed);
+            textStyle.TextContent = "Район. коэф. {coeff}";
             regionLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = textStyle;
 
             regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
