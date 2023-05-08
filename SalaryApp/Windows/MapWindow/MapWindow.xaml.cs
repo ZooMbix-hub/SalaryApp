@@ -89,7 +89,7 @@ namespace SalaryApp.Windows.MapWindow
             mapView.Overlays.Add(worldOverlay);
 
             /* Добавление коэффициентов */
-            var textStyle = new TextStyle("id", new GeoFont("Segoe UI", 12, DrawingFontStyles.Bold), GeoBrushes.DarkRed);
+            var textStyle = new TextStyle("coeff", new GeoFont("Segoe UI", 16, DrawingFontStyles.Bold), GeoBrushes.DarkRed);
             regionLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = textStyle;
 
             regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
