@@ -1,5 +1,4 @@
-﻿using MapWinGIS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +15,7 @@ using ThinkGeo.Core;
 using ThinkGeo.UI.Wpf;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SalaryApp.Windows.MapWindow
 {
@@ -34,11 +34,11 @@ namespace SalaryApp.Windows.MapWindow
 
             addRegions();
             addCompanies();
-
         }
 
         private void addCompanies()
         {
+
             var companiesLayer = new ShapeFileFeatureLayer(@"../../GeoData/companies.shp");
             companiesLayer.RequireIndex = false;
 
@@ -58,6 +58,20 @@ namespace SalaryApp.Windows.MapWindow
             companiesLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
             companiesLayer.FeatureSource.ProjectionConverter = new ProjectionConverter(4326, 3857);
             companiesLayer.Open();
+
+            /* Добавляет попап с текстом над точкой */
+            var popupOverlay = new PopupOverlay();
+            var companiesFeatures = companiesLayer.QueryTools.GetAllFeatures(ReturningColumnsType.AllColumns);
+            foreach (var feature in companiesFeatures)
+            {
+                var popup = new Popup(feature.GetShape().GetCenterPoint())
+                {
+                    Content = FormatingText(feature.ColumnValues["name"])
+                };
+                popupOverlay.Popups.Add(popup);
+            }
+            mapView.Overlays.Add(popupOverlay);
+
             mapView.CurrentExtent = companiesLayer.GetBoundingBox();
             mapView.Refresh();
         }
@@ -65,9 +79,9 @@ namespace SalaryApp.Windows.MapWindow
 
         private void addRegions()
         {
-            
             var regionLayer = new ShapeFileFeatureLayer(@"../../GeoData/regions.shp");
             regionLayer.RequireIndex = false;
+
             regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
             regionLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
@@ -81,10 +95,15 @@ namespace SalaryApp.Windows.MapWindow
 
             mapView.CurrentExtent = regionLayer.GetBoundingBox();
             mapView.Refresh();
+        }
 
+        private string FormatingText(string value)
+        {
+            string utf8_String = value;
+            byte[] bytes = Encoding.Default.GetBytes(utf8_String);
+            utf8_String = Encoding.UTF8.GetString(bytes);
+
+            return utf8_String;
         }
     }
-
-
-    
 }
