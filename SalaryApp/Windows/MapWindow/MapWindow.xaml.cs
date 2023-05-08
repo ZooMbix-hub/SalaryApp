@@ -82,13 +82,18 @@ namespace SalaryApp.Windows.MapWindow
             var regionLayer = new ShapeFileFeatureLayer(@"../../GeoData/regions.shp");
             regionLayer.RequireIndex = false;
 
-            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
-            regionLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
             LayerOverlay worldOverlay = new LayerOverlay();
             
             worldOverlay.Layers.Add(regionLayer);
             mapView.Overlays.Add(worldOverlay);
+
+            /* Добавление коэффициентов */
+            var textStyle = new TextStyle("id", new GeoFont("Segoe UI", 12, DrawingFontStyles.Bold), GeoBrushes.DarkRed);
+            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = textStyle;
+
+            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
+            regionLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
             regionLayer.FeatureSource.ProjectionConverter = new ProjectionConverter(4326, 3857);
             regionLayer.Open();
