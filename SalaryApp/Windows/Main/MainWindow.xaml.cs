@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using System.Security.Principal;
+using SalaryApp.Windows.MapWindow;
 
 namespace SalaryApp
 {
@@ -70,6 +71,12 @@ namespace SalaryApp
                     Close();
                     break;
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MapWindow MapWindow = new MapWindow();
+            MapWindow.Show();
         }
     }
 }

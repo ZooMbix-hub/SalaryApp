@@ -207,7 +207,7 @@ namespace SalaryApp
             Model.Select($"EXEC timeSheetDelete '{tableNumber}', '{date}', '{days}', '{hight}', '{RVD}'");
             Refresh(tableNumber);
             Model.Select($"EXEC EditTimeSheet '{tableNumber}', '{date}', '{days}', '{hight}', '{RVD}'");
-            refresh(tableNumber);
+            Refresh(tableNumber);
         }
         private void Button_ClickDelete(object sender, RoutedEventArgs e)
         {
