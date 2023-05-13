@@ -104,9 +104,6 @@
     <Compile Include="Windows\MapWindow\MapWindow.xaml.cs">
       <DependentUpon>MapWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Map\TestMap.xaml.cs">
-      <DependentUpon>TestMap.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ShowUsers\ShowUsersWindow.xaml.cs">
       <DependentUpon>ShowUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -150,10 +147,6 @@
     <Page Include="Windows\MapWindow\MapWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Map\TestMap.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\ShowUsers\ShowUsersWindow.xaml">
       <SubType>Designer</SubType>

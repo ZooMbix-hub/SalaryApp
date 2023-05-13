@@ -38,11 +38,10 @@ namespace SalaryApp.Windows.MapWindow
 
         private void addCompanies()
         {
-
             var companiesLayer = new ShapeFileFeatureLayer(@"../../GeoData/companies.shp");
             companiesLayer.RequireIndex = false;
 
-            var customDataOverlay = new LayerOverlay();
+            LayerOverlay customDataOverlay = new LayerOverlay();
             customDataOverlay.Layers.Add(companiesLayer);
             mapView.Overlays.Add(customDataOverlay);
 
@@ -76,24 +75,22 @@ namespace SalaryApp.Windows.MapWindow
             mapView.Refresh();
         }
 
-
         private void addRegions()
         {
             var regionLayer = new ShapeFileFeatureLayer(@"../../GeoData/regions.shp");
             regionLayer.RequireIndex = false;
 
-
             LayerOverlay worldOverlay = new LayerOverlay();
-            
             worldOverlay.Layers.Add(regionLayer);
             mapView.Overlays.Add(worldOverlay);
 
             /* Добавление коэффициентов */
-            var textStyle = new TextStyle("coeff", new GeoFont("Segoe UI", 16, DrawingFontStyles.Bold), GeoBrushes.DarkRed);
+            var textStyle = new TextStyle("coeff", new GeoFont("Segoe UI", 16, DrawingFontStyles.Bold), GeoBrushes.Blue);
             textStyle.TextContent = "Район. коэф. {coeff}";
             regionLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = textStyle;
 
-            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
+            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(
+                GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
             regionLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
             regionLayer.FeatureSource.ProjectionConverter = new ProjectionConverter(4326, 3857);
