@@ -24,7 +24,6 @@ namespace SalaryApp.Windows.MapWindow
         public MapWindow()
         {
             InitializeComponent();
-
         }
 
         private void mapView_Loaded(object sender, RoutedEventArgs e)
@@ -167,9 +166,7 @@ namespace SalaryApp.Windows.MapWindow
 
         public void Dispose()
         {
-            // Dispose of unmanaged resources.
             mapView.Dispose();
-            // Suppress finalization.
             GC.SuppressFinalize(this);
 
             mapView.MapUnit = GeographyUnit.Meter;
