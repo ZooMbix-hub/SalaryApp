@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Статистика организации" Height="1200" Width="1100" WindowStartupLocation="CenterOwner" WindowState="Maximized" Icon="/Icons/iconWindow.ico">
+        Title="Статистика организации" WindowStartupLocation="CenterOwner" WindowState="Maximized" Icon="/Icons/iconWindow.ico">
     <Window.Resources>
         <SolidColorBrush x:Key="GridLine1" Color="Gray" />
         <SolidColorBrush x:Key="GridLine2" Color="Gray"/>
@@ -92,18 +92,38 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <Grid Height="66">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="800px"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
                     <ComboBox 
+                        Grid.Column="0"
                         Name="filterPost"
                         materialDesign:HintAssist.Hint="Фильтрация по" 
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                         SelectionChanged="ComboBox_SelectionChanged"
-                        Margin="19,26,0,0"
-                        Width="Auto"
-                        HorizontalAlignment="Left" VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
                     />
-                    <Button Content="Карта" Width="151" Click="Button_ShowMap" HorizontalAlignment="Left" Margin="617,17,0,17"/>
-                    <Button Content="Назад" Width="128" Click="Button_Click" HorizontalAlignment="Right"/>
+                    <Button 
+                        Grid.Column="1" 
+                        Content="Карта" 
+                        Width="150" 
+                        Click="Button_ShowMap" 
+                        HorizontalAlignment="Right" 
+                    />
+                    <Button 
+                        Grid.Column="2" 
+                        Content="Назад" 
+                        Width="150" 
+                        Click="Button_Click" 
+                        HorizontalAlignment="Right"
+                     />
                 </Grid>
             </StackPanel>
         </Border>

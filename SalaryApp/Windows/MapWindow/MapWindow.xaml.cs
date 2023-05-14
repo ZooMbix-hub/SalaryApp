@@ -24,6 +24,7 @@ namespace SalaryApp.Windows.MapWindow
         public MapWindow()
         {
             InitializeComponent();
+
         }
 
         private void mapView_Loaded(object sender, RoutedEventArgs e)
@@ -31,6 +32,8 @@ namespace SalaryApp.Windows.MapWindow
             mapView.MapUnit = GeographyUnit.Meter;
             var cloudVectorBaseMapOverlay = new ThinkGeoCloudVectorMapsOverlay("USlbIyO5uIMja2y0qoM21RRM6NBXUad4hjK3NBD6pD0~", "f6OJsvCDDzmccnevX55nL7nXpPDXXKANe5cN6czVjCH0s8jhpCH-2A~~", ThinkGeoCloudVectorMapsMapType.Light);
             mapView.Overlays.Add(cloudVectorBaseMapOverlay);
+
+            AreaCoeff.IsChecked = true;
         }
 
         private void addCompanies()
@@ -97,7 +100,7 @@ namespace SalaryApp.Windows.MapWindow
             mapView.Refresh();
         }
 
-        private void Button_AreaCoefficient(object sender, RoutedEventArgs e)
+        private void RadioButton_AreaCoefficient(object sender, RoutedEventArgs e)
         {
             Dispose();
 
@@ -105,7 +108,7 @@ namespace SalaryApp.Windows.MapWindow
             addCompanies();
         }
 
-        private void Button_Pipeline(object sender, RoutedEventArgs e)
+        private void RadioButton_Pipeline(object sender, RoutedEventArgs e)
         {
             Dispose();
 
@@ -133,7 +136,7 @@ namespace SalaryApp.Windows.MapWindow
             addCompanies();
         }
 
-        private void Button_AvgSalary(object sender, RoutedEventArgs e)
+        private void RadioButton_AvgSalary(object sender, RoutedEventArgs e)
         {
             Dispose();
 

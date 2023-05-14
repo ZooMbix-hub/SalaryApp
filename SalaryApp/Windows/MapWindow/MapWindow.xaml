@@ -9,18 +9,32 @@
         xmlns:uc1="clr-namespace:ThinkGeo.UI.Wpf;assembly=ThinkGeo.UI.Wpf">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5.5*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="5.5*" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <uc1:MapView x:Name="mapView" Loaded="mapView_Loaded" Grid.Column="0"></uc1:MapView>
-        <StackPanel Grid.Column="1">
-            <Button Background="Blue" Content="1" Click="Button_AreaCoefficient" />
-            <Button Background="Green" Content="2" Click="Button_Pipeline" />
-            <Button Background="Red" Content="3" Click="Button_AvgSalary" />
+        <uc1:MapView x:Name="mapView" Loaded="mapView_Loaded" Grid.Column="0" />
+        <StackPanel Grid.Column="1" Margin="10 10 0 0">
+            <RadioButton 
+                GroupName="Languages" 
+                Content="Районный коэффициент" 
+                Checked="RadioButton_AreaCoefficient"
+                Name="AreaCoeff"
+            />
+            <RadioButton 
+                GroupName="Languages" 
+                Content="Трубопровод" 
+                Checked="RadioButton_Pipeline" 
+                Margin="0 10"
+            />
+            <RadioButton 
+                GroupName="Languages" 
+                Content="Средняя заработная плата" 
+                Checked="RadioButton_AvgSalary" 
+            />
         </StackPanel>
     </Grid>
 </Window>
