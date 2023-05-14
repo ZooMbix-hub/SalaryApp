@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryApp.Windows.MapWindow"
         mc:Ignorable="d"
-        Title="MapWindow" Height="450" Width="800"
+        Title="MapWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" Height="450" Width="800"
         xmlns:uc1="clr-namespace:ThinkGeo.UI.Wpf;assembly=ThinkGeo.UI.Wpf">
-    <Grid>
-        <uc1:MapView x:Name="mapView" Loaded="mapView_Loaded"></uc1:MapView>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5.5*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <uc1:MapView x:Name="mapView" Loaded="mapView_Loaded" Grid.Column="0"></uc1:MapView>
+        <StackPanel Grid.Column="1">
+            <Button Background="Blue" Content="1" Click="Button_AreaCoefficient" />
+            <Button Background="Green" Content="2" Click="Button_Pipeline" />
+            <Button Background="Red" Content="3" Click="Button_AvgSalary" />
+        </StackPanel>
     </Grid>
 </Window>

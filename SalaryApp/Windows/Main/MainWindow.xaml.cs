@@ -72,11 +72,5 @@ namespace SalaryApp
                     break;
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MapWindow MapWindow = new MapWindow();
-            MapWindow.Show();
-        }
     }
 }

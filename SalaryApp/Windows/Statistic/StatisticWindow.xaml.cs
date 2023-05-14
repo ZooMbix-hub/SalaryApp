@@ -14,6 +14,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SalaryApp.Windows.MapWindow;
 
 namespace SalaryApp
 {
@@ -79,6 +80,12 @@ namespace SalaryApp
                 string query = $"SELECT * FROM salaryAVG()";
                 GetGridSalary(query);
             }
+        }
+
+        private void Button_ShowMap(object sender, RoutedEventArgs e)
+        {
+            MapWindow MapWindow = new MapWindow();
+            MapWindow.Show();
         }
 
         private void GetGridSalary(string query)

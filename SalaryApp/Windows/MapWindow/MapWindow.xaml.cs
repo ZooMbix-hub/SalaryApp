@@ -31,9 +31,6 @@ namespace SalaryApp.Windows.MapWindow
             mapView.MapUnit = GeographyUnit.Meter;
             var cloudVectorBaseMapOverlay = new ThinkGeoCloudVectorMapsOverlay("USlbIyO5uIMja2y0qoM21RRM6NBXUad4hjK3NBD6pD0~", "f6OJsvCDDzmccnevX55nL7nXpPDXXKANe5cN6czVjCH0s8jhpCH-2A~~", ThinkGeoCloudVectorMapsMapType.Light);
             mapView.Overlays.Add(cloudVectorBaseMapOverlay);
-
-            addRegions();
-            addCompanies();
         }
 
         private void addCompanies()
@@ -98,6 +95,83 @@ namespace SalaryApp.Windows.MapWindow
 
             mapView.CurrentExtent = regionLayer.GetBoundingBox();
             mapView.Refresh();
+        }
+
+        private void Button_AreaCoefficient(object sender, RoutedEventArgs e)
+        {
+            Dispose();
+
+            addRegions();
+            addCompanies();
+        }
+
+        private void Button_Pipeline(object sender, RoutedEventArgs e)
+        {
+            Dispose();
+
+            var regionLayer = new ShapeFileFeatureLayer(@"../../GeoData/pipelines.shp");
+            regionLayer.RequireIndex = false;
+
+            LayerOverlay worldOverlay = new LayerOverlay();
+            worldOverlay.Layers.Add(regionLayer);
+            mapView.Overlays.Add(worldOverlay);
+
+
+            var lineStyle = new LineStyle(
+                outerPen: new GeoPen(GeoColors.Black, 6),
+                innerPen: new GeoPen(GeoColors.White, 3)
+            );
+            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultLineStyle = lineStyle;
+            regionLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+
+            regionLayer.FeatureSource.ProjectionConverter = new ProjectionConverter(4326, 3857);
+            regionLayer.Open();
+
+            mapView.CurrentExtent = regionLayer.GetBoundingBox();
+            mapView.Refresh();
+
+            addCompanies();
+        }
+
+        private void Button_AvgSalary(object sender, RoutedEventArgs e)
+        {
+            Dispose();
+
+            var regionLayer = new ShapeFileFeatureLayer(@"../../GeoData/regions.shp");
+            regionLayer.RequireIndex = false;
+
+            LayerOverlay worldOverlay = new LayerOverlay();
+            worldOverlay.Layers.Add(regionLayer);
+            mapView.Overlays.Add(worldOverlay);
+
+            /* Добавление коэффициентов */
+            var textStyle = new TextStyle("coeff", new GeoFont("Segoe UI", 16, DrawingFontStyles.Bold), GeoBrushes.Blue);
+            textStyle.TextContent = "Зарплата {salary}";
+            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = textStyle;
+
+            regionLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyle.CreateSimpleAreaStyle(
+                GeoColor.FromArgb(255, 233, 232, 214), GeoColor.FromArgb(255, 118, 138, 69));
+            regionLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+
+            regionLayer.FeatureSource.ProjectionConverter = new ProjectionConverter(4326, 3857);
+            regionLayer.Open();
+
+            mapView.CurrentExtent = regionLayer.GetBoundingBox();
+            mapView.Refresh();
+
+            addCompanies();
+        }
+
+        public void Dispose()
+        {
+            // Dispose of unmanaged resources.
+            mapView.Dispose();
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+
+            mapView.MapUnit = GeographyUnit.Meter;
+            var cloudVectorBaseMapOverlay = new ThinkGeoCloudVectorMapsOverlay("USlbIyO5uIMja2y0qoM21RRM6NBXUad4hjK3NBD6pD0~", "f6OJsvCDDzmccnevX55nL7nXpPDXXKANe5cN6czVjCH0s8jhpCH-2A~~", ThinkGeoCloudVectorMapsMapType.Light);
+            mapView.Overlays.Add(cloudVectorBaseMapOverlay);
         }
 
         private string FormatingText(string value)

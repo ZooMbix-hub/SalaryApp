@@ -92,16 +92,17 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <Grid>
+                <Grid Height="66">
                     <ComboBox 
                         Name="filterPost"
                         materialDesign:HintAssist.Hint="Фильтрация по" 
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                         SelectionChanged="ComboBox_SelectionChanged"
-                        Margin="0 0 0 10"
+                        Margin="19,26,0,0"
                         Width="Auto"
-                        HorizontalAlignment="Left"
+                        HorizontalAlignment="Left" VerticalAlignment="Top"
                     />
+                    <Button Content="Карта" Width="151" Click="Button_ShowMap" HorizontalAlignment="Left" Margin="617,17,0,17"/>
                     <Button Content="Назад" Width="128" Click="Button_Click" HorizontalAlignment="Right"/>
                 </Grid>
             </StackPanel>

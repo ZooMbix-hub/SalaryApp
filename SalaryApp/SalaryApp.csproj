@@ -189,6 +189,12 @@
     <None Include="GeoData\companies.qmd" />
     <None Include="GeoData\companies.shp" />
     <None Include="GeoData\companies.shx" />
+    <None Include="GeoData\pipelines.cpg" />
+    <None Include="GeoData\pipelines.dbf" />
+    <None Include="GeoData\pipelines.prj" />
+    <None Include="GeoData\pipelines.qmd" />
+    <None Include="GeoData\pipelines.shp" />
+    <None Include="GeoData\pipelines.shx" />
     <None Include="GeoData\regions.cpg" />
     <None Include="GeoData\regions.dbf" />
     <None Include="GeoData\regions.prj" />
